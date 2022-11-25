@@ -20,31 +20,13 @@ import { AttendsModule } from "./attends/attends.module";
 @Module({
   imports: [
     TypeOrmModule.forRoot({
-      type: "postgres",
-      host: "ec2-3-219-135-162.compute-1.amazonaws.com",
-      port: 5432,
-      username: "auggncnrngqcyv",
-      password:
-        "5dfe3011e4a2fbe1e60ee4b323515a8be58f0ac7b6e0ceb561bf2edb44d0b7c6",
-      database: "dt0hlkmjdtsv6",
+      type: "mysql",
+      host: "localhost",
+      port: 3306,
+      username: "root",
+      password: "",
+      database: "zoomin",
       entities: [User, Address, Event, Game, Reward, Attend],
-      synchronize: true,
-      ssl: {
-        require: true,
-        rejectUnauthorized: false,
-      },
-      // Run migrations automatically,
-      // you can disable this if you prefer running migration manually.
-      migrationsRun: false,
-      logging: false,
-      logger: "file",
-
-      migrations: [__dirname + "/migrations/**/*{.ts,.js}"],
-      cli: {
-        // Location of migration should be inside src folder
-        // to be compiled into dist/ folder.
-        migrationsDir: "src/migrations",
-      },
     }),
     AuthModule,
     AdminUsersModule,
