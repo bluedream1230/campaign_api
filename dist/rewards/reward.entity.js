@@ -11,7 +11,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const typeorm_1 = require("typeorm");
 const swagger_1 = require("@nestjs/swagger");
-const event_entity_1 = require("../events/event.entity");
 let Reward = class Reward {
 };
 __decorate([
@@ -58,14 +57,6 @@ __decorate([
     typeorm_1.Column(),
     __metadata("design:type", String)
 ], Reward.prototype, "timelimit", void 0);
-__decorate([
-    typeorm_1.OneToOne(() => event_entity_1.default, {
-        eager: true,
-        cascade: true,
-    }),
-    typeorm_1.JoinColumn(),
-    __metadata("design:type", event_entity_1.default)
-], Reward.prototype, "address", void 0);
 Reward = __decorate([
     typeorm_1.Entity()
 ], Reward);

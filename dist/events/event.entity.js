@@ -14,6 +14,7 @@ const swagger_1 = require("@nestjs/swagger");
 const game_entity_1 = require("../games/game.entity");
 const user_entity_1 = require("../users/user.entity");
 const attend_entity_1 = require("../attends/attend.entity");
+const reward_entity_1 = require("../rewards/reward.entity");
 let Event = class Event {
 };
 __decorate([
@@ -62,6 +63,14 @@ __decorate([
     typeorm_1.OneToMany(() => attend_entity_1.default, (attend) => attend.event),
     __metadata("design:type", Array)
 ], Event.prototype, "attends", void 0);
+__decorate([
+    typeorm_1.OneToOne(() => reward_entity_1.default, {
+        eager: true,
+        cascade: true,
+    }),
+    typeorm_1.JoinColumn(),
+    __metadata("design:type", reward_entity_1.default)
+], Event.prototype, "reward", void 0);
 Event = __decorate([
     typeorm_1.Entity()
 ], Event);

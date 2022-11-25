@@ -1,6 +1,7 @@
 import Game from "src/games/game.entity";
 import User from "src/users/user.entity";
 import Attend from "src/attends/attend.entity";
+import Reward from "src/rewards/reward.entity";
 declare class Event {
     id: number;
     name: string;
@@ -12,5 +13,6 @@ declare class Event {
     game: Game;
     user: User;
     attends: Attend[];
+    reward: Reward;
 }
 export default Event;

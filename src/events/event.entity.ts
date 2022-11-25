@@ -4,11 +4,14 @@ import {
   ManyToOne,
   OneToMany,
   PrimaryGeneratedColumn,
+  OneToOne,
+  JoinColumn,
 } from "typeorm";
 import { ApiProperty } from "@nestjs/swagger";
 import Game from "src/games/game.entity";
 import User from "src/users/user.entity";
 import Attend from "src/attends/attend.entity";
+import Reward from "src/rewards/reward.entity";
 
 @Entity()
 class Event {
@@ -48,12 +51,12 @@ class Event {
   @OneToMany(() => Attend, (attend) => attend.event)
   public attends: Attend[];
 
-  // @ManyToOne(() => User, (author: User) => author.posts)
-  // public author: User;
-
-  // @ManyToMany(() => Category, (category: Category) => category.posts)
-  // @JoinTable()
-  // public categories: Category[];
+  @OneToOne(() => Reward, {
+    eager: true,
+    cascade: true,
+  })
+  @JoinColumn()
+  public reward: Reward;
 }
 
 export default Event;

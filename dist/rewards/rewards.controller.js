@@ -29,8 +29,14 @@ let RewardsController = class RewardsController {
     getRewardById({ id }) {
         return this.rewardsService.getRewardById(Number(id));
     }
-    async createReward(reward) {
-        return this.rewardsService.createReward(reward);
+    async createReward({ id }, reward) {
+        try {
+            const createReward = await this.rewardsService.createReward(Number(id), reward);
+            return reward;
+        }
+        catch (error) {
+            throw new common_1.HttpException("Something went wrong", common_1.HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
     async updateReward({ id }, reward) {
         return this.rewardsService.updateReward(Number(id), reward);
@@ -60,13 +66,14 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], RewardsController.prototype, "getRewardById", null);
 __decorate([
-    common_1.Post(),
+    common_1.Post(":id"),
     common_1.UseGuards(jwt_auth_guard_1.JwtAuthGuard),
     swagger_1.ApiOperation({ summary: "Create reward" }),
-    swagger_1.ApiResponse({ status: 403, description: "Forbidden." }),
-    __param(0, common_1.Body()),
+    __param(0, common_1.Param()),
+    __param(1, common_1.Body()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [createReward_dto_1.default]),
+    __metadata("design:paramtypes", [findOneParams_1.default,
+        createReward_dto_1.default]),
     __metadata("design:returntype", Promise)
 ], RewardsController.prototype, "createReward", null);
 __decorate([

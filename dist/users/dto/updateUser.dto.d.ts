@@ -5,4 +5,6 @@ export default class UpdateUserDto {
     phone: string;
     subscription: string;
     password: string;
+    coins: number;
+    coinsused: number;
 }

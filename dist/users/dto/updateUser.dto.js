@@ -36,5 +36,13 @@ __decorate([
     swagger_1.ApiProperty(),
     __metadata("design:type", String)
 ], UpdateUserDto.prototype, "password", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
+    __metadata("design:type", Number)
+], UpdateUserDto.prototype, "coins", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
+    __metadata("design:type", Number)
+], UpdateUserDto.prototype, "coinsused", void 0);
 exports.default = UpdateUserDto;
 //# sourceMappingURL=updateUser.dto.js.map

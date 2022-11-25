@@ -1,15 +1,5 @@
-import {
-  Column,
-  Entity,
-  JoinTable,
-  ManyToMany,
-  ManyToOne,
-  OneToOne,
-  JoinColumn,
-  PrimaryGeneratedColumn,
-} from "typeorm";
+import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 import { ApiProperty } from "@nestjs/swagger";
-import Event from "src/events/event.entity";
 
 @Entity()
 class Reward {
@@ -47,13 +37,6 @@ class Reward {
   @ApiProperty()
   @Column()
   public timelimit: string;
-
-  @OneToOne(() => Event, {
-    eager: true,
-    cascade: true,
-  })
-  @JoinColumn()
-  public address: Event;
 }
 
 export default Reward;

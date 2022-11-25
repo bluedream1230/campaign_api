@@ -5,6 +5,7 @@ import Event from "./event.entity";
 import CreateEventDto from "./dto/createEvent.dto";
 import UpdateEventDto from "./dto/updateEvent.dto";
 import EventNotFoundException from "./exceptions/eventNotFound.exception";
+import User from "src/users/user.entity";
 @Injectable()
 export default class EventsService {
   constructor(
@@ -25,9 +26,16 @@ export default class EventsService {
     throw new EventNotFoundException(id);
   }
 
-  async createEvent(event: CreateEventDto) {
-    const newEvent = await this.eventsRepository.create(event);
+  async createEvent(id: number, event: CreateEventDto, user: User) {
+    const newEvent = await this.eventsRepository.create({
+      ...event,
+      user: user,
+      game: {
+        id,
+      },
+    });
     await this.eventsRepository.save(newEvent);
+
     return newEvent;
   }
 

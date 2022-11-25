@@ -5,11 +5,14 @@ import CreateRewardDto from "./dto/createReward.dto";
 import UpdateRewardDto from "./dto/updateReward.dto";
 import RewardNotFoundException from "./exceptions/rewardNotFound.exception";
 import Reward from "./reward.entity";
+import Event from "src/events/event.entity";
 @Injectable()
 export default class RewardsService {
   constructor(
     @InjectRepository(Reward)
-    private rewardsRepository: Repository<Reward>
+    private rewardsRepository: Repository<Reward>,
+    @InjectRepository(Event)
+    private eventsRepository: Repository<Event>
   ) {}
 
   getAllRewards() {
@@ -25,10 +28,20 @@ export default class RewardsService {
     throw new RewardNotFoundException(id);
   }
 
-  async createReward(reward: CreateRewardDto) {
-    const newReward = await this.rewardsRepository.create(reward);
-    await this.rewardsRepository.save(newReward);
-    return newReward;
+  async createReward(id: number, reward: CreateRewardDto) {
+    const event = await this.eventsRepository.findOne({
+      relations: ["reward"],
+      where: { id },
+    });
+
+    if (!event) return;
+    if (event.reward) {
+      await this.rewardsRepository.update(event.reward.id, reward);
+    } else {
+      const newReward = await this.rewardsRepository.insert(reward);
+      const rewardId = newReward.identifiers[0].id;
+      await this.eventsRepository.update(id, { reward: { id: rewardId } });
+    }
   }
 
   async updateReward(id: number, reward: UpdateRewardDto) {

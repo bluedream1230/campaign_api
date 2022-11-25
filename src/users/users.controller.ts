@@ -29,29 +29,6 @@ import UpdateUserDto from "./dto/updateUser.dto";
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
-  @Post("create")
-  @UseGuards(JwtAuthGuard)
-  @ApiOperation({ summary: "Create user" })
-  async register(@Body() registrationData: CreateUserDto) {
-    try {
-      const createdUser = await this.usersService.create({
-        ...registrationData,
-      });
-      return createdUser;
-    } catch (error) {
-      if (error?.code === PostgresErrorCode.UniqueViolation) {
-        throw new HttpException(
-          "User with that email already exists",
-          HttpStatus.BAD_REQUEST
-        );
-      }
-      throw new HttpException(
-        "Something went wrong",
-        HttpStatus.INTERNAL_SERVER_ERROR
-      );
-    }
-  }
-
   @Patch("update")
   @UseGuards(JwtAuthGuard)
   @ApiOperation({ summary: "Update user" })

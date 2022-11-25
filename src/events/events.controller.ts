@@ -9,6 +9,7 @@ import {
   UseInterceptors,
   ClassSerializerInterceptor,
   Post,
+  Req,
 } from "@nestjs/common";
 import {
   ApiBearerAuth,
@@ -21,6 +22,7 @@ import FindOneParams from "src/utils/findOneParams";
 import CreateEventDto from "./dto/createEvent.dto";
 import UpdateEventDto from "./dto/updateEvent.dto";
 import EventsService from "./events.service";
+import RequestWithUser from "src/auth/interface/requestWithUser";
 
 @ApiBearerAuth()
 @ApiTags("Events")
@@ -46,12 +48,16 @@ export default class EventsController {
     return this.eventsService.getEventById(Number(id));
   }
 
-  @Post()
+  @Post(":id")
   @UseGuards(JwtAuthGuard)
   @ApiOperation({ summary: "Create event" })
   @ApiResponse({ status: 403, description: "Forbidden." })
-  async createEvent(@Body() event: CreateEventDto) {
-    return this.eventsService.createEvent(event);
+  async createEvent(
+    @Param() { id }: FindOneParams,
+    @Body() event: CreateEventDto,
+    @Req() req: RequestWithUser
+  ): Promise<CreateEventDto> {
+    return this.eventsService.createEvent(Number(id), event, req.user);
   }
 
   @Patch(":id")

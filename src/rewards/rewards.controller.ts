@@ -1,9 +1,12 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import {
   Body,
   Controller,
   Delete,
   Get,
   Param,
+  HttpException,
+  HttpStatus,
   Patch,
   UseGuards,
   UseInterceptors,
@@ -46,12 +49,25 @@ export default class RewardsController {
     return this.rewardsService.getRewardById(Number(id));
   }
 
-  @Post()
+  @Post(":id")
   @UseGuards(JwtAuthGuard)
   @ApiOperation({ summary: "Create reward" })
-  @ApiResponse({ status: 403, description: "Forbidden." })
-  async createReward(@Body() reward: CreateRewardDto) {
-    return this.rewardsService.createReward(reward);
+  async createReward(
+    @Param() { id }: FindOneParams,
+    @Body() reward: CreateRewardDto
+  ) {
+    try {
+      const createReward = await this.rewardsService.createReward(
+        Number(id),
+        reward
+      );
+      return reward;
+    } catch (error) {
+      throw new HttpException(
+        "Something went wrong",
+        HttpStatus.INTERNAL_SERVER_ERROR
+      );
+    }
   }
 
   @Patch(":id")

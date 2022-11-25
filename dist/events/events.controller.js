@@ -19,6 +19,7 @@ const findOneParams_1 = require("../utils/findOneParams");
 const createEvent_dto_1 = require("./dto/createEvent.dto");
 const updateEvent_dto_1 = require("./dto/updateEvent.dto");
 const events_service_1 = require("./events.service");
+const requestWithUser_1 = require("../auth/interface/requestWithUser");
 let EventsController = class EventsController {
     constructor(eventsService) {
         this.eventsService = eventsService;
@@ -29,8 +30,8 @@ let EventsController = class EventsController {
     getEventById({ id }) {
         return this.eventsService.getEventById(Number(id));
     }
-    async createEvent(event) {
-        return this.eventsService.createEvent(event);
+    async createEvent({ id }, event, req) {
+        return this.eventsService.createEvent(Number(id), event, req.user);
     }
     async updateEvent({ id }, event) {
         return this.eventsService.updateEvent(Number(id), event);
@@ -60,13 +61,16 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], EventsController.prototype, "getEventById", null);
 __decorate([
-    common_1.Post(),
+    common_1.Post(":id"),
     common_1.UseGuards(jwt_auth_guard_1.JwtAuthGuard),
     swagger_1.ApiOperation({ summary: "Create event" }),
     swagger_1.ApiResponse({ status: 403, description: "Forbidden." }),
-    __param(0, common_1.Body()),
+    __param(0, common_1.Param()),
+    __param(1, common_1.Body()),
+    __param(2, common_1.Req()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [createEvent_dto_1.default]),
+    __metadata("design:paramtypes", [findOneParams_1.default,
+        createEvent_dto_1.default, Object]),
     __metadata("design:returntype", Promise)
 ], EventsController.prototype, "createEvent", null);
 __decorate([

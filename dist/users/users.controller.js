@@ -16,7 +16,6 @@ exports.UsersController = void 0;
 const users_service_1 = require("./users.service");
 const common_1 = require("@nestjs/common");
 const swagger_1 = require("@nestjs/swagger");
-const createUser_dto_1 = require("./dto/createUser.dto");
 const postgresErrorCode_enum_1 = require("../database/postgresErrorCode.enum");
 const jwt_auth_guard_1 = require("../auth/guards/jwt-auth.guard");
 const addressUser_dto_1 = require("./dto/addressUser.dto");
@@ -25,18 +24,6 @@ const updateUser_dto_1 = require("./dto/updateUser.dto");
 let UsersController = class UsersController {
     constructor(usersService) {
         this.usersService = usersService;
-    }
-    async register(registrationData) {
-        try {
-            const createdUser = await this.usersService.create(Object.assign({}, registrationData));
-            return createdUser;
-        }
-        catch (error) {
-            if ((error === null || error === void 0 ? void 0 : error.code) === postgresErrorCode_enum_1.default.UniqueViolation) {
-                throw new common_1.HttpException("User with that email already exists", common_1.HttpStatus.BAD_REQUEST);
-            }
-            throw new common_1.HttpException("Something went wrong", common_1.HttpStatus.INTERNAL_SERVER_ERROR);
-        }
     }
     async update(req, updateUser) {
         const id = req.user.id;
@@ -61,15 +48,6 @@ let UsersController = class UsersController {
         }
     }
 };
-__decorate([
-    common_1.Post("create"),
-    common_1.UseGuards(jwt_auth_guard_1.JwtAuthGuard),
-    swagger_1.ApiOperation({ summary: "Create user" }),
-    __param(0, common_1.Body()),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [createUser_dto_1.default]),
-    __metadata("design:returntype", Promise)
-], UsersController.prototype, "register", null);
 __decorate([
     common_1.Patch("update"),
     common_1.UseGuards(jwt_auth_guard_1.JwtAuthGuard),

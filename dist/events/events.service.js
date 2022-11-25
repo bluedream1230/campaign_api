@@ -17,6 +17,7 @@ const typeorm_1 = require("@nestjs/typeorm");
 const typeorm_2 = require("typeorm");
 const event_entity_1 = require("./event.entity");
 const eventNotFound_exception_1 = require("./exceptions/eventNotFound.exception");
+const user_entity_1 = require("../users/user.entity");
 let EventsService = class EventsService {
     constructor(eventsRepository) {
         this.eventsRepository = eventsRepository;
@@ -31,8 +32,10 @@ let EventsService = class EventsService {
         }
         throw new eventNotFound_exception_1.default(id);
     }
-    async createEvent(event) {
-        const newEvent = await this.eventsRepository.create(event);
+    async createEvent(id, event, user) {
+        const newEvent = await this.eventsRepository.create(Object.assign(Object.assign({}, event), { user: user, game: {
+                id,
+            } }));
         await this.eventsRepository.save(newEvent);
         return newEvent;
     }

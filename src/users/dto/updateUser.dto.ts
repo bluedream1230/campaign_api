@@ -18,4 +18,10 @@ export default class UpdateUserDto {
 
   @ApiProperty()
   public password: string;
+
+  @ApiProperty()
+  public coins: number;
+
+  @ApiProperty()
+  public coinsused: number;
 }

@@ -17,9 +17,11 @@ const typeorm_1 = require("@nestjs/typeorm");
 const typeorm_2 = require("typeorm");
 const rewardNotFound_exception_1 = require("./exceptions/rewardNotFound.exception");
 const reward_entity_1 = require("./reward.entity");
+const event_entity_1 = require("../events/event.entity");
 let RewardsService = class RewardsService {
-    constructor(rewardsRepository) {
+    constructor(rewardsRepository, eventsRepository) {
         this.rewardsRepository = rewardsRepository;
+        this.eventsRepository = eventsRepository;
     }
     getAllRewards() {
         return this.rewardsRepository.find();
@@ -31,10 +33,21 @@ let RewardsService = class RewardsService {
         }
         throw new rewardNotFound_exception_1.default(id);
     }
-    async createReward(reward) {
-        const newReward = await this.rewardsRepository.create(reward);
-        await this.rewardsRepository.save(newReward);
-        return newReward;
+    async createReward(id, reward) {
+        const event = await this.eventsRepository.findOne({
+            relations: ["reward"],
+            where: { id },
+        });
+        if (!event)
+            return;
+        if (event.reward) {
+            await this.rewardsRepository.update(event.reward.id, reward);
+        }
+        else {
+            const newReward = await this.rewardsRepository.insert(reward);
+            const rewardId = newReward.identifiers[0].id;
+            await this.eventsRepository.update(id, { reward: { id: rewardId } });
+        }
     }
     async updateReward(id, reward) {
         await this.rewardsRepository.update(id, reward);
@@ -50,7 +63,9 @@ let RewardsService = class RewardsService {
 RewardsService = __decorate([
     common_1.Injectable(),
     __param(0, typeorm_1.InjectRepository(reward_entity_1.default)),
-    __metadata("design:paramtypes", [typeorm_2.Repository])
+    __param(1, typeorm_1.InjectRepository(event_entity_1.default)),
+    __metadata("design:paramtypes", [typeorm_2.Repository,
+        typeorm_2.Repository])
 ], RewardsService);
 exports.default = RewardsService;
 //# sourceMappingURL=rewards.service.js.map
