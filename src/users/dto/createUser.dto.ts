@@ -12,4 +12,16 @@ export default class CreateUserDto {
 
   @ApiProperty()
   logo: string;
+
+  @ApiProperty()
+  phone: string;
+
+  @ApiProperty()
+  subscription: string;
+
+  @ApiProperty()
+  coins: number;
+
+  @ApiProperty()
+  coinsused: number;
 }

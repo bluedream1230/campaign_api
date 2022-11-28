@@ -28,5 +28,21 @@ __decorate([
     swagger_1.ApiProperty(),
     __metadata("design:type", String)
 ], CreateUserDto.prototype, "logo", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
+    __metadata("design:type", String)
+], CreateUserDto.prototype, "phone", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
+    __metadata("design:type", String)
+], CreateUserDto.prototype, "subscription", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
+    __metadata("design:type", Number)
+], CreateUserDto.prototype, "coins", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
+    __metadata("design:type", Number)
+], CreateUserDto.prototype, "coinsused", void 0);
 exports.default = CreateUserDto;
 //# sourceMappingURL=createUser.dto.js.map

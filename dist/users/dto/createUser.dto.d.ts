@@ -3,4 +3,8 @@ export default class CreateUserDto {
     name: string;
     password: string;
     logo: string;
+    phone: string;
+    subscription: string;
+    coins: number;
+    coinsused: number;
 }
