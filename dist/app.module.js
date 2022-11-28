@@ -30,14 +30,25 @@ AppModule = __decorate([
     common_1.Module({
         imports: [
             typeorm_1.TypeOrmModule.forRoot({
-                type: "mysql",
-                host: "localhost",
-                port: 3306,
-                username: "root",
-                password: "",
-                database: "zoomzz",
+                type: "postgres",
+                host: "ec2-3-219-135-162.compute-1.amazonaws.com",
+                port: 5432,
+                username: "auggncnrngqcyv",
+                password: "5dfe3011e4a2fbe1e60ee4b323515a8be58f0ac7b6e0ceb561bf2edb44d0b7c6",
+                database: "dt0hlkmjdtsv6",
                 entities: [user_entity_1.default, address_entity_1.default, event_entity_1.default, game_entity_1.default, reward_entity_1.default, attend_entity_1.default],
                 synchronize: true,
+                ssl: {
+                    require: true,
+                    rejectUnauthorized: false,
+                },
+                migrationsRun: false,
+                logging: false,
+                logger: "file",
+                migrations: [__dirname + "/migrations/**/*{.ts,.js}"],
+                cli: {
+                    migrationsDir: "src/migrations",
+                },
             }),
             auth_module_1.AuthModule,
             admin_users_module_1.AdminUsersModule,
