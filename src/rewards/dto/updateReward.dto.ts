@@ -17,11 +17,11 @@ export default class UpdateRewardDto {
   public description: string;
 
   @ApiProperty()
-  public coinvalue: string;
+  public coinvalue: number;
 
   @ApiProperty()
-  public ratelimit: string;
+  public ratelimit: number;
 
   @ApiProperty()
-  public timelimit: string;
+  public timelimit: number;
 }

@@ -10,7 +10,7 @@ import {
 import { ApiProperty } from "@nestjs/swagger";
 import Event from "src/events/event.entity";
 
-@Entity()
+@Entity("game")
 class Game {
   @PrimaryGeneratedColumn()
   public id: number;

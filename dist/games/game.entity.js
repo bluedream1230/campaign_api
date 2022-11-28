@@ -43,7 +43,7 @@ __decorate([
     __metadata("design:type", Array)
 ], Game.prototype, "events", void 0);
 Game = __decorate([
-    typeorm_1.Entity()
+    typeorm_1.Entity("game")
 ], Game);
 exports.default = Game;
 //# sourceMappingURL=game.entity.js.map

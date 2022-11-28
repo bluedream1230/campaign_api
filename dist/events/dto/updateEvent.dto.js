@@ -36,5 +36,9 @@ __decorate([
     swagger_1.ApiProperty(),
     __metadata("design:type", String)
 ], UpdateEventDto.prototype, "qr_code", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
+    __metadata("design:type", Number)
+], UpdateEventDto.prototype, "event_coins", void 0);
 exports.default = UpdateEventDto;
 //# sourceMappingURL=updateEvent.dto.js.map

@@ -5,4 +5,5 @@ export default class UpdateEventDto {
     end_time: string;
     user_limit: string;
     qr_code: string;
+    event_coins: number;
 }

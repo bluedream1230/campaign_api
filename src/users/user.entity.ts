@@ -10,7 +10,7 @@ import Address from "./address.entity";
 import Event from "src/events/event.entity";
 import Attend from "src/attends/attend.entity";
 
-@Entity()
+@Entity("user")
 class User {
   @PrimaryGeneratedColumn()
   public id: number;

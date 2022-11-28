@@ -52,6 +52,11 @@ __decorate([
     __metadata("design:type", String)
 ], Event.prototype, "qr_code", void 0);
 __decorate([
+    swagger_1.ApiProperty(),
+    typeorm_1.Column(),
+    __metadata("design:type", Number)
+], Event.prototype, "event_coins", void 0);
+__decorate([
     typeorm_1.ManyToOne(() => game_entity_1.default, (game) => game.events),
     __metadata("design:type", game_entity_1.default)
 ], Event.prototype, "game", void 0);
@@ -72,7 +77,7 @@ __decorate([
     __metadata("design:type", reward_entity_1.default)
 ], Event.prototype, "reward", void 0);
 Event = __decorate([
-    typeorm_1.Entity()
+    typeorm_1.Entity("event")
 ], Event);
 exports.default = Event;
 //# sourceMappingURL=event.entity.js.map

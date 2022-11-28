@@ -34,15 +34,15 @@ __decorate([
 ], UpdateRewardDto.prototype, "description", void 0);
 __decorate([
     swagger_1.ApiProperty(),
-    __metadata("design:type", String)
+    __metadata("design:type", Number)
 ], UpdateRewardDto.prototype, "coinvalue", void 0);
 __decorate([
     swagger_1.ApiProperty(),
-    __metadata("design:type", String)
+    __metadata("design:type", Number)
 ], UpdateRewardDto.prototype, "ratelimit", void 0);
 __decorate([
     swagger_1.ApiProperty(),
-    __metadata("design:type", String)
+    __metadata("design:type", Number)
 ], UpdateRewardDto.prototype, "timelimit", void 0);
 exports.default = UpdateRewardDto;
 //# sourceMappingURL=updateReward.dto.js.map

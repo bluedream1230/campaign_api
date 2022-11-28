@@ -10,6 +10,7 @@ declare class Event {
     end_time: string;
     user_limit: string;
     qr_code: string;
+    event_coins: number;
     game: Game;
     user: User;
     attends: Attend[];

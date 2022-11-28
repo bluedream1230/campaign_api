@@ -68,7 +68,7 @@ __decorate([
     __metadata("design:type", Array)
 ], User.prototype, "attends", void 0);
 User = __decorate([
-    typeorm_1.Entity()
+    typeorm_1.Entity("user")
 ], User);
 exports.default = User;
 //# sourceMappingURL=user.entity.js.map

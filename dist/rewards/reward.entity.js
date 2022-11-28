@@ -45,20 +45,20 @@ __decorate([
 __decorate([
     swagger_1.ApiProperty(),
     typeorm_1.Column(),
-    __metadata("design:type", String)
+    __metadata("design:type", Number)
 ], Reward.prototype, "coinvalue", void 0);
 __decorate([
     swagger_1.ApiProperty(),
     typeorm_1.Column(),
-    __metadata("design:type", String)
+    __metadata("design:type", Number)
 ], Reward.prototype, "ratelimit", void 0);
 __decorate([
     swagger_1.ApiProperty(),
     typeorm_1.Column(),
-    __metadata("design:type", String)
+    __metadata("design:type", Number)
 ], Reward.prototype, "timelimit", void 0);
 Reward = __decorate([
-    typeorm_1.Entity()
+    typeorm_1.Entity("reward")
 ], Reward);
 exports.default = Reward;
 //# sourceMappingURL=reward.entity.js.map

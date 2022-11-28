@@ -5,8 +5,8 @@ declare class Reward {
     category: string;
     image_url: string;
     description: string;
-    coinvalue: string;
-    ratelimit: string;
-    timelimit: string;
+    coinvalue: number;
+    ratelimit: number;
+    timelimit: number;
 }
 export default Reward;

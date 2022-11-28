@@ -1,7 +1,7 @@
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 import { ApiProperty } from "@nestjs/swagger";
 
-@Entity()
+@Entity("reward")
 class Reward {
   @PrimaryGeneratedColumn()
   public id: number;
@@ -28,15 +28,15 @@ class Reward {
 
   @ApiProperty()
   @Column()
-  public coinvalue: string;
+  public coinvalue: number;
 
   @ApiProperty()
   @Column()
-  public ratelimit: string;
+  public ratelimit: number;
 
   @ApiProperty()
   @Column()
-  public timelimit: string;
+  public timelimit: number;
 }
 
 export default Reward;

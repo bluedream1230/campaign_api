@@ -4,7 +4,7 @@ export default class UpdateRewardDto {
     category: string;
     image_url: string;
     description: string;
-    coinvalue: string;
-    ratelimit: string;
-    timelimit: string;
+    coinvalue: number;
+    ratelimit: number;
+    timelimit: number;
 }

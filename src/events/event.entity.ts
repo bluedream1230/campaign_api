@@ -13,7 +13,7 @@ import User from "src/users/user.entity";
 import Attend from "src/attends/attend.entity";
 import Reward from "src/rewards/reward.entity";
 
-@Entity()
+@Entity("event")
 class Event {
   @PrimaryGeneratedColumn()
   public id: number;
@@ -41,6 +41,10 @@ class Event {
   @ApiProperty()
   @Column()
   public qr_code: string;
+
+  @ApiProperty()
+  @Column()
+  public event_coins: number;
 
   @ManyToOne(() => Game, (game) => game.events)
   public game: Game;
