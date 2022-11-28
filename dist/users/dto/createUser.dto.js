@@ -24,5 +24,9 @@ __decorate([
     swagger_1.ApiProperty(),
     __metadata("design:type", String)
 ], CreateUserDto.prototype, "password", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
+    __metadata("design:type", String)
+], CreateUserDto.prototype, "logo", void 0);
 exports.default = CreateUserDto;
 //# sourceMappingURL=createUser.dto.js.map

@@ -3487,8 +3487,8 @@
         "affectsGlobalScope": false
       },
       "../src/users/dto/createuser.dto.ts": {
-        "version": "7dd3a5423a920d15710de23e9e3dc67d49315c9a055947f8141485a26dfc9ebd",
-        "signature": "12ce09f4d3e90808178ded61cc98b82f18fbc24b606eb2f6dcf0555bb01aaf63",
+        "version": "eb9b83d67905423c0d5ffd31988e51901bd887c742660c9d1f4ffa87f9c2a162",
+        "signature": "25c93b225a95aadb22a1842ac5d746aa08ad4e55e7aa32fc3ee217147e9b2e2a",
         "affectsGlobalScope": false
       },
       "../src/users/dto/addressuser.dto.ts": {

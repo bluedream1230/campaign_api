@@ -9,4 +9,7 @@ export default class CreateUserDto {
 
   @ApiProperty()
   password: string;
+
+  @ApiProperty()
+  logo: string;
 }
