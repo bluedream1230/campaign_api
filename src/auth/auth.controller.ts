@@ -39,10 +39,12 @@ export class AuthController {
   @Post("create")
   @ApiOperation({ summary: "Create user" })
   async register(@Body() registrationData: CreateUserDto) {
+    console.log(registrationData);
     try {
       const createdUser = await this.usersService.create({
         ...registrationData,
       });
+      console.log(createdUser);
       return createdUser;
     } catch (error) {
       if (error?.code === PostgresErrorCode.UniqueViolation) {
@@ -51,6 +53,7 @@ export class AuthController {
           HttpStatus.BAD_REQUEST
         );
       }
+      console.log("auth/create error: ", error);
       throw new HttpException(
         "Something went wrong",
         HttpStatus.INTERNAL_SERVER_ERROR

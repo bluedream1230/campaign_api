@@ -29,14 +29,17 @@ let AuthController = class AuthController {
         return this.authService.login(loginData);
     }
     async register(registrationData) {
+        console.log(registrationData);
         try {
             const createdUser = await this.usersService.create(Object.assign({}, registrationData));
+            console.log(createdUser);
             return createdUser;
         }
         catch (error) {
             if ((error === null || error === void 0 ? void 0 : error.code) === postgresErrorCode_enum_1.default.UniqueViolation) {
                 throw new common_1.HttpException("User with that email already exists", common_1.HttpStatus.BAD_REQUEST);
             }
+            console.log("auth/create error: ", error);
             throw new common_1.HttpException("Something went wrong", common_1.HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }

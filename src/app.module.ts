@@ -22,12 +22,12 @@ import { ApisModule } from "./apis/apis.module";
   imports: [
     TypeOrmModule.forRoot({
       type: "postgres",
-      host: "ec2-3-219-135-162.compute-1.amazonaws.com",
+      host: "ec2-52-72-56-59.compute-1.amazonaws.com",
       port: 5432,
-      username: "auggncnrngqcyv",
+      username: "eddscxdgqmosxt",
       password:
-        "5dfe3011e4a2fbe1e60ee4b323515a8be58f0ac7b6e0ceb561bf2edb44d0b7c6",
-      database: "dt0hlkmjdtsv6",
+        "b80a2638b11323dd01d44cf98b3b9c5ac86fa5347c870691e4b0643a44214f48",
+      database: "d6v9ipqp0h816v",
       entities: [User, Address, Event, Game, Reward, Attend],
       synchronize: true,
       ssl: {
