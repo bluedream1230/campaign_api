@@ -6,7 +6,7 @@ import RequestWithUser from "src/auth/interface/requestWithUser";
 export default class EventsController {
     private readonly eventsService;
     constructor(eventsService: EventsService);
-    getAllEvents(): Promise<import("./event.entity").default[]>;
+    getAllEvents(req: RequestWithUser): Promise<import("./event.entity").default[]>;
     getEventById({ id }: FindOneParams): Promise<import("./event.entity").default>;
     createEvent({ id }: FindOneParams, event: CreateEventDto, req: RequestWithUser): Promise<CreateEventDto>;
     updateEvent({ id }: FindOneParams, event: UpdateEventDto): Promise<void>;

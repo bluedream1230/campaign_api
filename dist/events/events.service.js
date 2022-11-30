@@ -22,8 +22,12 @@ let EventsService = class EventsService {
     constructor(eventsRepository) {
         this.eventsRepository = eventsRepository;
     }
-    getAllEvents() {
-        return this.eventsRepository.find();
+    async getAllEvents(user) {
+        const events = await this.eventsRepository
+            .createQueryBuilder("event")
+            .where(`event.userId = '${user.id}'`)
+            .getMany();
+        return events;
     }
     async getEventById(id) {
         const event = await this.eventsRepository.findOne(id);

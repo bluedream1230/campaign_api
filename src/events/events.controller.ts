@@ -34,8 +34,8 @@ export default class EventsController {
   @Get()
   @UseGuards(JwtAuthGuard)
   @ApiOperation({ summary: "Get all events" })
-  getAllEvents() {
-    return this.eventsService.getAllEvents();
+  async getAllEvents(@Req() req: RequestWithUser) {
+    return this.eventsService.getAllEvents(req.user);
   }
 
   @Get(":id")

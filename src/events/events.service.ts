@@ -13,8 +13,12 @@ export default class EventsService {
     private eventsRepository: Repository<Event>
   ) {}
 
-  getAllEvents() {
-    return this.eventsRepository.find();
+  async getAllEvents(user: User) {
+    const events = await this.eventsRepository
+      .createQueryBuilder("event")
+      .where(`event.userId = '${user.id}'`)
+      .getMany();
+    return events;
   }
 
   async getEventById(id: number) {

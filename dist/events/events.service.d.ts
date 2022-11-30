@@ -6,7 +6,7 @@ import User from "src/users/user.entity";
 export default class EventsService {
     private eventsRepository;
     constructor(eventsRepository: Repository<Event>);
-    getAllEvents(): Promise<Event[]>;
+    getAllEvents(user: User): Promise<Event[]>;
     getEventById(id: number): Promise<Event>;
     createEvent(id: number, event: CreateEventDto, user: User): Promise<Event>;
     updateEvent(id: number, event: UpdateEventDto): Promise<void>;

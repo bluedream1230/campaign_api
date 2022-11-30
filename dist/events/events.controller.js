@@ -24,8 +24,8 @@ let EventsController = class EventsController {
     constructor(eventsService) {
         this.eventsService = eventsService;
     }
-    getAllEvents() {
-        return this.eventsService.getAllEvents();
+    async getAllEvents(req) {
+        return this.eventsService.getAllEvents(req.user);
     }
     getEventById({ id }) {
         return this.eventsService.getEventById(Number(id));
@@ -44,9 +44,10 @@ __decorate([
     common_1.Get(),
     common_1.UseGuards(jwt_auth_guard_1.JwtAuthGuard),
     swagger_1.ApiOperation({ summary: "Get all events" }),
+    __param(0, common_1.Req()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", void 0)
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", Promise)
 ], EventsController.prototype, "getAllEvents", null);
 __decorate([
     common_1.Get(":id"),
