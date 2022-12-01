@@ -9,7 +9,7 @@ export default class RewardsService {
     constructor(rewardsRepository: Repository<Reward>, eventsRepository: Repository<Event>);
     getAllRewards(): Promise<Reward[]>;
     getRewardById(id: number): Promise<Reward>;
-    createReward(id: number, reward: CreateRewardDto): Promise<void>;
+    createReward(reward: CreateRewardDto): Promise<Reward>;
     updateReward(id: number, reward: UpdateRewardDto): Promise<void>;
     deleteReward(id: number): Promise<void>;
 }

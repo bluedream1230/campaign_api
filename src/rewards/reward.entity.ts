@@ -1,5 +1,6 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, PrimaryGeneratedColumn, OneToMany } from "typeorm";
 import { ApiProperty } from "@nestjs/swagger";
+import Event from "src/events/event.entity";
 
 @Entity("reward")
 class Reward {
@@ -37,6 +38,9 @@ class Reward {
   @ApiProperty()
   @Column()
   public timelimit: number;
+
+  @OneToMany(() => Event, (event) => event.reward)
+  public events: Event[];
 }
 
 export default Reward;

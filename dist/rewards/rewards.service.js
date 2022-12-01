@@ -33,21 +33,10 @@ let RewardsService = class RewardsService {
         }
         throw new rewardNotFound_exception_1.default(id);
     }
-    async createReward(id, reward) {
-        const event = await this.eventsRepository.findOne({
-            relations: ["reward"],
-            where: { id },
-        });
-        if (!event)
-            return;
-        if (event.reward) {
-            await this.rewardsRepository.update(event.reward.id, reward);
-        }
-        else {
-            const newReward = await this.rewardsRepository.insert(reward);
-            const rewardId = newReward.identifiers[0].id;
-            await this.eventsRepository.update(id, { reward: { id: rewardId } });
-        }
+    async createReward(reward) {
+        const newReward = await this.rewardsRepository.create(reward);
+        await this.rewardsRepository.save(newReward);
+        return newReward;
     }
     async updateReward(id, reward) {
         await this.rewardsRepository.update(id, reward);

@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const typeorm_1 = require("typeorm");
+const swagger_1 = require("@nestjs/swagger");
 const user_entity_1 = require("../users/user.entity");
 const event_entity_1 = require("../events/event.entity");
 let Attend = class Attend {
@@ -19,13 +20,15 @@ __decorate([
     __metadata("design:type", Number)
 ], Attend.prototype, "id", void 0);
 __decorate([
-    typeorm_1.ManyToOne(() => event_entity_1.default, (event) => event.attends),
-    __metadata("design:type", event_entity_1.default)
-], Attend.prototype, "event", void 0);
+    swagger_1.ApiProperty(),
+    typeorm_1.Column(),
+    __metadata("design:type", Number)
+], Attend.prototype, "user_id", void 0);
 __decorate([
-    typeorm_1.ManyToOne(() => user_entity_1.default, (user) => user.attends),
-    __metadata("design:type", user_entity_1.default)
-], Attend.prototype, "user", void 0);
+    swagger_1.ApiProperty(),
+    typeorm_1.Column(),
+    __metadata("design:type", Number)
+], Attend.prototype, "event_id", void 0);
 Attend = __decorate([
     typeorm_1.Entity()
 ], Attend);

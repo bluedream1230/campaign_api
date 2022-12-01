@@ -10,39 +10,30 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const swagger_1 = require("@nestjs/swagger");
+const class_validator_1 = require("class-validator");
 class CreateUserDto {
 }
 __decorate([
     swagger_1.ApiProperty(),
+    class_validator_1.IsDefined(),
+    class_validator_1.IsNotEmpty(),
+    class_validator_1.IsEmail(),
+    class_validator_1.IsString(),
     __metadata("design:type", String)
 ], CreateUserDto.prototype, "email", void 0);
 __decorate([
     swagger_1.ApiProperty(),
+    class_validator_1.IsDefined(),
+    class_validator_1.IsNotEmpty(),
+    class_validator_1.IsString(),
     __metadata("design:type", String)
 ], CreateUserDto.prototype, "name", void 0);
 __decorate([
     swagger_1.ApiProperty(),
+    class_validator_1.IsDefined(),
+    class_validator_1.IsNotEmpty(),
+    class_validator_1.IsString(),
     __metadata("design:type", String)
 ], CreateUserDto.prototype, "password", void 0);
-__decorate([
-    swagger_1.ApiProperty(),
-    __metadata("design:type", String)
-], CreateUserDto.prototype, "logo", void 0);
-__decorate([
-    swagger_1.ApiProperty(),
-    __metadata("design:type", String)
-], CreateUserDto.prototype, "phone", void 0);
-__decorate([
-    swagger_1.ApiProperty(),
-    __metadata("design:type", String)
-], CreateUserDto.prototype, "subscription", void 0);
-__decorate([
-    swagger_1.ApiProperty(),
-    __metadata("design:type", Number)
-], CreateUserDto.prototype, "coins", void 0);
-__decorate([
-    swagger_1.ApiProperty(),
-    __metadata("design:type", Number)
-], CreateUserDto.prototype, "coinsused", void 0);
 exports.default = CreateUserDto;
 //# sourceMappingURL=createUser.dto.js.map

@@ -14,11 +14,18 @@ class Attend {
   @PrimaryGeneratedColumn()
   public id: number;
 
-  @ManyToOne(() => Event, (event) => event.attends)
-  public event: Event;
+  @ApiProperty()
+  @Column()
+  public user_id: number;
 
-  @ManyToOne(() => User, (user) => user.attends)
-  public user: User;
+  @ApiProperty()
+  @Column()
+  public event_id: number;
+  // @ManyToOne(() => Event, (event) => event.attends)
+  // public event: Event;
+
+  // @ManyToOne(() => User, (user) => user.attends)
+  // public user: User;
 }
 
 export default Attend;

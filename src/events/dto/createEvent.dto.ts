@@ -8,13 +8,13 @@ export default class CreateEventDto {
   public location: string;
 
   @ApiProperty()
-  public start_time: string;
+  public start_time: Date;
 
   @ApiProperty()
-  public end_time: string;
+  public end_time: Date;
 
   @ApiProperty()
-  public user_limit: string;
+  public user_limit: number;
 
   @ApiProperty()
   public qr_code: string;

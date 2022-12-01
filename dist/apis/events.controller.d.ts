@@ -9,15 +9,15 @@ export declare class EventsController {
         SponsorLogoURL: string;
         EventName: string;
         EventLocation: string;
-        EventStartTimeDate: string;
-        EventCompleteTimeDate: string;
+        EventStartTimeDate: Date;
+        EventCompleteTimeDate: Date;
         SponsorEventCoins: number;
         EventGameType: string;
         EventVideoURL: string;
         EventReward: string;
         EventRewardPool: number;
         EventGameDuration: string;
-        EventUserLimit: string;
+        EventUserLimit: number;
         EventQRCodeURL: string;
     }>;
 }

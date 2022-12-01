@@ -49,18 +49,12 @@ export default class RewardsController {
     return this.rewardsService.getRewardById(Number(id));
   }
 
-  @Post(":id")
+  @Post()
   @UseGuards(JwtAuthGuard)
   @ApiOperation({ summary: "Create reward" })
-  async createReward(
-    @Param() { id }: FindOneParams,
-    @Body() reward: CreateRewardDto
-  ) {
+  async createReward(@Body() reward: CreateRewardDto) {
     try {
-      const createReward = await this.rewardsService.createReward(
-        Number(id),
-        reward
-      );
+      const createReward = await this.rewardsService.createReward(reward);
       return reward;
     } catch (error) {
       throw new HttpException(

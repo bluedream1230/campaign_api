@@ -9,6 +9,7 @@ import {
 import Address from "./address.entity";
 import Event from "src/events/event.entity";
 import Attend from "src/attends/attend.entity";
+import { IsPhoneNumber } from "class-validator";
 
 @Entity("user")
 class User {
@@ -21,24 +22,27 @@ class User {
   @Column()
   public name: string;
 
-  @Column()
-  public logo: string;
+  @Column({ default: "logo" })
+  public logo?: string;
 
-  @Column()
-  public phone: string;
+  @Column({ default: "+1 222 222 2222" })
+  public phone?: string;
 
-  @Column()
-  public subscription: string;
+  @Column({ default: "subscription" })
+  public subscription?: string;
 
   @Column()
   //@Exclude()
   public password: string;
 
-  @Column()
-  public coins: number;
+  @Column({ default: 0 })
+  public coins?: number;
 
-  @Column()
-  public coinsused: number;
+  @Column({ default: 0 })
+  public coinsused?: number;
+
+  // @Column({ default: 0 })
+  // public join_event_id?: number;
 
   @OneToOne(() => Address, {
     eager: true,
@@ -50,8 +54,8 @@ class User {
   @OneToMany(() => Event, (event) => event.user)
   public events: Event[];
 
-  @OneToMany(() => Attend, (attend) => attend.user)
-  public attends: Attend[];
+  // @OneToMany(() => Attend, (attend) => attend.user)
+  // public attends: Attend[];
 }
 
 export default User;

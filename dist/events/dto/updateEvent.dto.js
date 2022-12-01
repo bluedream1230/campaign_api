@@ -22,15 +22,15 @@ __decorate([
 ], UpdateEventDto.prototype, "location", void 0);
 __decorate([
     swagger_1.ApiProperty(),
-    __metadata("design:type", String)
+    __metadata("design:type", Date)
 ], UpdateEventDto.prototype, "start_time", void 0);
 __decorate([
     swagger_1.ApiProperty(),
-    __metadata("design:type", String)
+    __metadata("design:type", Date)
 ], UpdateEventDto.prototype, "end_time", void 0);
 __decorate([
     swagger_1.ApiProperty(),
-    __metadata("design:type", String)
+    __metadata("design:type", Number)
 ], UpdateEventDto.prototype, "user_limit", void 0);
 __decorate([
     swagger_1.ApiProperty(),

@@ -13,11 +13,12 @@ const typeorm_1 = require("@nestjs/typeorm");
 const user_entity_1 = require("./user.entity");
 const address_entity_1 = require("./address.entity");
 const users_controller_1 = require("./users.controller");
+const attend_entity_1 = require("../attends/attend.entity");
 let UsersModule = class UsersModule {
 };
 UsersModule = __decorate([
     common_1.Module({
-        imports: [typeorm_1.TypeOrmModule.forFeature([user_entity_1.default, address_entity_1.default])],
+        imports: [typeorm_1.TypeOrmModule.forFeature([user_entity_1.default, address_entity_1.default, attend_entity_1.default])],
         providers: [users_service_1.UsersService],
         exports: [users_service_1.UsersService],
         controllers: [users_controller_1.UsersController],

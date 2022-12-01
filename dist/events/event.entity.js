@@ -33,18 +33,18 @@ __decorate([
 ], Event.prototype, "location", void 0);
 __decorate([
     swagger_1.ApiProperty(),
-    typeorm_1.Column(),
-    __metadata("design:type", String)
+    typeorm_1.Column({ default: "2022.11.01" }),
+    __metadata("design:type", Date)
 ], Event.prototype, "start_time", void 0);
 __decorate([
     swagger_1.ApiProperty(),
-    typeorm_1.Column(),
-    __metadata("design:type", String)
+    typeorm_1.Column({ default: "2022.11.01" }),
+    __metadata("design:type", Date)
 ], Event.prototype, "end_time", void 0);
 __decorate([
     swagger_1.ApiProperty(),
-    typeorm_1.Column(),
-    __metadata("design:type", String)
+    typeorm_1.Column({ default: 0 }),
+    __metadata("design:type", Number)
 ], Event.prototype, "user_limit", void 0);
 __decorate([
     swagger_1.ApiProperty(),
@@ -65,15 +65,7 @@ __decorate([
     __metadata("design:type", user_entity_1.default)
 ], Event.prototype, "user", void 0);
 __decorate([
-    typeorm_1.OneToMany(() => attend_entity_1.default, (attend) => attend.event),
-    __metadata("design:type", Array)
-], Event.prototype, "attends", void 0);
-__decorate([
-    typeorm_1.OneToOne(() => reward_entity_1.default, {
-        eager: true,
-        cascade: true,
-    }),
-    typeorm_1.JoinColumn(),
+    typeorm_1.ManyToOne(() => reward_entity_1.default, (reward) => reward.events),
     __metadata("design:type", reward_entity_1.default)
 ], Event.prototype, "reward", void 0);
 Event = __decorate([

@@ -28,15 +28,15 @@ __decorate([
     __metadata("design:type", String)
 ], User.prototype, "name", void 0);
 __decorate([
-    typeorm_1.Column(),
+    typeorm_1.Column({ default: "logo" }),
     __metadata("design:type", String)
 ], User.prototype, "logo", void 0);
 __decorate([
-    typeorm_1.Column(),
+    typeorm_1.Column({ default: "+1 222 222 2222" }),
     __metadata("design:type", String)
 ], User.prototype, "phone", void 0);
 __decorate([
-    typeorm_1.Column(),
+    typeorm_1.Column({ default: "subscription" }),
     __metadata("design:type", String)
 ], User.prototype, "subscription", void 0);
 __decorate([
@@ -44,11 +44,11 @@ __decorate([
     __metadata("design:type", String)
 ], User.prototype, "password", void 0);
 __decorate([
-    typeorm_1.Column(),
+    typeorm_1.Column({ default: 0 }),
     __metadata("design:type", Number)
 ], User.prototype, "coins", void 0);
 __decorate([
-    typeorm_1.Column(),
+    typeorm_1.Column({ default: 0 }),
     __metadata("design:type", Number)
 ], User.prototype, "coinsused", void 0);
 __decorate([
@@ -63,10 +63,6 @@ __decorate([
     typeorm_1.OneToMany(() => event_entity_1.default, (event) => event.user),
     __metadata("design:type", Array)
 ], User.prototype, "events", void 0);
-__decorate([
-    typeorm_1.OneToMany(() => attend_entity_1.default, (attend) => attend.user),
-    __metadata("design:type", Array)
-], User.prototype, "attends", void 0);
 User = __decorate([
     typeorm_1.Entity("user")
 ], User);

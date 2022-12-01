@@ -7,7 +7,7 @@ export default class RewardsController {
     constructor(rewardsService: RewardsService);
     getAllRewards(): Promise<import("./reward.entity").default[]>;
     getRewardById({ id }: FindOneParams): Promise<import("./reward.entity").default>;
-    createReward({ id }: FindOneParams, reward: CreateRewardDto): Promise<CreateRewardDto>;
+    createReward(reward: CreateRewardDto): Promise<CreateRewardDto>;
     updateReward({ id }: FindOneParams, reward: UpdateRewardDto): Promise<void>;
     deleteReward({ id }: FindOneParams): Promise<void>;
 }

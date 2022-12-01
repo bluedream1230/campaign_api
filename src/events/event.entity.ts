@@ -27,16 +27,16 @@ class Event {
   public location: string;
 
   @ApiProperty()
-  @Column()
-  public start_time: string;
+  @Column({ default: "2022.11.01" })
+  public start_time: Date;
 
   @ApiProperty()
-  @Column()
-  public end_time: string;
+  @Column({ default: "2022.11.01" })
+  public end_time: Date;
 
   @ApiProperty()
-  @Column()
-  public user_limit: string;
+  @Column({ default: 0 })
+  public user_limit: number;
 
   @ApiProperty()
   @Column()
@@ -52,15 +52,18 @@ class Event {
   @ManyToOne(() => User, (user) => user.events)
   public user: User;
 
-  @OneToMany(() => Attend, (attend) => attend.event)
-  public attends: Attend[];
-
-  @OneToOne(() => Reward, {
-    eager: true,
-    cascade: true,
-  })
-  @JoinColumn()
+  @ManyToOne(() => Reward, (reward) => reward.events)
   public reward: Reward;
+
+  // @OneToMany(() => Attend, (attend) => attend.event)
+  // public attends: Attend[];
+
+  // @OneToOne(() => Reward, {
+  //   eager: true,
+  //   cascade: true,
+  // })
+  // @JoinColumn()
+  // public reward: Reward;
 }
 
 export default Event;

@@ -21,6 +21,7 @@ const jwt_auth_guard_1 = require("../auth/guards/jwt-auth.guard");
 const addressUser_dto_1 = require("./dto/addressUser.dto");
 const findOneParams_1 = require("../utils/findOneParams");
 const updateUser_dto_1 = require("./dto/updateUser.dto");
+const attendCreate_dto_1 = require("../attends/dto/attendCreate.dto");
 let UsersController = class UsersController {
     constructor(usersService) {
         this.usersService = usersService;
@@ -47,6 +48,16 @@ let UsersController = class UsersController {
             throw new common_1.HttpException("Something went wrong", common_1.HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+    async joinEvent(req, { id }, joinedEvent) {
+        const user_id = req.user.id;
+        try {
+            const joinEvent = await this.usersService.joinEvent(Number(user_id), Number(id), joinedEvent);
+            return joinEvent;
+        }
+        catch (error) {
+            throw new common_1.HttpException("Something went wrong", common_1.HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 };
 __decorate([
     common_1.Patch("update"),
@@ -68,6 +79,18 @@ __decorate([
         addressUser_dto_1.default]),
     __metadata("design:returntype", Promise)
 ], UsersController.prototype, "updatedAddress", null);
+__decorate([
+    common_1.Patch("join/:id"),
+    common_1.UseGuards(jwt_auth_guard_1.JwtAuthGuard),
+    swagger_1.ApiOperation({ summary: "Join Event" }),
+    __param(0, common_1.Request()),
+    __param(1, common_1.Param()),
+    __param(2, common_1.Body()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object, findOneParams_1.default,
+        attendCreate_dto_1.default]),
+    __metadata("design:returntype", Promise)
+], UsersController.prototype, "joinEvent", null);
 UsersController = __decorate([
     swagger_1.ApiBearerAuth(),
     swagger_1.ApiTags("Users"),

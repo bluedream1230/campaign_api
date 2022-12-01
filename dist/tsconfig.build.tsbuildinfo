@@ -3467,53 +3467,18 @@
         "affectsGlobalScope": false
       },
       "../src/attends/attend.entity.ts": {
-        "version": "6f6a0582883e029a2b86632d6e6427e14f21f6e43b282f416e846802c9ffc7a9",
-        "signature": "019121d955924e2da8ec582b19a731d4febdd6f7b228683d962795f26b7d3506",
+        "version": "129620b115dabe1bcd0b2bfe5ea9097d8ae97d9d32c569b1adc1c19137b6aebc",
+        "signature": "d3c1d1d13678d840873574e13b0b754c7d4d4a05355b835af58b597a74e3e74c",
         "affectsGlobalScope": false
       },
       "../src/rewards/reward.entity.ts": {
-        "version": "9401133cbec27a00564f1c9a80ed5a8168b4e64a6d80846e990655d32471ea21",
-        "signature": "fa5e8b9cc355cd502354a2559338364b82ed110f393f16d427618278377e614b",
+        "version": "3e02660fefedfecf2103c0c6d777282a86848d371297bbef5d7a4f0a082b2e07",
+        "signature": "7a93e66f904d3ec563a2141464a8351b3fccc5c03c04c00090c6769bb890a13c",
         "affectsGlobalScope": false
       },
       "../src/events/event.entity.ts": {
-        "version": "44f4c0deaffb2429f7b74979466c94058bcd2c76e17525b7699c6c199ccee8f2",
-        "signature": "ab41e5b2db91e15fe1d25303f57cf84269cb350b3a3c3891fbf37530bb2403b9",
-        "affectsGlobalScope": false
-      },
-      "../src/users/user.entity.ts": {
-        "version": "8c0cb5014afeacc16f9187cfdf0c6c2c36aa5e8bf6d133863125635813e88448",
-        "signature": "fbf5729227c052ab8343c4de967c75bd4ce0c4bd83068d78d9e689206c151128",
-        "affectsGlobalScope": false
-      },
-      "../src/users/dto/createuser.dto.ts": {
-        "version": "408a9616b4522ceab98f963c4fe053be26bb01ef5fceb187c2df72ec4006c9f3",
-        "signature": "47b1b119410fa6578e497c6ce17dce4ea0c28b9c46beb73381b4453883ffa731",
-        "affectsGlobalScope": false
-      },
-      "../src/users/dto/addressuser.dto.ts": {
-        "version": "a869646f78829aa522d227bd35c30f729d954325548f663d6fbf8cb183d55874",
-        "signature": "40571b1502e87cfb956b1d193be9f552b9d22e6dc60bea5353465ba12aa86686",
-        "affectsGlobalScope": false
-      },
-      "../src/users/dto/updateuser.dto.ts": {
-        "version": "c6fb0fa9aefa0e35afa4d526516bfb963fb27cf947719a3de69359f7aaf3dd8f",
-        "signature": "5e6df89e604ed9200984a52b404c61431afdb700869c890a651907249c1a6a33",
-        "affectsGlobalScope": false
-      },
-      "../src/users/users.service.ts": {
-        "version": "6250fc82c16497cdf899880d9a25b273421566af7854e7bfdcc33b8566ce955e",
-        "signature": "ac69767b4b9106463ea08e935a7578f26281d9ddf84780fc2c301b7c9a8cfc56",
-        "affectsGlobalScope": false
-      },
-      "../src/database/postgreserrorcode.enum.ts": {
-        "version": "9339247a78747b168c19a4d8c3dda56a4e8ad442f4b934c7100ef542846699a4",
-        "signature": "6329b841faf0976f41017c118496c6a5552a5ec1c932adcacc528dbd1597ccc0",
-        "affectsGlobalScope": false
-      },
-      "../src/auth/guards/jwt-auth.guard.ts": {
-        "version": "86f01fc8f2c8dc7a5d29859dee9467ccb4a7611fc82a79beee69fc71efce4308",
-        "signature": "baf608b3f1bf90782d8b003287213bceae5e9b31f56c2ce676e223ea85ea10b2",
+        "version": "f95f58962d1773adddd5dff2fd63fd6df67d6ff6d34035ab23fab8a83883f498",
+        "signature": "a2923bc332120ee303318d9b0241f041ff17fcdfb5c5d1f81eac0bc410a1980c",
         "affectsGlobalScope": false
       },
       "../node_modules/class-validator/types/validation/validationerror.d.ts": {
@@ -4131,18 +4096,63 @@
         "signature": "1d5f30cbd06ffa2aab22346b087e140f069851c17b91189be8d1e168d53f9f93",
         "affectsGlobalScope": false
       },
+      "../src/users/user.entity.ts": {
+        "version": "22d5119ce80817aa5182d795607dc63666afde188d06641abbf703eebf72ac52",
+        "signature": "8877c3c3b73ce720f16cae54fdb7dd45e4223405390cc675416fc4d220cb0393",
+        "affectsGlobalScope": false
+      },
+      "../src/users/dto/createuser.dto.ts": {
+        "version": "4a847ebb2cc9ea5a14a3db3bbb13ce268e8ca8bdf13aa3095d4f9a543b3faabe",
+        "signature": "12ce09f4d3e90808178ded61cc98b82f18fbc24b606eb2f6dcf0555bb01aaf63",
+        "affectsGlobalScope": false
+      },
+      "../src/users/dto/addressuser.dto.ts": {
+        "version": "668db68cab428c2ee7532658e8de612b8897bba34729508f1fd2ce2fe5ac0e79",
+        "signature": "40571b1502e87cfb956b1d193be9f552b9d22e6dc60bea5353465ba12aa86686",
+        "affectsGlobalScope": false
+      },
+      "../src/users/dto/updateuser.dto.ts": {
+        "version": "b0bd5520a62b926d2d9f30bb9cbd17e7575dbb0aea0d3082e49e0d7359c4c6f5",
+        "signature": "5e6df89e604ed9200984a52b404c61431afdb700869c890a651907249c1a6a33",
+        "affectsGlobalScope": false
+      },
+      "../src/users/dto/joinevent.dto.ts": {
+        "version": "33881abc9aa5d29e33571aa2482b0c90020edffbeb5859d5613a9cb53977553d",
+        "signature": "2c2db042fe325f7185c7b8414bc28c528091476d9561d85fb8911d294a6b0aa8",
+        "affectsGlobalScope": false
+      },
+      "../src/attends/dto/attendcreate.dto.ts": {
+        "version": "173a0f307d30e74c8e7860cecc4f2736b1060ff9e56b4c977dea23fade9bf6ec",
+        "signature": "9f7c9c3ac3d5473f613e6dec117c0bc26069e08cb45e17c8e8e7aacf4c5be3da",
+        "affectsGlobalScope": false
+      },
+      "../src/users/users.service.ts": {
+        "version": "988c852204ed2805552ed4226c99e97d4b8b52319212ebd65efee2d8a5bf2d11",
+        "signature": "71a9aeb6e1b2289f3a895d58e86fc7b9abfe3f5ad2cbd15c91fe91f52b3f5074",
+        "affectsGlobalScope": false
+      },
+      "../src/database/postgreserrorcode.enum.ts": {
+        "version": "9339247a78747b168c19a4d8c3dda56a4e8ad442f4b934c7100ef542846699a4",
+        "signature": "6329b841faf0976f41017c118496c6a5552a5ec1c932adcacc528dbd1597ccc0",
+        "affectsGlobalScope": false
+      },
+      "../src/auth/guards/jwt-auth.guard.ts": {
+        "version": "86f01fc8f2c8dc7a5d29859dee9467ccb4a7611fc82a79beee69fc71efce4308",
+        "signature": "baf608b3f1bf90782d8b003287213bceae5e9b31f56c2ce676e223ea85ea10b2",
+        "affectsGlobalScope": false
+      },
       "../src/utils/findoneparams.ts": {
         "version": "9b7e94bcffc8ee706ee61bf1a9f301a3e4512db1dc9f09814923f19a5d9c138d",
         "signature": "0a76d1088f07d9bcc77cfb02f4899e8188c797f9e45ef2795b05e8231b1793ff",
         "affectsGlobalScope": false
       },
       "../src/users/users.controller.ts": {
-        "version": "4ecec4036d3894b709fffc4483bcfa540c5a12fe6e796b582bb84c6231573ebb",
-        "signature": "be27fa7bb335215cb16de02177a4a56bd837c999fcda587d61e9277f1c705aa6",
+        "version": "27d9b7e2f1e89a676572d04c2e8a146d005d2205152a789458093a2d84caff01",
+        "signature": "34bbeb79e90960643b13d7cb3838df72979a2f19dff521b094ce0518b1441e37",
         "affectsGlobalScope": false
       },
       "../src/users/users.module.ts": {
-        "version": "5a515527f6466079925a512ef5fa05fe92814d7008e85ee3236053195e5b53e9",
+        "version": "e022e6912e5f5fa9c807b3ddff24961ea2b5ee1c3ec69660cd8f4b02fe0f82ee",
         "signature": "12dec6c99bd8d11167fa91a31e737abbbf8c9cc789c151a25a9a1d13f328175c",
         "affectsGlobalScope": false
       },
@@ -4157,7 +4167,7 @@
         "affectsGlobalScope": false
       },
       "../src/users/dto/loginuser.dto.ts": {
-        "version": "a18dd04cd6987107d4bd541e93543f94d8c82a842c4fe3d10d255e4f6f9b4308",
+        "version": "0c883cdd63dedea2396d5c6bdadc7b6e81b156870117c0cffaee320248ff326a",
         "signature": "f76bd0e72befbd53e22649794dda1a48354c6c0e5051d617f36d9c60b9239f41",
         "affectsGlobalScope": false
       },
@@ -4187,13 +4197,13 @@
         "affectsGlobalScope": false
       },
       "../src/events/dto/createevent.dto.ts": {
-        "version": "68c4afbe6f33ab5486450413f90a13961b4607a5165c812f33a2e82e6c9e392a",
-        "signature": "f510b0dcc2ded4acbfcd92be4eb070bae4dd85aa5b7d6201a5ca38d319a826ee",
+        "version": "f215fe9660b3a828ed0036296fc35b8b4ead32f3a39d5620422ae728f5b98455",
+        "signature": "97910431a0a499e3ccc89554d25ac60d810cccad7b6fc01c7a9647297b9ed176",
         "affectsGlobalScope": false
       },
       "../src/events/dto/updateevent.dto.ts": {
-        "version": "5a3233c297f0807cf88deeb9aecc6e22f5164b1ad3918e70e3b3d13a1daba03b",
-        "signature": "c6c0e89254f12ced275ad3573c9e8063999cc36b528bf735f8c7ebf5cae69e45",
+        "version": "a3c76378a18ccfb99ea848876e975826faa3397bcd20330b0db3db09bfa145f6",
+        "signature": "3a63d17eb40c61cc2be45df8348492796747709fed442659fab4993227d855ec",
         "affectsGlobalScope": false
       },
       "../src/events/exceptions/eventnotfound.exception.ts": {
@@ -4202,8 +4212,8 @@
         "affectsGlobalScope": false
       },
       "../src/events/events.service.ts": {
-        "version": "2239466910a6efb16d947a536263ce77d6d9f7289e19f1dd25422398866e750d",
-        "signature": "0f71d63c2d8706289cbe937d1711559cc24f1830a6ad96b097c672c18292eb38",
+        "version": "de3a09a15cc24c8796f82e6cfe96aeb2be3e9f38b74f5650470419f4ba6f8630",
+        "signature": "57d01e97a3709970d4930e1743e89eb9732c19f4d901c4b2f4b24ab91ca53e6b",
         "affectsGlobalScope": false
       },
       "../node_modules/@types/range-parser/index.d.ts": {
@@ -4251,13 +4261,23 @@
         "signature": "47a86e9b15bb61bbedb239e4007bb87db99c794264f0602a57eeb79f3b96a05e",
         "affectsGlobalScope": false
       },
+      "../src/utils/findgameparams.ts": {
+        "version": "c9523fe897f7711093597cbbedf68459fb3458135fb9ea44e090eb94f98b7c91",
+        "signature": "38edd15358dcd66e350cd02d4166d431e8a2da34d5e9819949982fa4c2f7d619",
+        "affectsGlobalScope": false
+      },
+      "../src/utils/findrewardparams.ts": {
+        "version": "73d1ddbd9bc969296798237cc4bba06af5f3e554dc7538e36ef88c2875fdfc6d",
+        "signature": "eddb9d750ec3296557e27068f1436b12532331e6830d5db478172a2643277776",
+        "affectsGlobalScope": false
+      },
       "../src/events/events.controller.ts": {
-        "version": "528e14a0833dd98086f204317261230ba24412029918745c3533b0ecd32615a0",
-        "signature": "ae3ace934624859604b11daeb0a18f3fc40c1130aebe2b96cb736b8f8ac98d49",
+        "version": "f811327e78dc2a7cccfdbb90e3a52b5c87f141003f25f509c001b6ce69637a3d",
+        "signature": "45a3ccbfb2547d7f0501641fd9f83acbb201ecbf5fea7b3bca61727076c93b8f",
         "affectsGlobalScope": false
       },
       "../src/events/events.module.ts": {
-        "version": "986bc6a603bd7e084e6dce5d7ebf035fbfa18aa9f7f4c6e1d4132edc37ca3205",
+        "version": "ce50e5227c59ba4dd8eb72686c3b4e635dc97d20cde3e701cc4631531cfc5388",
         "signature": "c62359a1382a7da70c8e0153ce3c44c0157d2dea671125d1cba9fc7184dec308",
         "affectsGlobalScope": false
       },
@@ -4302,13 +4322,13 @@
         "affectsGlobalScope": false
       },
       "../src/rewards/rewards.service.ts": {
-        "version": "3cf17791bcce1ccc8e0e18ce5c9863eb0644637e5a56946c06d86c942c3b5cee",
-        "signature": "c63e2253ce266ac4ba33ee267c6ed99f4ed0651b0d9367a9c29b4bc7a90439f9",
+        "version": "8ef7bc145ded3086cccecfdee00955b1726c59a616f5fffa578d26b6550ce6f6",
+        "signature": "6d1ceb8994a954656dafc4b76b4c868b73a6433d95c4ea81e45b4080ef539428",
         "affectsGlobalScope": false
       },
       "../src/rewards/rewards.controller.ts": {
-        "version": "894bfe0f5854d1369e8cfb1e71f12874e631ea746dea281891ac67afbf551218",
-        "signature": "36b0d10c363e9b8275eb5b79e2d8762f514b9cda333d499d6754f8bf6fe0cf74",
+        "version": "5bd8ba472a1d208abf3f5f9c19b034f7280d9cf0b901989651af44e13b7d8b02",
+        "signature": "b4c1e854c9550edcd43920dbc90acd4b2c6dffd4f2a49cf8f98502755bc5a23e",
         "affectsGlobalScope": false
       },
       "../src/rewards/rewards.module.ts": {
@@ -4322,13 +4342,13 @@
         "affectsGlobalScope": false
       },
       "../src/apis/apis.service.ts": {
-        "version": "596f695ac79659264be11d05aa190a9270f11808409d7839c37722e8e9ddb264",
-        "signature": "0cefd6af3f321e5b1e000e518d09efef251cd254d728db6a3d65f1d26f53f79e",
+        "version": "13c6c0e90532ef12db0445b9286b0d9d2e0c1b8ac7b75e67634ba116d12e0614",
+        "signature": "7f0d108723f85727814d14d3ff175325eed823ce05d5b31b2c3d4aeda7b5035a",
         "affectsGlobalScope": false
       },
       "../src/apis/events.controller.ts": {
         "version": "34b7f211a1c8dc138e88a35cbf114c7561c4be1c9f1469131a6cb18fc24e5ad9",
-        "signature": "7fb8fae2e669b8b4acba50585d3bd10075de276a37c75c915d825806d95393bc",
+        "signature": "a1fff4574a4e4147aff1bd43e3ff43d349f5ebe76f8fcf5ebad2eafb7abedaed",
         "affectsGlobalScope": false
       },
       "../src/apis/coins.controller.ts": {
@@ -13285,6 +13305,14 @@
         "../node_modules/@types/node/util.d.ts",
         "../src/attends/attend.entity.ts"
       ],
+      "../src/attends/dto/attendcreate.dto.ts": [
+        "../node_modules/@nestjs/swagger/index.d.ts",
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
       "../src/auth/auth.controller.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@nestjs/swagger/index.d.ts",
@@ -13423,7 +13451,9 @@
         "../src/events/dto/createevent.dto.ts",
         "../src/events/dto/updateevent.dto.ts",
         "../src/events/events.service.ts",
-        "../src/utils/findoneparams.ts"
+        "../src/utils/findgameparams.ts",
+        "../src/utils/findoneparams.ts",
+        "../src/utils/findrewardparams.ts"
       ],
       "../src/events/events.module.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
@@ -13433,9 +13463,11 @@
         "../node_modules/@types/node/ts3.2/fs.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts",
         "../node_modules/@types/node/util.d.ts",
+        "../src/attends/attend.entity.ts",
         "../src/events/event.entity.ts",
         "../src/events/events.controller.ts",
-        "../src/events/events.service.ts"
+        "../src/events/events.service.ts",
+        "../src/games/game.entity.ts"
       ],
       "../src/events/events.service.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
@@ -13446,10 +13478,12 @@
         "../node_modules/@types/node/ts3.2/util.d.ts",
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/typeorm/index.d.ts",
+        "../src/attends/attend.entity.ts",
         "../src/events/dto/createevent.dto.ts",
         "../src/events/dto/updateevent.dto.ts",
         "../src/events/event.entity.ts",
         "../src/events/exceptions/eventnotfound.exception.ts",
+        "../src/games/game.entity.ts",
         "../src/users/user.entity.ts"
       ],
       "../src/events/exceptions/eventnotfound.exception.ts": [
@@ -13566,7 +13600,8 @@
         "../node_modules/@types/node/ts3.2/fs.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts",
         "../node_modules/@types/node/util.d.ts",
-        "../node_modules/typeorm/index.d.ts"
+        "../node_modules/typeorm/index.d.ts",
+        "../src/events/event.entity.ts"
       ],
       "../src/rewards/rewards.controller.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
@@ -13624,7 +13659,8 @@
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts",
-        "../node_modules/@types/node/util.d.ts"
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/class-validator/types/index.d.ts"
       ],
       "../src/users/dto/createuser.dto.ts": [
         "../node_modules/@nestjs/swagger/index.d.ts",
@@ -13632,7 +13668,17 @@
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts",
-        "../node_modules/@types/node/util.d.ts"
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/class-validator/types/index.d.ts"
+      ],
+      "../src/users/dto/joinevent.dto.ts": [
+        "../node_modules/@nestjs/swagger/index.d.ts",
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/typeorm/index.d.ts"
       ],
       "../src/users/dto/loginuser.dto.ts": [
         "../node_modules/@nestjs/swagger/index.d.ts",
@@ -13640,7 +13686,8 @@
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts",
-        "../node_modules/@types/node/util.d.ts"
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/class-validator/types/index.d.ts"
       ],
       "../src/users/dto/updateuser.dto.ts": [
         "../node_modules/@nestjs/swagger/index.d.ts",
@@ -13648,7 +13695,8 @@
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts",
-        "../node_modules/@types/node/util.d.ts"
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/class-validator/types/index.d.ts"
       ],
       "../src/users/user.entity.ts": [
         "../node_modules/@types/graceful-fs/index.d.ts",
@@ -13656,6 +13704,7 @@
         "../node_modules/@types/node/ts3.2/fs.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts",
         "../node_modules/@types/node/util.d.ts",
+        "../node_modules/class-validator/types/index.d.ts",
         "../node_modules/typeorm/index.d.ts",
         "../src/attends/attend.entity.ts",
         "../src/events/event.entity.ts",
@@ -13669,10 +13718,12 @@
         "../node_modules/@types/node/ts3.2/fs.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts",
         "../node_modules/@types/node/util.d.ts",
+        "../src/attends/dto/attendcreate.dto.ts",
         "../src/auth/guards/jwt-auth.guard.ts",
         "../src/database/postgreserrorcode.enum.ts",
         "../src/users/dto/addressuser.dto.ts",
         "../src/users/dto/createuser.dto.ts",
+        "../src/users/dto/joinevent.dto.ts",
         "../src/users/dto/updateuser.dto.ts",
         "../src/users/users.service.ts",
         "../src/utils/findoneparams.ts"
@@ -13685,6 +13736,7 @@
         "../node_modules/@types/node/ts3.2/fs.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts",
         "../node_modules/@types/node/util.d.ts",
+        "../src/attends/attend.entity.ts",
         "../src/users/address.entity.ts",
         "../src/users/user.entity.ts",
         "../src/users/users.controller.ts",
@@ -13699,13 +13751,34 @@
         "../node_modules/@types/node/ts3.2/util.d.ts",
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/typeorm/index.d.ts",
+        "../src/attends/attend.entity.ts",
+        "../src/attends/dto/attendcreate.dto.ts",
         "../src/users/address.entity.ts",
         "../src/users/dto/addressuser.dto.ts",
         "../src/users/dto/createuser.dto.ts",
+        "../src/users/dto/joinevent.dto.ts",
         "../src/users/dto/updateuser.dto.ts",
         "../src/users/user.entity.ts"
       ],
+      "../src/utils/findgameparams.ts": [
+        "../node_modules/@nestjs/swagger/index.d.ts",
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/class-validator/types/index.d.ts"
+      ],
       "../src/utils/findoneparams.ts": [
+        "../node_modules/@nestjs/swagger/index.d.ts",
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/class-validator/types/index.d.ts"
+      ],
+      "../src/utils/findrewardparams.ts": [
         "../node_modules/@nestjs/swagger/index.d.ts",
         "../node_modules/@types/graceful-fs/index.d.ts",
         "../node_modules/@types/node/fs.d.ts",
@@ -22080,10 +22153,6 @@
         "../src/apis/apis.service.ts",
         "../src/utils/findoneparams.ts"
       ],
-      "../src/attends/attend.entity.ts": [
-        "../src/events/event.entity.ts",
-        "../src/users/user.entity.ts"
-      ],
       "../src/auth/auth.controller.ts": [
         "../src/auth/auth.service.ts",
         "../src/users/dto/createuser.dto.ts",
@@ -22110,7 +22179,6 @@
         "../src/auth/auth.service.ts"
       ],
       "../src/events/event.entity.ts": [
-        "../src/attends/attend.entity.ts",
         "../src/games/game.entity.ts",
         "../src/rewards/reward.entity.ts",
         "../src/users/user.entity.ts"
@@ -22121,13 +22189,17 @@
         "../src/events/dto/updateevent.dto.ts",
         "../src/events/event.entity.ts",
         "../src/events/events.service.ts",
-        "../src/utils/findoneparams.ts"
+        "../src/utils/findgameparams.ts",
+        "../src/utils/findoneparams.ts",
+        "../src/utils/findrewardparams.ts"
       ],
       "../src/events/events.service.ts": [
         "../node_modules/typeorm/index.d.ts",
+        "../src/attends/attend.entity.ts",
         "../src/events/dto/createevent.dto.ts",
         "../src/events/dto/updateevent.dto.ts",
         "../src/events/event.entity.ts",
+        "../src/games/game.entity.ts",
         "../src/users/user.entity.ts"
       ],
       "../src/events/exceptions/eventnotfound.exception.ts": [
@@ -22153,6 +22225,9 @@
       "../src/rewards/exceptions/rewardnotfound.exception.ts": [
         "../node_modules/@nestjs/common/index.d.ts"
       ],
+      "../src/rewards/reward.entity.ts": [
+        "../src/events/event.entity.ts"
+      ],
       "../src/rewards/rewards.controller.ts": [
         "../src/rewards/dto/createreward.dto.ts",
         "../src/rewards/dto/updatereward.dto.ts",
@@ -22168,12 +22243,12 @@
         "../src/rewards/reward.entity.ts"
       ],
       "../src/users/user.entity.ts": [
-        "../src/attends/attend.entity.ts",
         "../src/events/event.entity.ts",
         "../src/users/address.entity.ts"
       ],
       "../src/users/users.controller.ts": [
         "../node_modules/typeorm/index.d.ts",
+        "../src/attends/dto/attendcreate.dto.ts",
         "../src/users/dto/addressuser.dto.ts",
         "../src/users/dto/updateuser.dto.ts",
         "../src/users/users.service.ts",
@@ -22181,6 +22256,8 @@
       ],
       "../src/users/users.service.ts": [
         "../node_modules/typeorm/index.d.ts",
+        "../src/attends/attend.entity.ts",
+        "../src/attends/dto/attendcreate.dto.ts",
         "../src/users/address.entity.ts",
         "../src/users/dto/addressuser.dto.ts",
         "../src/users/dto/createuser.dto.ts",
@@ -23101,6 +23178,7 @@
       "../src/app.service.ts",
       "../src/attends/attend.entity.ts",
       "../src/attends/attends.module.ts",
+      "../src/attends/dto/attendcreate.dto.ts",
       "../src/auth/auth.controller.ts",
       "../src/auth/auth.module.ts",
       "../src/auth/auth.service.ts",
@@ -23134,13 +23212,16 @@
       "../src/users/address.entity.ts",
       "../src/users/dto/addressuser.dto.ts",
       "../src/users/dto/createuser.dto.ts",
+      "../src/users/dto/joinevent.dto.ts",
       "../src/users/dto/loginuser.dto.ts",
       "../src/users/dto/updateuser.dto.ts",
       "../src/users/user.entity.ts",
       "../src/users/users.controller.ts",
       "../src/users/users.module.ts",
       "../src/users/users.service.ts",
-      "../src/utils/findoneparams.ts"
+      "../src/utils/findgameparams.ts",
+      "../src/utils/findoneparams.ts",
+      "../src/utils/findrewardparams.ts"
     ]
   },
   "version": "3.9.7"

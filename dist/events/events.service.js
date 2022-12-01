@@ -18,16 +18,33 @@ const typeorm_2 = require("typeorm");
 const event_entity_1 = require("./event.entity");
 const eventNotFound_exception_1 = require("./exceptions/eventNotFound.exception");
 const user_entity_1 = require("../users/user.entity");
+const attend_entity_1 = require("../attends/attend.entity");
+const game_entity_1 = require("../games/game.entity");
 let EventsService = class EventsService {
-    constructor(eventsRepository) {
+    constructor(eventsRepository, attendsRepository, gamesRepository) {
         this.eventsRepository = eventsRepository;
+        this.attendsRepository = attendsRepository;
+        this.gamesRepository = gamesRepository;
     }
     async getAllEvents(user) {
         const events = await this.eventsRepository
             .createQueryBuilder("event")
             .where(`event.userId = '${user.id}'`)
             .getMany();
-        return events;
+        const totalList = [];
+        await Promise.all(events.map(async (item, index) => {
+            const users_num = await this.attendsRepository
+                .createQueryBuilder()
+                .where(`attend.event_id = '${item.id}'`)
+                .getCount();
+            const event = await this.eventsRepository
+                .createQueryBuilder("event")
+                .leftJoinAndSelect("event.game", "game")
+                .where(`event.id = '${item.id}'`)
+                .getMany();
+            totalList.push(Object.assign(Object.assign({}, (event[0] || {})), { users_num }));
+        }));
+        return totalList;
     }
     async getEventById(id) {
         const event = await this.eventsRepository.findOne(id);
@@ -36,9 +53,11 @@ let EventsService = class EventsService {
         }
         throw new eventNotFound_exception_1.default(id);
     }
-    async createEvent(id, event, user) {
+    async createEvent(gameId, rewardId, event, user) {
         const newEvent = await this.eventsRepository.create(Object.assign(Object.assign({}, event), { user: user, game: {
-                id,
+                id: gameId,
+            }, reward: {
+                id: rewardId,
             } }));
         await this.eventsRepository.save(newEvent);
         return newEvent;
@@ -57,7 +76,11 @@ let EventsService = class EventsService {
 EventsService = __decorate([
     common_1.Injectable(),
     __param(0, typeorm_1.InjectRepository(event_entity_1.default)),
-    __metadata("design:paramtypes", [typeorm_2.Repository])
+    __param(1, typeorm_1.InjectRepository(attend_entity_1.default)),
+    __param(2, typeorm_1.InjectRepository(game_entity_1.default)),
+    __metadata("design:paramtypes", [typeorm_2.Repository,
+        typeorm_2.Repository,
+        typeorm_2.Repository])
 ], EventsService);
 exports.default = EventsService;
 //# sourceMappingURL=events.service.js.map

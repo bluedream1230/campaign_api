@@ -29,6 +29,10 @@ export default class ApisService {
       .createQueryBuilder("game")
       .leftJoinAndSelect("game.events", "event")
       .getOne();
+    const reward = await this.rewardsRepository
+      .createQueryBuilder("reward")
+      .leftJoinAndSelect("reward.events", "event")
+      .getOne();
     const result = {
       SponsorID: user.id,
       SponsorName: user.name,
@@ -40,8 +44,8 @@ export default class ApisService {
       SponsorEventCoins: event.event_coins,
       EventGameType: game.type,
       EventVideoURL: game.video_url,
-      EventReward: event.reward.name,
-      EventRewardPool: event.reward.ratelimit,
+      EventReward: reward.name,
+      EventRewardPool: reward.ratelimit,
       EventGameDuration: game.duration,
       EventUserLimit: event.user_limit,
       EventQRCodeURL: event.qr_code,

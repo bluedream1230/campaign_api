@@ -1,3 +1,4 @@
+import Event from "src/events/event.entity";
 declare class Reward {
     id: number;
     name: string;
@@ -8,5 +9,6 @@ declare class Reward {
     coinvalue: number;
     ratelimit: number;
     timelimit: number;
+    events: Event[];
 }
 export default Reward;

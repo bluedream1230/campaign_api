@@ -6,6 +6,9 @@ import Address from "./address.entity";
 import CreateUserDto from "./dto/createUser.dto";
 import AddressUserDto from "./dto/addressUser.dto";
 import UpdateUserDto from "./dto/updateUser.dto";
+import JoinEventDto from "./dto/joinEvent.dto";
+import CreateAttendDto from "src/attends/dto/attendCreate.dto";
+import Attend from "src/attends/attend.entity";
 
 @Injectable()
 export class UsersService {
@@ -13,7 +16,9 @@ export class UsersService {
     @InjectRepository(User)
     private usersRepository: Repository<User>,
     @InjectRepository(Address)
-    private usersAddressRepository: Repository<Address>
+    private usersAddressRepository: Repository<Address>,
+    @InjectRepository(Attend)
+    private attendsRepository: Repository<Attend>
   ) {}
 
   async getByEmail(email: string) {
@@ -62,5 +67,11 @@ export class UsersService {
       const addressId = result.identifiers[0].id;
       await this.usersRepository.update(id, { address: { id: addressId } });
     }
+  }
+
+  async joinEvent(user_id: number, id: number, joinEvent: CreateAttendDto) {
+    joinEvent.user_id = user_id;
+    joinEvent.event_id = id;
+    await this.attendsRepository.insert(joinEvent);
   }
 }

@@ -22,6 +22,8 @@ import { JwtAuthGuard } from "../auth/guards/jwt-auth.guard";
 import AddressUserDto from "./dto/addressUser.dto";
 import FindOneParams from "src/utils/findOneParams";
 import UpdateUserDto from "./dto/updateUser.dto";
+import JoinEventDto from "./dto/joinEvent.dto";
+import CreateAttendDto from "src/attends/dto/attendCreate.dto";
 
 @ApiBearerAuth()
 @ApiTags("Users")
@@ -68,6 +70,30 @@ export class UsersController {
           HttpStatus.BAD_REQUEST
         );
       }
+      throw new HttpException(
+        "Something went wrong",
+        HttpStatus.INTERNAL_SERVER_ERROR
+      );
+    }
+  }
+
+  @Patch("join/:id")
+  @UseGuards(JwtAuthGuard)
+  @ApiOperation({ summary: "Join Event" })
+  async joinEvent(
+    @Request() req,
+    @Param() { id }: FindOneParams,
+    @Body() joinedEvent: CreateAttendDto
+  ) {
+    const user_id = req.user.id;
+    try {
+      const joinEvent = await this.usersService.joinEvent(
+        Number(user_id),
+        Number(id),
+        joinedEvent
+      );
+      return joinEvent;
+    } catch (error) {
       throw new HttpException(
         "Something went wrong",
         HttpStatus.INTERNAL_SERVER_ERROR

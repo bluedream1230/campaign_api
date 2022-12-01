@@ -23,6 +23,8 @@ import CreateEventDto from "./dto/createEvent.dto";
 import UpdateEventDto from "./dto/updateEvent.dto";
 import EventsService from "./events.service";
 import RequestWithUser from "src/auth/interface/requestWithUser";
+import FindGameParams from "src/utils/findGameParams";
+import FindRewardParams from "src/utils/findRewardParams";
 
 @ApiBearerAuth()
 @ApiTags("Events")
@@ -48,16 +50,24 @@ export default class EventsController {
     return this.eventsService.getEventById(Number(id));
   }
 
-  @Post(":id")
+  @Post(":gameId:rewardId")
   @UseGuards(JwtAuthGuard)
   @ApiOperation({ summary: "Create event" })
   @ApiResponse({ status: 403, description: "Forbidden." })
   async createEvent(
-    @Param() { id }: FindOneParams,
+    @Param() { gameId }: FindGameParams,
+    @Param() { rewardId }: FindRewardParams,
     @Body() event: CreateEventDto,
     @Req() req: RequestWithUser
   ): Promise<CreateEventDto> {
-    return this.eventsService.createEvent(Number(id), event, req.user);
+    console.log("gameId: ", gameId);
+    console.log("rewardId: ", rewardId);
+    return this.eventsService.createEvent(
+      Number(gameId),
+      Number(rewardId),
+      event,
+      req.user
+    );
   }
 
   @Patch(":id")

@@ -6,11 +6,17 @@ import CreateEventDto from "./dto/createEvent.dto";
 import UpdateEventDto from "./dto/updateEvent.dto";
 import EventNotFoundException from "./exceptions/eventNotFound.exception";
 import User from "src/users/user.entity";
+import Attend from "src/attends/attend.entity";
+import Game from "src/games/game.entity";
 @Injectable()
 export default class EventsService {
   constructor(
     @InjectRepository(Event)
-    private eventsRepository: Repository<Event>
+    private eventsRepository: Repository<Event>,
+    @InjectRepository(Attend)
+    private attendsRepository: Repository<Attend>,
+    @InjectRepository(Game)
+    private gamesRepository: Repository<Game>
   ) {}
 
   async getAllEvents(user: User) {
@@ -18,7 +24,23 @@ export default class EventsService {
       .createQueryBuilder("event")
       .where(`event.userId = '${user.id}'`)
       .getMany();
-    return events;
+    const totalList = [];
+    await Promise.all(
+      events.map(async (item, index) => {
+        // item.id;
+        const users_num = await this.attendsRepository
+          .createQueryBuilder()
+          .where(`attend.event_id = '${item.id}'`)
+          .getCount();
+        const event = await this.eventsRepository
+          .createQueryBuilder("event")
+          .leftJoinAndSelect("event.game", "game")
+          .where(`event.id = '${item.id}'`)
+          .getMany();
+        totalList.push({ ...(event[0] || {}), users_num });
+      })
+    );
+    return totalList;
   }
 
   async getEventById(id: number) {
@@ -30,12 +52,20 @@ export default class EventsService {
     throw new EventNotFoundException(id);
   }
 
-  async createEvent(id: number, event: CreateEventDto, user: User) {
+  async createEvent(
+    gameId: number,
+    rewardId: number,
+    event: CreateEventDto,
+    user: User
+  ) {
     const newEvent = await this.eventsRepository.create({
       ...event,
       user: user,
       game: {
-        id,
+        id: gameId,
+      },
+      reward: {
+        id: rewardId,
       },
     });
     await this.eventsRepository.save(newEvent);

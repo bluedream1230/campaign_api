@@ -18,10 +18,13 @@ const typeorm_1 = require("@nestjs/typeorm");
 const typeorm_2 = require("typeorm");
 const user_entity_1 = require("./user.entity");
 const address_entity_1 = require("./address.entity");
+const attendCreate_dto_1 = require("../attends/dto/attendCreate.dto");
+const attend_entity_1 = require("../attends/attend.entity");
 let UsersService = class UsersService {
-    constructor(usersRepository, usersAddressRepository) {
+    constructor(usersRepository, usersAddressRepository, attendsRepository) {
         this.usersRepository = usersRepository;
         this.usersAddressRepository = usersAddressRepository;
+        this.attendsRepository = attendsRepository;
     }
     async getByEmail(email) {
         const user = await this.usersRepository.findOne({ email });
@@ -60,12 +63,19 @@ let UsersService = class UsersService {
             await this.usersRepository.update(id, { address: { id: addressId } });
         }
     }
+    async joinEvent(user_id, id, joinEvent) {
+        joinEvent.user_id = user_id;
+        joinEvent.event_id = id;
+        await this.attendsRepository.insert(joinEvent);
+    }
 };
 UsersService = __decorate([
     common_1.Injectable(),
     __param(0, typeorm_1.InjectRepository(user_entity_1.default)),
     __param(1, typeorm_1.InjectRepository(address_entity_1.default)),
+    __param(2, typeorm_1.InjectRepository(attend_entity_1.default)),
     __metadata("design:paramtypes", [typeorm_2.Repository,
+        typeorm_2.Repository,
         typeorm_2.Repository])
 ], UsersService);
 exports.UsersService = UsersService;
