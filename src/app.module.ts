@@ -16,36 +16,37 @@ import { RewardsModule } from "./rewards/rewards.module";
 import Attend from "./attends/attend.entity";
 import { AttendsModule } from "./attends/attends.module";
 import { ApisModule } from "./apis/apis.module";
+import Audience from "./audiences/audiences.entity";
+import { AudiencesModule } from "./audiences/audiences.module";
 
 // postgres://auggncnrngqcyv:5dfe3011e4a2fbe1e60ee4b323515a8be58f0ac7b6e0ceb561bf2edb44d0b7c6@ec2-3-219-135-162.compute-1.amazonaws.com:5432/dt0hlkmjdtsv6
 @Module({
   imports: [
     TypeOrmModule.forRoot({
-      type: "postgres",
-      host: "ec2-52-72-56-59.compute-1.amazonaws.com",
-      port: 5432,
-      username: "eddscxdgqmosxt",
-      password:
-        "b80a2638b11323dd01d44cf98b3b9c5ac86fa5347c870691e4b0643a44214f48",
-      database: "d6v9ipqp0h816v",
-      entities: [User, Address, Event, Game, Reward, Attend],
+      type: "mysql",
+      host: "localhost",
+      port: 3306,
+      username: "root",
+      password: "",
+      database: "zoom",
+      entities: [User, Address, Event, Game, Reward, Attend, Audience],
       synchronize: true,
-      ssl: {
-        require: true,
-        rejectUnauthorized: false,
-      },
-      // Run migrations automatically,
-      // you can disable this if you prefer running migration manually.
-      migrationsRun: false,
-      logging: false,
-      logger: "file",
+      // ssl: {
+      //   require: true,
+      //   rejectUnauthorized: false,
+      // },
+      // // Run migrations automatically,
+      // // you can disable this if you prefer running migration manually.
+      // migrationsRun: false,
+      // logging: false,
+      // logger: "file",
 
-      migrations: [__dirname + "/migrations/**/*{.ts,.js}"],
-      cli: {
-        // Location of migration should be inside src folder
-        // to be compiled into dist/ folder.
-        migrationsDir: "src/migrations",
-      },
+      // migrations: [__dirname + "/migrations/**/*{.ts,.js}"],
+      // cli: {
+      //   // Location of migration should be inside src folder
+      //   // to be compiled into dist/ folder.
+      //   migrationsDir: "src/migrations",
+      // },
     }),
     AuthModule,
     AdminUsersModule,
@@ -55,6 +56,7 @@ import { ApisModule } from "./apis/apis.module";
     RewardsModule,
     AttendsModule,
     ApisModule,
+    AudiencesModule,
   ],
   // controllers: [AppController],
   providers: [AppService],

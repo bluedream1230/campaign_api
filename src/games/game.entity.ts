@@ -1,11 +1,13 @@
 import {
   Column,
+  CreateDateColumn,
   Entity,
   JoinTable,
   ManyToMany,
   ManyToOne,
   OneToMany,
   PrimaryGeneratedColumn,
+  UpdateDateColumn,
 } from "typeorm";
 import { ApiProperty } from "@nestjs/swagger";
 import Event from "src/events/event.entity";
@@ -30,6 +32,21 @@ class Game {
   @ApiProperty()
   @Column()
   public video_url: string;
+
+  @ApiProperty()
+  @CreateDateColumn({
+    type: "timestamp", // timestamptz
+    default: () => "NOW()", // "CURRENT_TIMESTAMP(6)",
+  })
+  createdAt: Date;
+
+  @ApiProperty()
+  @UpdateDateColumn({
+    type: "timestamp",
+    default: () => "NOW()",
+    onUpdate: "NOW()",
+  })
+  updatedAt: Date;
 
   @OneToMany(() => Event, (event) => event.game)
   public events: Event[];

@@ -1,10 +1,12 @@
 import { Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
-import { Repository } from "typeorm";
+import { In, Repository } from "typeorm";
 import Event from "src/events/event.entity";
 import User from "src/users/user.entity";
 import Game from "src/games/game.entity";
 import Reward from "src/rewards/reward.entity";
+import Attend from "src/attends/attend.entity";
+import { totalmem } from "os";
 
 @Injectable()
 export default class ApisService {
@@ -16,7 +18,9 @@ export default class ApisService {
     @InjectRepository(Game)
     private gamesRepository: Repository<Game>,
     @InjectRepository(Reward)
-    private rewardsRepository: Repository<Reward>
+    private rewardsRepository: Repository<Reward>,
+    @InjectRepository(Attend)
+    private attendsRepository: Repository<Attend>
   ) {}
 
   async getEventById(id: number) {
@@ -114,5 +118,61 @@ export default class ApisService {
       SponsorPhone: user.phone,
       SponsorSubscription: user.subscription,
     };
+  }
+
+  async getUsers(user: User) {
+    const events = await this.eventsRepository.find({
+      where: {
+        user: { id: user.id },
+      },
+    });
+    const eventIds = events.map((e) => e.id);
+
+    const attendevent = await this.attendsRepository.find({
+      where: {
+        event_id: In(eventIds),
+      },
+    });
+    const totalList = [];
+
+    await Promise.all(
+      attendevent.map(async (item, index) => {
+        const fan = await this.usersRepository.findOne(item.user_id);
+        const event = await this.eventsRepository.findOne(item.event_id);
+        totalList.push({ fan, event });
+      })
+    );
+    return totalList;
+  }
+
+  async getUsersByEventId(id: number) {
+    const fans = await this.attendsRepository.find({
+      where: {
+        event_id: id,
+      },
+    });
+    const event = await this.eventsRepository.find({
+      where: {
+        id: id,
+      },
+      relations: ["game"],
+    });
+    const user_num = fans.length;
+    const totalData = [];
+    await Promise.all(
+      fans.map(async (item, index) => {
+        const fan = await this.usersRepository.findOne(item.user_id);
+        totalData.push({ fan });
+      })
+    );
+    let win_num = 0;
+    totalData.map((item, index) => {
+      if (item.fan.completion == 100) {
+        win_num++;
+      }
+      // console.log(item.fan.completion);
+    });
+    // console.log(win_num);
+    return { totalData, event, user_num, win_num };
   }
 }

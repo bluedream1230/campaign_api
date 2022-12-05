@@ -24,31 +24,22 @@ const rewards_module_1 = require("./rewards/rewards.module");
 const attend_entity_1 = require("./attends/attend.entity");
 const attends_module_1 = require("./attends/attends.module");
 const apis_module_1 = require("./apis/apis.module");
+const audiences_entity_1 = require("./audiences/audiences.entity");
+const audiences_module_1 = require("./audiences/audiences.module");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
     common_1.Module({
         imports: [
             typeorm_1.TypeOrmModule.forRoot({
-                type: "postgres",
-                host: "ec2-52-72-56-59.compute-1.amazonaws.com",
-                port: 5432,
-                username: "eddscxdgqmosxt",
-                password: "b80a2638b11323dd01d44cf98b3b9c5ac86fa5347c870691e4b0643a44214f48",
-                database: "d6v9ipqp0h816v",
-                entities: [user_entity_1.default, address_entity_1.default, event_entity_1.default, game_entity_1.default, reward_entity_1.default, attend_entity_1.default],
+                type: "mysql",
+                host: "localhost",
+                port: 3306,
+                username: "root",
+                password: "",
+                database: "zoom",
+                entities: [user_entity_1.default, address_entity_1.default, event_entity_1.default, game_entity_1.default, reward_entity_1.default, attend_entity_1.default, audiences_entity_1.default],
                 synchronize: true,
-                ssl: {
-                    require: true,
-                    rejectUnauthorized: false,
-                },
-                migrationsRun: false,
-                logging: false,
-                logger: "file",
-                migrations: [__dirname + "/migrations/**/*{.ts,.js}"],
-                cli: {
-                    migrationsDir: "src/migrations",
-                },
             }),
             auth_module_1.AuthModule,
             admin_users_module_1.AdminUsersModule,
@@ -58,6 +49,7 @@ AppModule = __decorate([
             rewards_module_1.RewardsModule,
             attends_module_1.AttendsModule,
             apis_module_1.ApisModule,
+            audiences_module_1.AudiencesModule,
         ],
         providers: [app_service_1.AppService],
     })

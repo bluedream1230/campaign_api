@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const swagger_1 = require("@nestjs/swagger");
+const class_validator_1 = require("class-validator");
 class CreateRewardDto {
 }
 __decorate([
@@ -44,5 +45,12 @@ __decorate([
     swagger_1.ApiProperty(),
     __metadata("design:type", Number)
 ], CreateRewardDto.prototype, "timelimit", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
+    class_validator_1.IsNotEmpty(),
+    class_validator_1.IsDefined(),
+    class_validator_1.IsDate(),
+    __metadata("design:type", Date)
+], CreateRewardDto.prototype, "create_date", void 0);
 exports.default = CreateRewardDto;
 //# sourceMappingURL=createReward.dto.js.map

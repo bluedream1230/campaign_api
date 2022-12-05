@@ -100,4 +100,23 @@ export class UsersController {
       );
     }
   }
+
+  @Patch("audience/:id")
+  @UseGuards(JwtAuthGuard)
+  @ApiOperation({ summary: "Join audience" })
+  async updateAudience(@Request() req, @Param() { id }: FindOneParams) {
+    const user_id = req.user.id;
+    try {
+      const updatedUser = await this.usersService.updateAudience(
+        Number(id),
+        Number(user_id)
+      );
+      return updatedUser;
+    } catch (error) {
+      throw new HttpException(
+        "Something went wrong",
+        HttpStatus.INTERNAL_SERVER_ERROR
+      );
+    }
+  }
 }

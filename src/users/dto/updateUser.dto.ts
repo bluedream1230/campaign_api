@@ -31,7 +31,7 @@ export default class UpdateUserDto {
   @ApiProperty()
   @IsDefined()
   @IsNotEmpty()
-  @IsPhoneNumber("us")
+  @IsPhoneNumber(null)
   public phone: string;
 
   @ApiProperty()
@@ -57,4 +57,10 @@ export default class UpdateUserDto {
   @IsNotEmpty()
   @IsNumber()
   public coinsused: number;
+
+  @ApiProperty()
+  @IsDefined()
+  @IsNotEmpty()
+  @IsNumber()
+  public completion: number;
 }

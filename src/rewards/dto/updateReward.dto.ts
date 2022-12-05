@@ -1,4 +1,5 @@
 import { ApiProperty } from "@nestjs/swagger";
+import { IsDate, IsDefined, IsNotEmpty } from "class-validator";
 
 export default class UpdateRewardDto {
   @ApiProperty()
@@ -24,4 +25,10 @@ export default class UpdateRewardDto {
 
   @ApiProperty()
   public timelimit: number;
+
+  @ApiProperty()
+  @IsNotEmpty()
+  @IsDefined()
+  @IsDate()
+  public create_date: Date;
 }

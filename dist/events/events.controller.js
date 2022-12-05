@@ -22,6 +22,7 @@ const events_service_1 = require("./events.service");
 const requestWithUser_1 = require("../auth/interface/requestWithUser");
 const findGameParams_1 = require("../utils/findGameParams");
 const findRewardParams_1 = require("../utils/findRewardParams");
+const findAudienceParams_1 = require("../utils/findAudienceParams");
 let EventsController = class EventsController {
     constructor(eventsService) {
         this.eventsService = eventsService;
@@ -32,10 +33,8 @@ let EventsController = class EventsController {
     getEventById({ id }) {
         return this.eventsService.getEventById(Number(id));
     }
-    async createEvent({ gameId }, { rewardId }, event, req) {
-        console.log("gameId: ", gameId);
-        console.log("rewardId: ", rewardId);
-        return this.eventsService.createEvent(Number(gameId), Number(rewardId), event, req.user);
+    async createEvent({ gameId }, { rewardId }, { audienceId }, event, req) {
+        return this.eventsService.createEvent(Number(gameId), Number(rewardId), Number(audienceId), event, req.user);
     }
     async updateEvent({ id }, event) {
         return this.eventsService.updateEvent(Number(id), event);
@@ -66,17 +65,19 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], EventsController.prototype, "getEventById", null);
 __decorate([
-    common_1.Post(":gameId:rewardId"),
+    common_1.Post(":gameId:rewardId:audienceId"),
     common_1.UseGuards(jwt_auth_guard_1.JwtAuthGuard),
     swagger_1.ApiOperation({ summary: "Create event" }),
     swagger_1.ApiResponse({ status: 403, description: "Forbidden." }),
     __param(0, common_1.Param()),
     __param(1, common_1.Param()),
-    __param(2, common_1.Body()),
-    __param(3, common_1.Req()),
+    __param(2, common_1.Param()),
+    __param(3, common_1.Body()),
+    __param(4, common_1.Req()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [findGameParams_1.default,
         findRewardParams_1.default,
+        findAudienceParams_1.default,
         createEvent_dto_1.default, Object]),
     __metadata("design:returntype", Promise)
 ], EventsController.prototype, "createEvent", null);

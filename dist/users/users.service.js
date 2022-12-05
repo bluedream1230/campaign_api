@@ -20,11 +20,14 @@ const user_entity_1 = require("./user.entity");
 const address_entity_1 = require("./address.entity");
 const attendCreate_dto_1 = require("../attends/dto/attendCreate.dto");
 const attend_entity_1 = require("../attends/attend.entity");
+const createAudience_dto_1 = require("../audiences/dto/createAudience.dto");
+const audiences_entity_1 = require("../audiences/audiences.entity");
 let UsersService = class UsersService {
-    constructor(usersRepository, usersAddressRepository, attendsRepository) {
+    constructor(usersRepository, usersAddressRepository, attendsRepository, audiencesRepository) {
         this.usersRepository = usersRepository;
         this.usersAddressRepository = usersAddressRepository;
         this.attendsRepository = attendsRepository;
+        this.audiencesRepository = audiencesRepository;
     }
     async getByEmail(email) {
         const user = await this.usersRepository.findOne({ email });
@@ -63,6 +66,12 @@ let UsersService = class UsersService {
             await this.usersRepository.update(id, { address: { id: addressId } });
         }
     }
+    async updateAudience(id, user_id) {
+        const user = await this.usersRepository.update(user_id, {
+            audience: { id: id },
+        });
+        console.log(id, user_id);
+    }
     async joinEvent(user_id, id, joinEvent) {
         joinEvent.user_id = user_id;
         joinEvent.event_id = id;
@@ -74,7 +83,9 @@ UsersService = __decorate([
     __param(0, typeorm_1.InjectRepository(user_entity_1.default)),
     __param(1, typeorm_1.InjectRepository(address_entity_1.default)),
     __param(2, typeorm_1.InjectRepository(attend_entity_1.default)),
+    __param(3, typeorm_1.InjectRepository(audiences_entity_1.default)),
     __metadata("design:paramtypes", [typeorm_2.Repository,
+        typeorm_2.Repository,
         typeorm_2.Repository,
         typeorm_2.Repository])
 ], UsersService);

@@ -12,6 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const typeorm_1 = require("typeorm");
 const swagger_1 = require("@nestjs/swagger");
 const event_entity_1 = require("../events/event.entity");
+const user_entity_1 = require("../users/user.entity");
 let Reward = class Reward {
 };
 __decorate([
@@ -58,6 +59,27 @@ __decorate([
     typeorm_1.Column(),
     __metadata("design:type", Number)
 ], Reward.prototype, "timelimit", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
+    typeorm_1.CreateDateColumn({
+        type: "timestamp",
+        default: () => "NOW()",
+    }),
+    __metadata("design:type", Date)
+], Reward.prototype, "createdAt", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
+    typeorm_1.UpdateDateColumn({
+        type: "timestamp",
+        default: () => "NOW()",
+        onUpdate: "NOW()",
+    }),
+    __metadata("design:type", Date)
+], Reward.prototype, "updatedAt", void 0);
+__decorate([
+    typeorm_1.ManyToOne(() => user_entity_1.default, (user) => user.rewards),
+    __metadata("design:type", user_entity_1.default)
+], Reward.prototype, "user", void 0);
 __decorate([
     typeorm_1.OneToMany(() => event_entity_1.default, (event) => event.reward),
     __metadata("design:type", Array)

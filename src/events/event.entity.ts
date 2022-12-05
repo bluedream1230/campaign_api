@@ -6,12 +6,15 @@ import {
   PrimaryGeneratedColumn,
   OneToOne,
   JoinColumn,
+  CreateDateColumn,
+  UpdateDateColumn,
 } from "typeorm";
 import { ApiProperty } from "@nestjs/swagger";
 import Game from "src/games/game.entity";
 import User from "src/users/user.entity";
 import Attend from "src/attends/attend.entity";
 import Reward from "src/rewards/reward.entity";
+import Audience from "src/audiences/audiences.entity";
 
 @Entity("event")
 class Event {
@@ -46,6 +49,21 @@ class Event {
   @Column()
   public event_coins: number;
 
+  @ApiProperty()
+  @CreateDateColumn({
+    type: "timestamp", // timestamptz
+    default: () => "NOW()", // "CURRENT_TIMESTAMP(6)",
+  })
+  createdAt: Date;
+
+  @ApiProperty()
+  @UpdateDateColumn({
+    type: "timestamp",
+    default: () => "NOW()",
+    onUpdate: "NOW()",
+  })
+  updatedAt: Date;
+
   @ManyToOne(() => Game, (game) => game.events)
   public game: Game;
 
@@ -55,15 +73,9 @@ class Event {
   @ManyToOne(() => Reward, (reward) => reward.events)
   public reward: Reward;
 
-  // @OneToMany(() => Attend, (attend) => attend.event)
-  // public attends: Attend[];
-
-  // @OneToOne(() => Reward, {
-  //   eager: true,
-  //   cascade: true,
-  // })
-  // @JoinColumn()
-  // public reward: Reward;
+  @OneToOne(() => Audience, (audience) => audience.id)
+  @JoinColumn()
+  public audience: Audience;
 }
 
 export default Event;

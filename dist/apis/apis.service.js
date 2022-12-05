@@ -19,12 +19,14 @@ const event_entity_1 = require("../events/event.entity");
 const user_entity_1 = require("../users/user.entity");
 const game_entity_1 = require("../games/game.entity");
 const reward_entity_1 = require("../rewards/reward.entity");
+const attend_entity_1 = require("../attends/attend.entity");
 let ApisService = class ApisService {
-    constructor(eventsRepository, usersRepository, gamesRepository, rewardsRepository) {
+    constructor(eventsRepository, usersRepository, gamesRepository, rewardsRepository, attendsRepository) {
         this.eventsRepository = eventsRepository;
         this.usersRepository = usersRepository;
         this.gamesRepository = gamesRepository;
         this.rewardsRepository = rewardsRepository;
+        this.attendsRepository = attendsRepository;
     }
     async getEventById(id) {
         const event = await this.eventsRepository.findOne(id);
@@ -116,6 +118,52 @@ let ApisService = class ApisService {
             SponsorSubscription: user.subscription,
         };
     }
+    async getUsers(user) {
+        const events = await this.eventsRepository.find({
+            where: {
+                user: { id: user.id },
+            },
+        });
+        const eventIds = events.map((e) => e.id);
+        const attendevent = await this.attendsRepository.find({
+            where: {
+                event_id: typeorm_2.In(eventIds),
+            },
+        });
+        const totalList = [];
+        await Promise.all(attendevent.map(async (item, index) => {
+            const fan = await this.usersRepository.findOne(item.user_id);
+            const event = await this.eventsRepository.findOne(item.event_id);
+            totalList.push({ fan, event });
+        }));
+        return totalList;
+    }
+    async getUsersByEventId(id) {
+        const fans = await this.attendsRepository.find({
+            where: {
+                event_id: id,
+            },
+        });
+        const event = await this.eventsRepository.find({
+            where: {
+                id: id,
+            },
+            relations: ["game"],
+        });
+        const user_num = fans.length;
+        const totalData = [];
+        await Promise.all(fans.map(async (item, index) => {
+            const fan = await this.usersRepository.findOne(item.user_id);
+            totalData.push({ fan });
+        }));
+        let win_num = 0;
+        totalData.map((item, index) => {
+            if (item.fan.completion == 100) {
+                win_num++;
+            }
+        });
+        return { totalData, event, user_num, win_num };
+    }
 };
 ApisService = __decorate([
     common_1.Injectable(),
@@ -123,7 +171,9 @@ ApisService = __decorate([
     __param(1, typeorm_1.InjectRepository(user_entity_1.default)),
     __param(2, typeorm_1.InjectRepository(game_entity_1.default)),
     __param(3, typeorm_1.InjectRepository(reward_entity_1.default)),
+    __param(4, typeorm_1.InjectRepository(attend_entity_1.default)),
     __metadata("design:paramtypes", [typeorm_2.Repository,
+        typeorm_2.Repository,
         typeorm_2.Repository,
         typeorm_2.Repository,
         typeorm_2.Repository])

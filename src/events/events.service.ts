@@ -55,6 +55,7 @@ export default class EventsService {
   async createEvent(
     gameId: number,
     rewardId: number,
+    audienceId: number,
     event: CreateEventDto,
     user: User
   ) {
@@ -66,6 +67,9 @@ export default class EventsService {
       },
       reward: {
         id: rewardId,
+      },
+      audience: {
+        id: audienceId,
       },
     });
     await this.eventsRepository.save(newEvent);

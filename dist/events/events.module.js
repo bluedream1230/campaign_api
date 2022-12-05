@@ -14,11 +14,12 @@ const events_service_1 = require("./events.service");
 const event_entity_1 = require("./event.entity");
 const attend_entity_1 = require("../attends/attend.entity");
 const game_entity_1 = require("../games/game.entity");
+const audiences_entity_1 = require("../audiences/audiences.entity");
 let EventsModule = class EventsModule {
 };
 EventsModule = __decorate([
     common_1.Module({
-        imports: [typeorm_1.TypeOrmModule.forFeature([event_entity_1.default, attend_entity_1.default, game_entity_1.default])],
+        imports: [typeorm_1.TypeOrmModule.forFeature([event_entity_1.default, attend_entity_1.default, game_entity_1.default, audiences_entity_1.default])],
         controllers: [events_controller_1.default],
         providers: [events_service_1.default],
     })

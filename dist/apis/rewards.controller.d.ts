@@ -3,7 +3,7 @@ import ApisService from "./apis.service";
 export declare class RewardsController {
     private readonly apisService;
     constructor(apisService: ApisService);
-    getRewardById({ id }: FindOneParams): Promise<{
+    getRewardById({ id }: FindOneParams, req: any): Promise<{
         EventName: string;
         RewardType: string;
         RewardCategory: string;

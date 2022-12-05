@@ -15,6 +15,7 @@ const game_entity_1 = require("../games/game.entity");
 const user_entity_1 = require("../users/user.entity");
 const attend_entity_1 = require("../attends/attend.entity");
 const reward_entity_1 = require("../rewards/reward.entity");
+const audiences_entity_1 = require("../audiences/audiences.entity");
 let Event = class Event {
 };
 __decorate([
@@ -57,6 +58,23 @@ __decorate([
     __metadata("design:type", Number)
 ], Event.prototype, "event_coins", void 0);
 __decorate([
+    swagger_1.ApiProperty(),
+    typeorm_1.CreateDateColumn({
+        type: "timestamp",
+        default: () => "NOW()",
+    }),
+    __metadata("design:type", Date)
+], Event.prototype, "createdAt", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
+    typeorm_1.UpdateDateColumn({
+        type: "timestamp",
+        default: () => "NOW()",
+        onUpdate: "NOW()",
+    }),
+    __metadata("design:type", Date)
+], Event.prototype, "updatedAt", void 0);
+__decorate([
     typeorm_1.ManyToOne(() => game_entity_1.default, (game) => game.events),
     __metadata("design:type", game_entity_1.default)
 ], Event.prototype, "game", void 0);
@@ -68,6 +86,11 @@ __decorate([
     typeorm_1.ManyToOne(() => reward_entity_1.default, (reward) => reward.events),
     __metadata("design:type", reward_entity_1.default)
 ], Event.prototype, "reward", void 0);
+__decorate([
+    typeorm_1.OneToOne(() => audiences_entity_1.default, (audience) => audience.id),
+    typeorm_1.JoinColumn(),
+    __metadata("design:type", audiences_entity_1.default)
+], Event.prototype, "audience", void 0);
 Event = __decorate([
     typeorm_1.Entity("event")
 ], Event);

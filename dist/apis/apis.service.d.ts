@@ -3,12 +3,14 @@ import Event from "src/events/event.entity";
 import User from "src/users/user.entity";
 import Game from "src/games/game.entity";
 import Reward from "src/rewards/reward.entity";
+import Attend from "src/attends/attend.entity";
 export default class ApisService {
     private eventsRepository;
     private usersRepository;
     private gamesRepository;
     private rewardsRepository;
-    constructor(eventsRepository: Repository<Event>, usersRepository: Repository<User>, gamesRepository: Repository<Game>, rewardsRepository: Repository<Reward>);
+    private attendsRepository;
+    constructor(eventsRepository: Repository<Event>, usersRepository: Repository<User>, gamesRepository: Repository<Game>, rewardsRepository: Repository<Reward>, attendsRepository: Repository<Attend>);
     getEventById(id: number): Promise<{
         SponsorID: number;
         SponsorName: string;
@@ -58,5 +60,12 @@ export default class ApisService {
         SponsorEmail: string;
         SponsorPhone: string;
         SponsorSubscription: string;
+    }>;
+    getUsers(user: User): Promise<any[]>;
+    getUsersByEventId(id: number): Promise<{
+        totalData: any[];
+        event: Event[];
+        user_num: number;
+        win_num: number;
     }>;
 }

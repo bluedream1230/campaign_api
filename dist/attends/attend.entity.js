@@ -29,6 +29,23 @@ __decorate([
     typeorm_1.Column(),
     __metadata("design:type", Number)
 ], Attend.prototype, "event_id", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
+    typeorm_1.CreateDateColumn({
+        type: "timestamp",
+        default: () => "NOW()",
+    }),
+    __metadata("design:type", Date)
+], Attend.prototype, "createdAt", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
+    typeorm_1.UpdateDateColumn({
+        type: "timestamp",
+        default: () => "NOW()",
+        onUpdate: "NOW()",
+    }),
+    __metadata("design:type", Date)
+], Attend.prototype, "updatedAt", void 0);
 Attend = __decorate([
     typeorm_1.Entity()
 ], Attend);

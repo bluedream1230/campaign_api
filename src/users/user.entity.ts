@@ -1,15 +1,21 @@
 import {
   Column,
+  CreateDateColumn,
   Entity,
   JoinColumn,
+  ManyToOne,
   OneToMany,
   OneToOne,
   PrimaryGeneratedColumn,
+  UpdateDateColumn,
 } from "typeorm";
 import Address from "./address.entity";
 import Event from "src/events/event.entity";
 import Attend from "src/attends/attend.entity";
 import { IsPhoneNumber } from "class-validator";
+import Reward from "src/rewards/reward.entity";
+import { ApiProperty } from "@nestjs/swagger";
+import Audience from "src/audiences/audiences.entity";
 
 @Entity("user")
 class User {
@@ -41,6 +47,24 @@ class User {
   @Column({ default: 0 })
   public coinsused?: number;
 
+  @Column({ default: 0 })
+  public completion: number;
+
+  @ApiProperty()
+  @CreateDateColumn({
+    type: "timestamp", // timestamptz
+    default: () => "NOW()", // "CURRENT_TIMESTAMP(6)",
+  })
+  createdAt: Date;
+
+  @ApiProperty()
+  @UpdateDateColumn({
+    type: "timestamp",
+    default: () => "NOW()",
+    onUpdate: "NOW()",
+  })
+  updatedAt: Date;
+
   // @Column({ default: 0 })
   // public join_event_id?: number;
 
@@ -54,8 +78,14 @@ class User {
   @OneToMany(() => Event, (event) => event.user)
   public events: Event[];
 
+  @OneToMany(() => Reward, (reward) => reward.user)
+  public rewards: Reward[];
+
   // @OneToMany(() => Attend, (attend) => attend.user)
   // public attends: Attend[];
+
+  @ManyToOne(() => Audience, (audience) => audience.users)
+  public audience: Audience;
 }
 
 export default User;

@@ -12,6 +12,7 @@ import {
   UseInterceptors,
   ClassSerializerInterceptor,
   Post,
+  Req,
 } from "@nestjs/common";
 import {
   ApiBearerAuth,
@@ -24,7 +25,7 @@ import FindOneParams from "src/utils/findOneParams";
 import CreateRewardDto from "./dto/createReward.dto";
 import UpdateRewardDto from "./dto/updateReward.dto";
 import RewardsService from "./rewards.service";
-
+import RequestWithUser from "src/auth/interface/requestWithUser";
 @ApiBearerAuth()
 @ApiTags("Rewards")
 @Controller("rewards")
@@ -35,8 +36,8 @@ export default class RewardsController {
   @Get()
   @UseGuards(JwtAuthGuard)
   @ApiOperation({ summary: "Get all rewards" })
-  getAllRewards() {
-    return this.rewardsService.getAllRewards();
+  getAllRewards(@Req() req: RequestWithUser) {
+    return this.rewardsService.getAllRewards(req.user);
   }
 
   @Get(":id")
@@ -52,9 +53,15 @@ export default class RewardsController {
   @Post()
   @UseGuards(JwtAuthGuard)
   @ApiOperation({ summary: "Create reward" })
-  async createReward(@Body() reward: CreateRewardDto) {
+  async createReward(
+    @Body() reward: CreateRewardDto,
+    @Req() req: RequestWithUser
+  ) {
     try {
-      const createReward = await this.rewardsService.createReward(reward);
+      const createReward = await this.rewardsService.createReward(
+        reward,
+        req.user
+      );
       return reward;
     } catch (error) {
       throw new HttpException(

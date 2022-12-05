@@ -53,11 +53,13 @@ let EventsService = class EventsService {
         }
         throw new eventNotFound_exception_1.default(id);
     }
-    async createEvent(gameId, rewardId, event, user) {
+    async createEvent(gameId, rewardId, audienceId, event, user) {
         const newEvent = await this.eventsRepository.create(Object.assign(Object.assign({}, event), { user: user, game: {
                 id: gameId,
             }, reward: {
                 id: rewardId,
+            }, audience: {
+                id: audienceId,
             } }));
         await this.eventsRepository.save(newEvent);
         return newEvent;

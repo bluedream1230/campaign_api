@@ -17,6 +17,7 @@ import {
   ApiResponse,
   ApiTags,
 } from "@nestjs/swagger";
+import { Request } from "express";
 import { JwtAuthGuard } from "src/auth/guards/jwt-auth.guard";
 import FindOneParams from "src/utils/findOneParams";
 import ApisService from "./apis.service";
@@ -34,7 +35,7 @@ export class RewardsController {
     status: 200,
     description: "The found record",
   })
-  getRewardById(@Param() { id }: FindOneParams) {
+  getRewardById(@Param() { id }: FindOneParams, @Req() req: any) {
     return this.apisService.getRewardsById(Number(id));
   }
 }

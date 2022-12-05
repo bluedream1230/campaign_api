@@ -18,16 +18,19 @@ const game_entity_1 = require("../games/game.entity");
 const reward_entity_1 = require("../rewards/reward.entity");
 const rewards_controller_1 = require("./rewards.controller");
 const sponsor_controller_1 = require("./sponsor.controller");
+const fans_controller_1 = require("./fans.controller");
+const attend_entity_1 = require("../attends/attend.entity");
 let ApisModule = class ApisModule {
 };
 ApisModule = __decorate([
     common_1.Module({
-        imports: [typeorm_1.TypeOrmModule.forFeature([event_entity_1.default, user_entity_1.default, game_entity_1.default, reward_entity_1.default])],
+        imports: [typeorm_1.TypeOrmModule.forFeature([event_entity_1.default, user_entity_1.default, game_entity_1.default, reward_entity_1.default, attend_entity_1.default])],
         controllers: [
             events_controller_1.EventsController,
             coins_Controller_1.default,
             rewards_controller_1.RewardsController,
             sponsor_controller_1.SponsorsController,
+            fans_controller_1.FansController,
         ],
         providers: [apis_service_1.default],
     })

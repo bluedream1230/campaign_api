@@ -22,7 +22,7 @@ let RewardsController = class RewardsController {
     constructor(apisService) {
         this.apisService = apisService;
     }
-    getRewardById({ id }) {
+    getRewardById({ id }, req) {
         return this.apisService.getRewardsById(Number(id));
     }
 };
@@ -33,9 +33,9 @@ __decorate([
         status: 200,
         description: "The found record",
     }),
-    __param(0, common_1.Param()),
+    __param(0, common_1.Param()), __param(1, common_1.Req()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [findOneParams_1.default]),
+    __metadata("design:paramtypes", [findOneParams_1.default, Object]),
     __metadata("design:returntype", void 0)
 ], RewardsController.prototype, "getRewardById", null);
 RewardsController = __decorate([

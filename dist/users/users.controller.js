@@ -58,6 +58,16 @@ let UsersController = class UsersController {
             throw new common_1.HttpException("Something went wrong", common_1.HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+    async updateAudience(req, { id }) {
+        const user_id = req.user.id;
+        try {
+            const updatedUser = await this.usersService.updateAudience(Number(id), Number(user_id));
+            return updatedUser;
+        }
+        catch (error) {
+            throw new common_1.HttpException("Something went wrong", common_1.HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 };
 __decorate([
     common_1.Patch("update"),
@@ -91,6 +101,15 @@ __decorate([
         attendCreate_dto_1.default]),
     __metadata("design:returntype", Promise)
 ], UsersController.prototype, "joinEvent", null);
+__decorate([
+    common_1.Patch("audience/:id"),
+    common_1.UseGuards(jwt_auth_guard_1.JwtAuthGuard),
+    swagger_1.ApiOperation({ summary: "Join audience" }),
+    __param(0, common_1.Request()), __param(1, common_1.Param()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object, findOneParams_1.default]),
+    __metadata("design:returntype", Promise)
+], UsersController.prototype, "updateAudience", null);
 UsersController = __decorate([
     swagger_1.ApiBearerAuth(),
     swagger_1.ApiTags("Users"),

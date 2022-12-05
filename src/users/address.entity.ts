@@ -1,4 +1,11 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { ApiProperty } from "@nestjs/swagger";
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+} from "typeorm";
 
 @Entity()
 class Address {
@@ -19,6 +26,20 @@ class Address {
 
   @Column()
   public zip: string;
+  @ApiProperty()
+  @CreateDateColumn({
+    type: "timestamp", // timestamptz
+    default: () => "NOW()", // "CURRENT_TIMESTAMP(6)",
+  })
+  createdAt: Date;
+
+  @ApiProperty()
+  @UpdateDateColumn({
+    type: "timestamp",
+    default: () => "NOW()",
+    onUpdate: "NOW()",
+  })
+  updatedAt: Date;
 }
 
 export default Address;

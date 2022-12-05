@@ -5,5 +5,7 @@ declare class Address {
     city: string;
     state: string;
     zip: string;
+    createdAt: Date;
+    updatedAt: Date;
 }
 export default Address;

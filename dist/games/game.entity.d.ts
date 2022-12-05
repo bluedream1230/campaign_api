@@ -5,6 +5,8 @@ declare class Game {
     type: string;
     duration: string;
     video_url: string;
+    createdAt: Date;
+    updatedAt: Date;
     events: Event[];
 }
 export default Game;

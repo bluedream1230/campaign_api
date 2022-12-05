@@ -39,6 +39,23 @@ __decorate([
     __metadata("design:type", String)
 ], Game.prototype, "video_url", void 0);
 __decorate([
+    swagger_1.ApiProperty(),
+    typeorm_1.CreateDateColumn({
+        type: "timestamp",
+        default: () => "NOW()",
+    }),
+    __metadata("design:type", Date)
+], Game.prototype, "createdAt", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
+    typeorm_1.UpdateDateColumn({
+        type: "timestamp",
+        default: () => "NOW()",
+        onUpdate: "NOW()",
+    }),
+    __metadata("design:type", Date)
+], Game.prototype, "updatedAt", void 0);
+__decorate([
     typeorm_1.OneToMany(() => event_entity_1.default, (event) => event.game),
     __metadata("design:type", Array)
 ], Game.prototype, "events", void 0);

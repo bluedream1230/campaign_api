@@ -9,4 +9,5 @@ export declare class UsersController {
     update(req: any, updateUser: UpdateUserDto): Promise<import("typeorm").UpdateResult>;
     updatedAddress({ id }: FindOneParams, addressData: AddressUserDto): Promise<AddressUserDto>;
     joinEvent(req: any, { id }: FindOneParams, joinedEvent: CreateAttendDto): Promise<void>;
+    updateAudience(req: any, { id }: FindOneParams): Promise<void>;
 }

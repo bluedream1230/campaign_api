@@ -19,19 +19,20 @@ const findOneParams_1 = require("../utils/findOneParams");
 const createReward_dto_1 = require("./dto/createReward.dto");
 const updateReward_dto_1 = require("./dto/updateReward.dto");
 const rewards_service_1 = require("./rewards.service");
+const requestWithUser_1 = require("../auth/interface/requestWithUser");
 let RewardsController = class RewardsController {
     constructor(rewardsService) {
         this.rewardsService = rewardsService;
     }
-    getAllRewards() {
-        return this.rewardsService.getAllRewards();
+    getAllRewards(req) {
+        return this.rewardsService.getAllRewards(req.user);
     }
     getRewardById({ id }) {
         return this.rewardsService.getRewardById(Number(id));
     }
-    async createReward(reward) {
+    async createReward(reward, req) {
         try {
-            const createReward = await this.rewardsService.createReward(reward);
+            const createReward = await this.rewardsService.createReward(reward, req.user);
             return reward;
         }
         catch (error) {
@@ -49,8 +50,9 @@ __decorate([
     common_1.Get(),
     common_1.UseGuards(jwt_auth_guard_1.JwtAuthGuard),
     swagger_1.ApiOperation({ summary: "Get all rewards" }),
+    __param(0, common_1.Req()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
+    __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", void 0)
 ], RewardsController.prototype, "getAllRewards", null);
 __decorate([
@@ -70,8 +72,9 @@ __decorate([
     common_1.UseGuards(jwt_auth_guard_1.JwtAuthGuard),
     swagger_1.ApiOperation({ summary: "Create reward" }),
     __param(0, common_1.Body()),
+    __param(1, common_1.Req()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [createReward_dto_1.default]),
+    __metadata("design:paramtypes", [createReward_dto_1.default, Object]),
     __metadata("design:returntype", Promise)
 ], RewardsController.prototype, "createReward", null);
 __decorate([

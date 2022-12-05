@@ -12,7 +12,7 @@ export default class EventsService {
     constructor(eventsRepository: Repository<Event>, attendsRepository: Repository<Attend>, gamesRepository: Repository<Game>);
     getAllEvents(user: User): Promise<any[]>;
     getEventById(id: number): Promise<Event>;
-    createEvent(gameId: number, rewardId: number, event: CreateEventDto, user: User): Promise<Event>;
+    createEvent(gameId: number, rewardId: number, audienceId: number, event: CreateEventDto, user: User): Promise<Event>;
     updateEvent(id: number, event: UpdateEventDto): Promise<void>;
     deleteEvent(id: number): Promise<void>;
 }

@@ -13,6 +13,9 @@ const typeorm_1 = require("typeorm");
 const address_entity_1 = require("./address.entity");
 const event_entity_1 = require("../events/event.entity");
 const attend_entity_1 = require("../attends/attend.entity");
+const reward_entity_1 = require("../rewards/reward.entity");
+const swagger_1 = require("@nestjs/swagger");
+const audiences_entity_1 = require("../audiences/audiences.entity");
 let User = class User {
 };
 __decorate([
@@ -52,6 +55,27 @@ __decorate([
     __metadata("design:type", Number)
 ], User.prototype, "coinsused", void 0);
 __decorate([
+    typeorm_1.Column({ default: 0 }),
+    __metadata("design:type", Number)
+], User.prototype, "completion", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
+    typeorm_1.CreateDateColumn({
+        type: "timestamp",
+        default: () => "NOW()",
+    }),
+    __metadata("design:type", Date)
+], User.prototype, "createdAt", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
+    typeorm_1.UpdateDateColumn({
+        type: "timestamp",
+        default: () => "NOW()",
+        onUpdate: "NOW()",
+    }),
+    __metadata("design:type", Date)
+], User.prototype, "updatedAt", void 0);
+__decorate([
     typeorm_1.OneToOne(() => address_entity_1.default, {
         eager: true,
         cascade: true,
@@ -63,6 +87,14 @@ __decorate([
     typeorm_1.OneToMany(() => event_entity_1.default, (event) => event.user),
     __metadata("design:type", Array)
 ], User.prototype, "events", void 0);
+__decorate([
+    typeorm_1.OneToMany(() => reward_entity_1.default, (reward) => reward.user),
+    __metadata("design:type", Array)
+], User.prototype, "rewards", void 0);
+__decorate([
+    typeorm_1.ManyToOne(() => audiences_entity_1.default, (audience) => audience.users),
+    __metadata("design:type", audiences_entity_1.default)
+], User.prototype, "audience", void 0);
 User = __decorate([
     typeorm_1.Entity("user")
 ], User);

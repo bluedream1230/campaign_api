@@ -9,6 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+const swagger_1 = require("@nestjs/swagger");
 const typeorm_1 = require("typeorm");
 let Address = class Address {
 };
@@ -36,6 +37,23 @@ __decorate([
     typeorm_1.Column(),
     __metadata("design:type", String)
 ], Address.prototype, "zip", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
+    typeorm_1.CreateDateColumn({
+        type: "timestamp",
+        default: () => "NOW()",
+    }),
+    __metadata("design:type", Date)
+], Address.prototype, "createdAt", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
+    typeorm_1.UpdateDateColumn({
+        type: "timestamp",
+        default: () => "NOW()",
+        onUpdate: "NOW()",
+    }),
+    __metadata("design:type", Date)
+], Address.prototype, "updatedAt", void 0);
 Address = __decorate([
     typeorm_1.Entity()
 ], Address);

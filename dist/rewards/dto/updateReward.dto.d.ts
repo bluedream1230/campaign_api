@@ -7,4 +7,5 @@ export default class UpdateRewardDto {
     coinvalue: number;
     ratelimit: number;
     timelimit: number;
+    create_date: Date;
 }

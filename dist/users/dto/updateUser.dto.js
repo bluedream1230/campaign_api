@@ -39,7 +39,7 @@ __decorate([
     swagger_1.ApiProperty(),
     class_validator_1.IsDefined(),
     class_validator_1.IsNotEmpty(),
-    class_validator_1.IsPhoneNumber("us"),
+    class_validator_1.IsPhoneNumber(null),
     __metadata("design:type", String)
 ], UpdateUserDto.prototype, "phone", void 0);
 __decorate([
@@ -70,5 +70,12 @@ __decorate([
     class_validator_1.IsNumber(),
     __metadata("design:type", Number)
 ], UpdateUserDto.prototype, "coinsused", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
+    class_validator_1.IsDefined(),
+    class_validator_1.IsNotEmpty(),
+    class_validator_1.IsNumber(),
+    __metadata("design:type", Number)
+], UpdateUserDto.prototype, "completion", void 0);
 exports.default = UpdateUserDto;
 //# sourceMappingURL=updateUser.dto.js.map

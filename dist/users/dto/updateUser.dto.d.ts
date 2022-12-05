@@ -7,4 +7,5 @@ export default class UpdateUserDto {
     password: string;
     coins: number;
     coinsused: number;
+    completion: number;
 }
