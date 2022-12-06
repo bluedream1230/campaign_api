@@ -48,4 +48,4 @@ jobs:
           hosts: ${{secrets.PROD_USER}}@${{secrets.PROD_HOST}}
           privateKey: ${{ secrets.PROD_SSH_KEY }}
           debug: false
-          command: /home/ubuntu/campaign_api/deploy.sh
+          command: campaign_api/deploy.sh
