@@ -45,7 +45,7 @@ jobs:
         env:
           NAME: "Root"
         with:
-          hosts: ${{secrets.PROD_USER}}@${{secrets.PROD_HOST}}
+          hosts: ${{secrets.PROD_USER}}@${{secrets.PROD_HOST}}:22
           privateKey: ${{ secrets.PROD_SSH_KEY }}
           debug: false
           command: campaign_api/deploy.sh
