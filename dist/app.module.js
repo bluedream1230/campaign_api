@@ -8,12 +8,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppModule = void 0;
 const common_1 = require("@nestjs/common");
+const config_1 = require("@nestjs/config");
 const app_service_1 = require("./app.service");
 const auth_module_1 = require("./auth/auth.module");
 const admin_users_module_1 = require("./adminUsers/admin.users.module");
 const typeorm_1 = require("@nestjs/typeorm");
 const user_entity_1 = require("./users/user.entity");
-const address_entity_1 = require("./users/address.entity");
+const bill_entity_1 = require("./users/bill.entity");
 const event_entity_1 = require("./events/event.entity");
 const users_module_1 = require("./users/users.module");
 const events_module_1 = require("./events/events.module");
@@ -26,6 +27,7 @@ const attends_module_1 = require("./attends/attends.module");
 const apis_module_1 = require("./apis/apis.module");
 const audiences_entity_1 = require("./audiences/audiences.entity");
 const audiences_module_1 = require("./audiences/audiences.module");
+const sendgrid_service_1 = require("./sendgrid/sendgrid.service");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
@@ -38,7 +40,7 @@ AppModule = __decorate([
                 username: "root",
                 password: "",
                 database: "zoom",
-                entities: [user_entity_1.default, address_entity_1.default, event_entity_1.default, game_entity_1.default, reward_entity_1.default, attend_entity_1.default, audiences_entity_1.default],
+                entities: [user_entity_1.default, bill_entity_1.default, event_entity_1.default, game_entity_1.default, reward_entity_1.default, attend_entity_1.default, audiences_entity_1.default],
                 synchronize: true,
             }),
             auth_module_1.AuthModule,
@@ -50,8 +52,10 @@ AppModule = __decorate([
             attends_module_1.AttendsModule,
             apis_module_1.ApisModule,
             audiences_module_1.AudiencesModule,
+            config_1.ConfigModule.forRoot(),
         ],
-        providers: [app_service_1.AppService],
+        controllers: [],
+        providers: [app_service_1.AppService, sendgrid_service_1.SendgridService],
     })
 ], AppModule);
 exports.AppModule = AppModule;

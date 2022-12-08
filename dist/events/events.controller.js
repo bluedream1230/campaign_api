@@ -65,7 +65,7 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], EventsController.prototype, "getEventById", null);
 __decorate([
-    common_1.Post(":gameId:rewardId:audienceId"),
+    common_1.Post(":gameId&:rewardId&:audienceId"),
     common_1.UseGuards(jwt_auth_guard_1.JwtAuthGuard),
     swagger_1.ApiOperation({ summary: "Create event" }),
     swagger_1.ApiResponse({ status: 403, description: "Forbidden." }),

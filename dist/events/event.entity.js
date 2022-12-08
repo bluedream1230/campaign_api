@@ -87,12 +87,24 @@ __decorate([
     __metadata("design:type", reward_entity_1.default)
 ], Event.prototype, "reward", void 0);
 __decorate([
-    typeorm_1.OneToOne(() => audiences_entity_1.default, (audience) => audience.id),
-    typeorm_1.JoinColumn(),
+    typeorm_1.ManyToOne(() => audiences_entity_1.default, (audience) => audience.id),
     __metadata("design:type", audiences_entity_1.default)
 ], Event.prototype, "audience", void 0);
 Event = __decorate([
-    typeorm_1.Entity("event")
+    typeorm_1.Entity("event"),
+    typeorm_1.Index([
+        "name",
+        "location",
+        "start_time",
+        "end_time",
+        "user_limit",
+        "qr_code",
+        "event_coins",
+        "game",
+        "user",
+        "audience",
+        "reward",
+    ], { unique: true })
 ], Event);
 exports.default = Event;
 //# sourceMappingURL=event.entity.js.map

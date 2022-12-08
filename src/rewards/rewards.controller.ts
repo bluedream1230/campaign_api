@@ -33,11 +33,18 @@ import RequestWithUser from "src/auth/interface/requestWithUser";
 export default class RewardsController {
   constructor(private readonly rewardsService: RewardsService) {}
 
+  @Get("rewardsinfo")
+  @UseGuards(JwtAuthGuard)
+  @ApiOperation({ summary: "Get all rewards and info" })
+  getAllRewards(@Req() req: RequestWithUser) {
+    return this.rewardsService.getAllRewards(req.user);
+  }
+
   @Get()
   @UseGuards(JwtAuthGuard)
   @ApiOperation({ summary: "Get all rewards" })
-  getAllRewards(@Req() req: RequestWithUser) {
-    return this.rewardsService.getAllRewards(req.user);
+  getOnlyRewards(@Req() req: RequestWithUser) {
+    return this.rewardsService.getOnlyRewards(req.user);
   }
 
   @Get(":id")

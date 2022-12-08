@@ -7,6 +7,7 @@ import {
   UseGuards,
   HttpStatus,
   HttpException,
+  Param,
 } from "@nestjs/common";
 import { AuthService } from "../auth/auth.service";
 import { JwtAuthGuard } from "../auth/guards/jwt-auth.guard";
@@ -20,6 +21,8 @@ import {
 } from "@nestjs/swagger";
 import LoginUserDto from "../users/dto/loginUser.dto";
 import CreateUserDto from "../users/dto/createUser.dto";
+import FindOneParams from "src/utils/findOneParams";
+import UpdatePassDto from "src/users/dto/updatePass.dto";
 
 @ApiTags("Authentication")
 @Controller("auth")
@@ -59,5 +62,20 @@ export class AuthController {
         HttpStatus.INTERNAL_SERVER_ERROR
       );
     }
+  }
+
+  @Get("user/:id")
+  @ApiResponse({
+    status: 200,
+    description: "The found record",
+  })
+  getUserById(@Param() { id }: FindOneParams) {
+    return this.usersService.getById(Number(id));
+  }
+
+  @Post("updatePass")
+  @ApiOperation({ summary: "Update password" })
+  async updatepass(@Body() registrationData: UpdatePassDto) {
+    return this.usersService.updatePassword(registrationData);
   }
 }

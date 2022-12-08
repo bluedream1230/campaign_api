@@ -46,7 +46,8 @@ __decorate([
     __metadata("design:type", Array)
 ], Audience.prototype, "users", void 0);
 Audience = __decorate([
-    typeorm_1.Entity("audience")
+    typeorm_1.Entity("audience"),
+    typeorm_1.Index(["name"], { unique: true })
 ], Audience);
 exports.default = Audience;
 //# sourceMappingURL=audiences.entity.js.map

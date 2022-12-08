@@ -1161,6 +1161,66 @@
         "signature": "ceadf8ae9b705cdfa854ab0efc44d22509e8e2a0d9ff35206bde3a954e469f07",
         "affectsGlobalScope": false
       },
+      "../node_modules/@nestjs/config/dist/types/config.type.d.ts": {
+        "version": "839d15098cc51d756b67acda281788779645cbf8e95571897951afb52ea6535a",
+        "signature": "839d15098cc51d756b67acda281788779645cbf8e95571897951afb52ea6535a",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/config/dist/types/no-infer.type.d.ts": {
+        "version": "443e3123c41da4e34ba5bd439b892f01c8af842692bb943a1c5f5dccd4d3c764",
+        "signature": "443e3123c41da4e34ba5bd439b892f01c8af842692bb943a1c5f5dccd4d3c764",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/config/dist/types/index.d.ts": {
+        "version": "d83ad6de2cfa93597d4dcf9877b77864d8dfefe141b0a733b1549051b8ca4455",
+        "signature": "d83ad6de2cfa93597d4dcf9877b77864d8dfefe141b0a733b1549051b8ca4455",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/config/dist/config.service.d.ts": {
+        "version": "06efa4e009c1053d39207cdbcc3c1a284871336e4801752e18fe3fce1ca2b025",
+        "signature": "06efa4e009c1053d39207cdbcc3c1a284871336e4801752e18fe3fce1ca2b025",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/config/dist/interfaces/config-factory.interface.d.ts": {
+        "version": "c216ce81e0306d4d666bf06375f5c2693e7c6b2bc920d1939d956ab01656f744",
+        "signature": "c216ce81e0306d4d666bf06375f5c2693e7c6b2bc920d1939d956ab01656f744",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/config/dist/interfaces/config-module-options.interface.d.ts": {
+        "version": "a7184b8922290d1917d520ecc9418f65b06673cacbbddd96192f4e9bca3c3fcb",
+        "signature": "a7184b8922290d1917d520ecc9418f65b06673cacbbddd96192f4e9bca3c3fcb",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/config/dist/interfaces/index.d.ts": {
+        "version": "ced3404358800496232fbeb884d609b9ba7e2a4d7aca3dfe33beea0e59f1785a",
+        "signature": "ced3404358800496232fbeb884d609b9ba7e2a4d7aca3dfe33beea0e59f1785a",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/config/dist/config.module.d.ts": {
+        "version": "a2b4d9eaa8904e1b094a53b940b8973aefecab92b9cd3d494caad2c13e79339d",
+        "signature": "a2b4d9eaa8904e1b094a53b940b8973aefecab92b9cd3d494caad2c13e79339d",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/config/dist/utils/register-as.util.d.ts": {
+        "version": "1d2254ab5fdfd1f346a6e8d03ec698954dd330fdafc2942b77366a052571eab7",
+        "signature": "1d2254ab5fdfd1f346a6e8d03ec698954dd330fdafc2942b77366a052571eab7",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/config/dist/utils/index.d.ts": {
+        "version": "3ced8d48c62c5f6ecdba0e8e745156fc991a81d042a7639b713d615e5b2fe4a6",
+        "signature": "3ced8d48c62c5f6ecdba0e8e745156fc991a81d042a7639b713d615e5b2fe4a6",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/config/dist/index.d.ts": {
+        "version": "e3e43b2ee33a384c872f243e52aa8faa1ccd69a7c0bb44eb878d4ff662cd1991",
+        "signature": "e3e43b2ee33a384c872f243e52aa8faa1ccd69a7c0bb44eb878d4ff662cd1991",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@nestjs/config/index.d.ts": {
+        "version": "8f1241f5d9f0d3d72117768b3c974e462840fbd85026fb66685078945404cf2f",
+        "signature": "8f1241f5d9f0d3d72117768b3c974e462840fbd85026fb66685078945404cf2f",
+        "affectsGlobalScope": false
+      },
       "../src/app.service.ts": {
         "version": "5d4242d50092a353e5ab1f06663a89dbc714c7d9d70072ea03c83c5b14750f05",
         "signature": "d8f4cb0109c1b399d657807fd6af504d74a9300325e0fc915abdbf658b464a97",
@@ -3456,9 +3516,9 @@
         "signature": "8f1241f5d9f0d3d72117768b3c974e462840fbd85026fb66685078945404cf2f",
         "affectsGlobalScope": false
       },
-      "../src/users/address.entity.ts": {
-        "version": "fc45bb5d64f27dd00b16f590d31a6dffa095053a88c8162a4ca3b1a38dd87e8e",
-        "signature": "5b98c7827fd68975487e0f9fee3998f193cb0b2d9625bb6e5a398b93d11a9ce8",
+      "../src/users/bill.entity.ts": {
+        "version": "fb2ab1d5a255c4e6b5bdee9949570508ac00bd27418af2aae90cf6d2a584fe8b",
+        "signature": "796b67d439d2c2e63afb71696484a0ffb2aba07db4768fdc6d248b79acbf5143",
         "affectsGlobalScope": false
       },
       "../src/games/game.entity.ts": {
@@ -3467,22 +3527,22 @@
         "affectsGlobalScope": false
       },
       "../src/attends/attend.entity.ts": {
-        "version": "8d71aea4e0173b4ba9cce8da64c4688c1fb3685f8ab14216d9af754c5f9a2146",
+        "version": "8b7d3a39127f104d55989d42404915f0ed235f0dce62da70e66d68114b647abb",
         "signature": "09cd0bcc282cf166dbca81f54b69a4dffd4eaf55421bfde7d3b86db1b5ab479e",
         "affectsGlobalScope": false
       },
       "../src/rewards/reward.entity.ts": {
-        "version": "e1a6b1bdd84c79c062885093051ff1aa4ad333a3c628ae4c2f7c68dfe8aca824",
+        "version": "35ea5adff5f53969887ee6b4e85545171954737d034c4b4ad877607bf09a206b",
         "signature": "57843a53c18de5bbcde2c2b9082e1ce025afff0d796d006cb9236702bb1164b5",
         "affectsGlobalScope": false
       },
       "../src/audiences/audiences.entity.ts": {
-        "version": "df3d6889581a79bed7bdb6a8fc3a5cf57fea7f6a9dddf07f39b936be1c72b9b0",
+        "version": "2c8f852c025b028b3eab8a71b8c46fff6c472fbdedd22e08bf1d59a7222c6bc4",
         "signature": "e9e94eaaf16b91142332112afdffd5ce915a27d20bbcc80463b74e1f8d7f6dc8",
         "affectsGlobalScope": false
       },
       "../src/events/event.entity.ts": {
-        "version": "2911345767c31e8eea1f932aaec4308a9585369c2a4ebae282dd90b4a8043ca5",
+        "version": "e4cac472661cf5f3c78226053c0edb9b393404d40516b530626c7d65da1256c9",
         "signature": "f4f551c7106a384809dea2acc66d2641c7d31f72679d24ed14b417f7de53eae1",
         "affectsGlobalScope": false
       },
@@ -4102,23 +4162,23 @@
         "affectsGlobalScope": false
       },
       "../src/users/user.entity.ts": {
-        "version": "f91802b952b9b47187c5a9b535598aeee2be9fdd10a168814ed4bd3185b89112",
-        "signature": "c1cf035f2f673da1db7f53ca26a7ccd4f040aedb345e612baf557cf7e76b8f54",
+        "version": "e1b6d4734adaecbba6d026b3a76d367357be77c0ccd90ba203149b20d9cd4938",
+        "signature": "8446de1d9220998221fe6a5822888148af80475de5e68c73d89984c771081027",
         "affectsGlobalScope": false
       },
       "../src/users/dto/createuser.dto.ts": {
-        "version": "4a847ebb2cc9ea5a14a3db3bbb13ce268e8ca8bdf13aa3095d4f9a543b3faabe",
+        "version": "0bb2abe36dbf8f7979180883eb92a890724526de31b750a0d3d4eed2f9882c63",
         "signature": "12ce09f4d3e90808178ded61cc98b82f18fbc24b606eb2f6dcf0555bb01aaf63",
         "affectsGlobalScope": false
       },
-      "../src/users/dto/addressuser.dto.ts": {
-        "version": "668db68cab428c2ee7532658e8de612b8897bba34729508f1fd2ce2fe5ac0e79",
-        "signature": "40571b1502e87cfb956b1d193be9f552b9d22e6dc60bea5353465ba12aa86686",
+      "../src/users/dto/billuser.dto.ts": {
+        "version": "671ac00162ecf077f4d7cc6e04a2a4f68f02a47638f640ba477c217006e62dec",
+        "signature": "0e7786d084fe08251302870c4f02c95e47933c94a6bd0932ab52bbf9e41fb6e8",
         "affectsGlobalScope": false
       },
       "../src/users/dto/updateuser.dto.ts": {
-        "version": "35ac858d2f640b805a409a4f6aafc5a908a3de7ad8329ef2b2bd583fef9dadb7",
-        "signature": "923e7807dcf6dfb6ded9c12c28e83b740357d6b42d98d55c795fa18d2e2c549d",
+        "version": "c0ca01438e7abcf25138e2e84f04022f6172f8eb6a21043ed6ca4f9f33b30231",
+        "signature": "5d70d39f771bb2e715331008c2aa1733989a5e409c2852f2579a9da247fa99c2",
         "affectsGlobalScope": false
       },
       "../src/users/dto/joinevent.dto.ts": {
@@ -4136,9 +4196,14 @@
         "signature": "b05375e5acbbbcfbddc0f9ced43f933ea44597d7af64e32aa609ece9a0b99177",
         "affectsGlobalScope": false
       },
+      "../src/users/dto/updatepass.dto.ts": {
+        "version": "f304ba135fb99800f70c32723e119d66f4d87d7dd751e39e60a14f8d90a0adf3",
+        "signature": "29c9701c5a74ff5568b8dda9909b53cddcd965fef368231efb252a490619cd2d",
+        "affectsGlobalScope": false
+      },
       "../src/users/users.service.ts": {
-        "version": "cf94b11a481ec7f719716b67e05de8556cf55afa05e65cd684eac91e53eaeb4e",
-        "signature": "7af58ae70424787f736aaee219a2f1af148f7fddf42bf29205c80da8e9af7dd1",
+        "version": "15b1a1e02e2cd668f41bae3964e97ccc714a39db8df776f93d3769a395e7b54a",
+        "signature": "d927d6584607e71de63ad0b16a1dbafbdf7458018b562dff20a5e6ecf99b3034",
         "affectsGlobalScope": false
       },
       "../src/database/postgreserrorcode.enum.ts": {
@@ -4157,12 +4222,112 @@
         "affectsGlobalScope": false
       },
       "../src/users/users.controller.ts": {
-        "version": "a2dc45cc9a271249e6a02abcc91e0161cbb1ec17295a92dd2fbda5d031514e4a",
-        "signature": "f2ea5418f200f56fda9cccbe4174a44c91295463f6996e9b4156d15fe3f3c85e",
+        "version": "e10013a6bae20205633a5dedef0fb00e8dd6461e8a0a4b5fbf9dc06f1a94b54b",
+        "signature": "bcf6d8bedd0cfe92c7c45428726875d36d2149663c3e5ffda946a90b61d0ad0d",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@sendgrid/helpers/classes/attachment.d.ts": {
+        "version": "d54b8bf170290a4b87701ab6d1143ef0a55415b36b42b57f019fb62b1c435bed",
+        "signature": "d54b8bf170290a4b87701ab6d1143ef0a55415b36b42b57f019fb62b1c435bed",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@sendgrid/helpers/classes/email-address.d.ts": {
+        "version": "4b2ebe59f23314851c4cf4d65b194e3a65b68bdf0cdc1be2ffe19406605c9694",
+        "signature": "4b2ebe59f23314851c4cf4d65b194e3a65b68bdf0cdc1be2ffe19406605c9694",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@sendgrid/helpers/classes/personalization.d.ts": {
+        "version": "ddbffcbd0335b4e43f2e1771861b6e85f34fa12375dd0565caab4cbd83708985",
+        "signature": "ddbffcbd0335b4e43f2e1771861b6e85f34fa12375dd0565caab4cbd83708985",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@sendgrid/helpers/classes/mail.d.ts": {
+        "version": "78405540cf6aa0ee0b65a85a0ff17a3eebfd74c565d1bdcb0815c9327ccf2554",
+        "signature": "78405540cf6aa0ee0b65a85a0ff17a3eebfd74c565d1bdcb0815c9327ccf2554",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@sendgrid/helpers/classes/response.d.ts": {
+        "version": "dbd416a31ba77a6d90ea4163c2fff64c675d7377bf4c637776e0b08fc225db48",
+        "signature": "dbd416a31ba77a6d90ea4163c2fff64c675d7377bf4c637776e0b08fc225db48",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@sendgrid/helpers/classes/response-error.d.ts": {
+        "version": "5b54a276dde01f6f7120b4ead0bce82dfdd6a52e0e001a2fd5f0ccc6f470fa6b",
+        "signature": "5b54a276dde01f6f7120b4ead0bce82dfdd6a52e0e001a2fd5f0ccc6f470fa6b",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@sendgrid/helpers/classes/index.d.ts": {
+        "version": "360de32ec39b1699ade98153c3f8351988e85b878bdf12907fd39398aa8a8fe0",
+        "signature": "360de32ec39b1699ade98153c3f8351988e85b878bdf12907fd39398aa8a8fe0",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@sendgrid/helpers/classes/request.d.ts": {
+        "version": "0a9584867a25e2f2db31244e887b0afaad520da2a8bae39dc3b595e2338f0c29",
+        "signature": "0a9584867a25e2f2db31244e887b0afaad520da2a8bae39dc3b595e2338f0c29",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@sendgrid/client/src/request.d.ts": {
+        "version": "404d0cb13e779108e74a5b1e02ec10a8e9933b825f300c797ba4558451784de5",
+        "signature": "404d0cb13e779108e74a5b1e02ec10a8e9933b825f300c797ba4558451784de5",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@sendgrid/client/src/response.d.ts": {
+        "version": "4ffee86e26af85318716d9a053a33b2659c987a9492015435b213f0ccf04a491",
+        "signature": "4ffee86e26af85318716d9a053a33b2659c987a9492015435b213f0ccf04a491",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@sendgrid/client/src/client.d.ts": {
+        "version": "f7a592828f97073c2eb274e16daed10d8f7c82a015a7d4694f3d40a09a559eeb",
+        "signature": "f7a592828f97073c2eb274e16daed10d8f7c82a015a7d4694f3d40a09a559eeb",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@sendgrid/client/index.d.ts": {
+        "version": "c9d70252b35da8cb8137d70b02a383e7edc3c2e1e6c37ea87ffef982a7eaf644",
+        "signature": "c9d70252b35da8cb8137d70b02a383e7edc3c2e1e6c37ea87ffef982a7eaf644",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@sendgrid/mail/src/mail.d.ts": {
+        "version": "46c59c3569d97822d42a003eb02cd5f0eb88676e12abcc8ce249675ea8d5c4ef",
+        "signature": "46c59c3569d97822d42a003eb02cd5f0eb88676e12abcc8ce249675ea8d5c4ef",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@sendgrid/mail/index.d.ts": {
+        "version": "c4aa043e77a847629a298e6182d4bae576f6c6e2f309f3ae11c58ed79b0dab64",
+        "signature": "c4aa043e77a847629a298e6182d4bae576f6c6e2f309f3ae11c58ed79b0dab64",
+        "affectsGlobalScope": false
+      },
+      "../src/sendgrid/sendgrid.service.ts": {
+        "version": "9424ac3bf3ddaed0a6a218dfe40e684fccede627edd850a91d4f6c385d3772fe",
+        "signature": "f9b1c5e374e8e69534c98783926acbfd2233f2ec73b74827d1d6d1678371eb68",
+        "affectsGlobalScope": false
+      },
+      "../src/sendgrid/dto/createtext.dto.ts": {
+        "version": "cda6284610a22c6e316d182a5905f8902c5d85d7f272635da4d2ef9d17e1fc32",
+        "signature": "9dfaf544ffe6d8dfa05ce1e53a3348d3c82bbd4fa8bf64fbe06557991b1eaed6",
+        "affectsGlobalScope": false
+      },
+      "../src/sendgrid/dto/forgotpassword.dto.ts": {
+        "version": "02bddbea929d9a7c6613c7a8fe7a09efc881f5770d73174b02ab0037fd9ebfd1",
+        "signature": "0225a001de64a9cf37685b6fe4eabce11f85734331b94c80e9bf57bd9cb47ae9",
+        "affectsGlobalScope": false
+      },
+      "../src/sendgrid/emailhtml.ts": {
+        "version": "4996f7ed5d39f5b0da8331b0c7d70b149688aceea7a95b33f9e80e0e791fcaf8",
+        "signature": "4860332bc8f1abe6233e192f9926cd49ca1f5d1893b7addce34451af1b66885c",
+        "affectsGlobalScope": false
+      },
+      "../src/sendgrid/mail.controller.ts": {
+        "version": "4ea24bcd1a8255cd6c1ce32d6aef0e6e2d8bfab4bff0cc521ded97518e7b8a03",
+        "signature": "5ef19ba6840565cea2bb10c21335f9707065fbe9219b63bf960fa31703fee22c",
+        "affectsGlobalScope": false
+      },
+      "../src/auth/constants.ts": {
+        "version": "e3fbe58e1e5f08deafb42b10364c975350c1ac8c4112733cf3dceecfe1b0865f",
+        "signature": "541603c0913bf3791cdca6f10c3bcd0042e5858974e191e345bfecb3523124fb",
         "affectsGlobalScope": false
       },
       "../src/users/users.module.ts": {
-        "version": "71dfd6dd8a636c08f97e866e30550de6b28a69698b944651e383c3fda0a853ee",
+        "version": "fb04f1bd4ea799cd04029a78aedfdf2605714e3e75510fd9e9dcb4c3a7631d01",
         "signature": "12dec6c99bd8d11167fa91a31e737abbbf8c9cc789c151a25a9a1d13f328175c",
         "affectsGlobalScope": false
       },
@@ -4182,18 +4347,13 @@
         "affectsGlobalScope": false
       },
       "../src/auth/auth.service.ts": {
-        "version": "d053282acc125c61daf17604cde9cfaf2a274233d163e149a9eaf1f0994fdba7",
-        "signature": "cf79b9e1b57b309ddaed54b87960c7ed3326491d2862c0009b96f58f4ae75989",
+        "version": "72de70bd85b80c800d241fd7420799f0d358d3111fbccd1a6abf3c09c17f4b7c",
+        "signature": "85bc7b35f2bf6f6e77d84c74c961fc252491ac60d0341a241d68a7979df530e3",
         "affectsGlobalScope": false
       },
       "../src/auth/auth.controller.ts": {
-        "version": "1ba183da9bfc1c557868e851c2e60bc84361a5fe6f62385819829efc0708f101",
-        "signature": "e29c9d6398efc9697ccbaf11d3284f6226b04a79f2e8232617f2bb9a646d0f94",
-        "affectsGlobalScope": false
-      },
-      "../src/auth/constants.ts": {
-        "version": "e3fbe58e1e5f08deafb42b10364c975350c1ac8c4112733cf3dceecfe1b0865f",
-        "signature": "541603c0913bf3791cdca6f10c3bcd0042e5858974e191e345bfecb3523124fb",
+        "version": "d11ca2a7a356a0e0c38e4fad66ea1fe0ba44878d2a92a309f1684bc7915ed268",
+        "signature": "65c6ce5c9a66d540d4dadb486ae149b9eb135b6c659b8e1d76625d3fdfc6b2c9",
         "affectsGlobalScope": false
       },
       "../src/auth/strategies/jwt.strategy.ts": {
@@ -4287,7 +4447,7 @@
         "affectsGlobalScope": false
       },
       "../src/events/events.controller.ts": {
-        "version": "180d546b41ece545f0b11c1f9d98b689c554f923790a60ce24e221854c434a39",
+        "version": "d0f727ca21d7106b8dd433ed7af8f149166182ee2dd2ff74c43e9573fa6613ee",
         "signature": "4346164f02a5d942ed8fa163331d1738249f9ce9d76a6349f164c03aae0668f3",
         "affectsGlobalScope": false
       },
@@ -4337,13 +4497,13 @@
         "affectsGlobalScope": false
       },
       "../src/rewards/rewards.service.ts": {
-        "version": "e1f128388f426767050a9269910782e07e5ef59b28c447f257882c93c8c37eb5",
-        "signature": "9bf53ee84713c790902645258352036f894c9a7c23a1847694751317e51ae225",
+        "version": "be3d9bbfa1b02f0a0ee8774ac763d0ceb44e52dbe9309fe91decb75857549690",
+        "signature": "ad8ac749cce3157380525630011a352b0ad1751a810ca21f84063e0f56704937",
         "affectsGlobalScope": false
       },
       "../src/rewards/rewards.controller.ts": {
-        "version": "91aa640b2027f720bd91bd723a9f71125edfa6748f28adbcd22a8c2d6978d330",
-        "signature": "9aca495ec2447d84c98d19388a74be6f127a790314d5e7333455f4f3a67d19ea",
+        "version": "ddea8328b0f8c39072f56a29937bb5660a41f6a1ab750e40ec977e601c9cd27a",
+        "signature": "e24fb0f902bc9092ab16d5626a1565bbaca97e302cce756fa74f41decca436b0",
         "affectsGlobalScope": false
       },
       "../src/rewards/rewards.module.ts": {
@@ -4357,7 +4517,7 @@
         "affectsGlobalScope": false
       },
       "../src/apis/apis.service.ts": {
-        "version": "3edb6c2b1002e11ddb5225a9924f0e5d902cec6767f7f3eb2d9fdba593210ed0",
+        "version": "ed7864a1d40be64cfd545759a8ee36eb9b0824a0000ca9f7f9c44e71fc25e835",
         "signature": "049848f3115336abe8e7e4fc0cd0503e55ac30ed685a677cd225a585be5c02c1",
         "affectsGlobalScope": false
       },
@@ -4382,7 +4542,7 @@
         "affectsGlobalScope": false
       },
       "../src/apis/fans.controller.ts": {
-        "version": "cf4cd03398e767f40079b52fb067b75f5b91ca4714e6a10206441b14f2ada7f5",
+        "version": "94c080a5e46829c7f2b9b84e628fd2bf17ce7d394dfe539c14e45f93b339b7aa",
         "signature": "7066c2e5fed68a0813fa7c76c406f88d116a1bc895e4beca759d9e57c9c3e202",
         "affectsGlobalScope": false
       },
@@ -4412,7 +4572,7 @@
         "affectsGlobalScope": false
       },
       "../src/app.module.ts": {
-        "version": "1b12767039174a047562c97772f534b573962eb7b680c53eced1520f6ab2f86e",
+        "version": "5144319d8b1f59c222b87fdde9131b8a48db7d5ee61218e01b228a597c95d1d4",
         "signature": "9fc7f7b6ad854404973b8cba8e6d883f758237991968e9a3965d716d46f1da88",
         "affectsGlobalScope": false
       },
@@ -4609,6 +4769,11 @@
       "../src/auth/guards/local-auth.guard.ts": {
         "version": "80871795cd5dca4ea9daa59dc9e812b36f498550759b39eb571d50cbd1aa4d8b",
         "signature": "de00899ee8403ca6d4ac89938059031acd4e52dd417186b11c3803fd1e2247ba",
+        "affectsGlobalScope": false
+      },
+      "../src/sendgrid/passport.entity.ts": {
+        "version": "1288355e6f9e96a5ca4274015c02c1d06bc442c44b4bae98d8ab318c60e3ee2d",
+        "signature": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
         "affectsGlobalScope": false
       },
       "../node_modules/@types/anymatch/index.d.ts": {
@@ -6052,6 +6217,107 @@
         "../node_modules/@types/node/ts3.2/util.d.ts",
         "../node_modules/@types/node/util.d.ts"
       ],
+      "../node_modules/@nestjs/config/dist/config.module.d.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@nestjs/common/interfaces/index.d.ts",
+        "../node_modules/@nestjs/config/dist/config.service.d.ts",
+        "../node_modules/@nestjs/config/dist/interfaces/index.d.ts",
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/@nestjs/config/dist/config.service.d.ts": [
+        "../node_modules/@nestjs/config/dist/types/index.d.ts",
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/@nestjs/config/dist/index.d.ts": [
+        "../node_modules/@nestjs/config/dist/config.module.d.ts",
+        "../node_modules/@nestjs/config/dist/config.service.d.ts",
+        "../node_modules/@nestjs/config/dist/types/index.d.ts",
+        "../node_modules/@nestjs/config/dist/utils/index.d.ts",
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/@nestjs/config/dist/interfaces/config-factory.interface.d.ts": [
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/@nestjs/config/dist/interfaces/config-module-options.interface.d.ts": [
+        "../node_modules/@nestjs/config/dist/interfaces/config-factory.interface.d.ts",
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/@nestjs/config/dist/interfaces/index.d.ts": [
+        "../node_modules/@nestjs/config/dist/interfaces/config-factory.interface.d.ts",
+        "../node_modules/@nestjs/config/dist/interfaces/config-module-options.interface.d.ts",
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/@nestjs/config/dist/types/config.type.d.ts": [
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/@nestjs/config/dist/types/index.d.ts": [
+        "../node_modules/@nestjs/config/dist/types/config.type.d.ts",
+        "../node_modules/@nestjs/config/dist/types/no-infer.type.d.ts",
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/@nestjs/config/dist/types/no-infer.type.d.ts": [
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/@nestjs/config/dist/utils/index.d.ts": [
+        "../node_modules/@nestjs/config/dist/utils/register-as.util.d.ts",
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/@nestjs/config/dist/utils/register-as.util.d.ts": [
+        "../node_modules/@nestjs/config/dist/interfaces/index.d.ts",
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/@nestjs/config/index.d.ts": [
+        "../node_modules/@nestjs/config/dist/index.d.ts",
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
       "../node_modules/@nestjs/core/adapters/http-adapter.d.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@nestjs/common/interfaces/external/cors-options.interface.d.ts",
@@ -6935,6 +7201,126 @@
       ],
       "../node_modules/@nestjs/typeorm/index.d.ts": [
         "../node_modules/@nestjs/typeorm/dist/index.d.ts",
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/@sendgrid/client/index.d.ts": [
+        "../node_modules/@sendgrid/client/src/client.d.ts",
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/@sendgrid/client/src/client.d.ts": [
+        "../node_modules/@sendgrid/client/src/request.d.ts",
+        "../node_modules/@sendgrid/client/src/response.d.ts",
+        "../node_modules/@sendgrid/helpers/classes/index.d.ts",
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/@sendgrid/client/src/request.d.ts": [
+        "../node_modules/@sendgrid/helpers/classes/request.d.ts",
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/@sendgrid/client/src/response.d.ts": [
+        "../node_modules/@sendgrid/helpers/classes/response.d.ts",
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/@sendgrid/helpers/classes/attachment.d.ts": [
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/@sendgrid/helpers/classes/email-address.d.ts": [
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/@sendgrid/helpers/classes/index.d.ts": [
+        "../node_modules/@sendgrid/helpers/classes/attachment.d.ts",
+        "../node_modules/@sendgrid/helpers/classes/email-address.d.ts",
+        "../node_modules/@sendgrid/helpers/classes/mail.d.ts",
+        "../node_modules/@sendgrid/helpers/classes/personalization.d.ts",
+        "../node_modules/@sendgrid/helpers/classes/response-error.d.ts",
+        "../node_modules/@sendgrid/helpers/classes/response.d.ts",
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/@sendgrid/helpers/classes/mail.d.ts": [
+        "../node_modules/@sendgrid/helpers/classes/attachment.d.ts",
+        "../node_modules/@sendgrid/helpers/classes/email-address.d.ts",
+        "../node_modules/@sendgrid/helpers/classes/personalization.d.ts",
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/@sendgrid/helpers/classes/personalization.d.ts": [
+        "../node_modules/@sendgrid/helpers/classes/email-address.d.ts",
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/@sendgrid/helpers/classes/request.d.ts": [
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/https.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/@sendgrid/helpers/classes/response-error.d.ts": [
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/@sendgrid/helpers/classes/response.d.ts": [
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/@sendgrid/mail/index.d.ts": [
+        "../node_modules/@sendgrid/mail/src/mail.d.ts",
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/@sendgrid/mail/src/mail.d.ts": [
+        "../node_modules/@sendgrid/client/index.d.ts",
+        "../node_modules/@sendgrid/client/src/response.d.ts",
+        "../node_modules/@sendgrid/helpers/classes/index.d.ts",
+        "../node_modules/@sendgrid/helpers/classes/mail.d.ts",
         "../node_modules/@types/graceful-fs/index.d.ts",
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
@@ -13312,6 +13698,7 @@
       ],
       "../src/app.module.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@nestjs/config/index.d.ts",
         "../node_modules/@nestjs/typeorm/index.d.ts",
         "../node_modules/@types/graceful-fs/index.d.ts",
         "../node_modules/@types/node/fs.d.ts",
@@ -13332,7 +13719,8 @@
         "../src/games/games.module.ts",
         "../src/rewards/reward.entity.ts",
         "../src/rewards/rewards.module.ts",
-        "../src/users/address.entity.ts",
+        "../src/sendgrid/sendgrid.service.ts",
+        "../src/users/bill.entity.ts",
         "../src/users/user.entity.ts",
         "../src/users/users.module.ts"
       ],
@@ -13454,7 +13842,9 @@
         "../src/database/postgreserrorcode.enum.ts",
         "../src/users/dto/createuser.dto.ts",
         "../src/users/dto/loginuser.dto.ts",
-        "../src/users/users.service.ts"
+        "../src/users/dto/updatepass.dto.ts",
+        "../src/users/users.service.ts",
+        "../src/utils/findoneparams.ts"
       ],
       "../src/auth/auth.module.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
@@ -13784,7 +14174,63 @@
         "../src/rewards/reward.entity.ts",
         "../src/users/user.entity.ts"
       ],
-      "../src/users/address.entity.ts": [
+      "../src/sendgrid/dto/createtext.dto.ts": [
+        "../node_modules/@nestjs/swagger/index.d.ts",
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/class-validator/types/index.d.ts"
+      ],
+      "../src/sendgrid/dto/forgotpassword.dto.ts": [
+        "../node_modules/@nestjs/swagger/index.d.ts",
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/class-validator/types/index.d.ts"
+      ],
+      "../src/sendgrid/emailhtml.ts": [
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../src/sendgrid/mail.controller.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@nestjs/jwt/index.d.ts",
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../src/sendgrid/dto/createtext.dto.ts",
+        "../src/sendgrid/dto/forgotpassword.dto.ts",
+        "../src/sendgrid/emailhtml.ts",
+        "../src/sendgrid/sendgrid.service.ts",
+        "../src/users/users.service.ts"
+      ],
+      "../src/sendgrid/passport.entity.ts": [
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../src/sendgrid/sendgrid.service.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@nestjs/config/index.d.ts",
+        "../node_modules/@sendgrid/mail/index.d.ts",
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../src/users/bill.entity.ts": [
         "../node_modules/@nestjs/swagger/index.d.ts",
         "../node_modules/@types/graceful-fs/index.d.ts",
         "../node_modules/@types/node/fs.d.ts",
@@ -13793,7 +14239,7 @@
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/typeorm/index.d.ts"
       ],
-      "../src/users/dto/addressuser.dto.ts": [
+      "../src/users/dto/billuser.dto.ts": [
         "../node_modules/@nestjs/swagger/index.d.ts",
         "../node_modules/@types/graceful-fs/index.d.ts",
         "../node_modules/@types/node/fs.d.ts",
@@ -13829,6 +14275,15 @@
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/class-validator/types/index.d.ts"
       ],
+      "../src/users/dto/updatepass.dto.ts": [
+        "../node_modules/@nestjs/swagger/index.d.ts",
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/class-validator/types/index.d.ts"
+      ],
       "../src/users/dto/updateuser.dto.ts": [
         "../node_modules/@nestjs/swagger/index.d.ts",
         "../node_modules/@types/graceful-fs/index.d.ts",
@@ -13851,7 +14306,7 @@
         "../src/audiences/audiences.entity.ts",
         "../src/events/event.entity.ts",
         "../src/rewards/reward.entity.ts",
-        "../src/users/address.entity.ts"
+        "../src/users/bill.entity.ts"
       ],
       "../src/users/users.controller.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
@@ -13864,7 +14319,7 @@
         "../src/attends/dto/attendcreate.dto.ts",
         "../src/auth/guards/jwt-auth.guard.ts",
         "../src/database/postgreserrorcode.enum.ts",
-        "../src/users/dto/addressuser.dto.ts",
+        "../src/users/dto/billuser.dto.ts",
         "../src/users/dto/createuser.dto.ts",
         "../src/users/dto/joinevent.dto.ts",
         "../src/users/dto/updateuser.dto.ts",
@@ -13873,6 +14328,8 @@
       ],
       "../src/users/users.module.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@nestjs/config/index.d.ts",
+        "../node_modules/@nestjs/jwt/index.d.ts",
         "../node_modules/@nestjs/typeorm/index.d.ts",
         "../node_modules/@types/graceful-fs/index.d.ts",
         "../node_modules/@types/node/fs.d.ts",
@@ -13881,7 +14338,10 @@
         "../node_modules/@types/node/util.d.ts",
         "../src/attends/attend.entity.ts",
         "../src/audiences/audiences.entity.ts",
-        "../src/users/address.entity.ts",
+        "../src/auth/constants.ts",
+        "../src/sendgrid/mail.controller.ts",
+        "../src/sendgrid/sendgrid.service.ts",
+        "../src/users/bill.entity.ts",
         "../src/users/user.entity.ts",
         "../src/users/users.controller.ts",
         "../src/users/users.service.ts"
@@ -13899,10 +14359,11 @@
         "../src/attends/dto/attendcreate.dto.ts",
         "../src/audiences/audiences.entity.ts",
         "../src/audiences/dto/createaudience.dto.ts",
-        "../src/users/address.entity.ts",
-        "../src/users/dto/addressuser.dto.ts",
+        "../src/users/bill.entity.ts",
+        "../src/users/dto/billuser.dto.ts",
         "../src/users/dto/createuser.dto.ts",
         "../src/users/dto/joinevent.dto.ts",
+        "../src/users/dto/updatepass.dto.ts",
         "../src/users/dto/updateuser.dto.ts",
         "../src/users/user.entity.ts"
       ],
@@ -15158,6 +15619,107 @@
         "../node_modules/@types/node/ts3.2/util.d.ts",
         "../node_modules/@types/node/util.d.ts"
       ],
+      "../node_modules/@nestjs/config/dist/config.module.d.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../node_modules/@nestjs/common/interfaces/index.d.ts",
+        "../node_modules/@nestjs/config/dist/config.service.d.ts",
+        "../node_modules/@nestjs/config/dist/interfaces/index.d.ts",
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/@nestjs/config/dist/config.service.d.ts": [
+        "../node_modules/@nestjs/config/dist/types/index.d.ts",
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/@nestjs/config/dist/index.d.ts": [
+        "../node_modules/@nestjs/config/dist/config.module.d.ts",
+        "../node_modules/@nestjs/config/dist/config.service.d.ts",
+        "../node_modules/@nestjs/config/dist/types/index.d.ts",
+        "../node_modules/@nestjs/config/dist/utils/index.d.ts",
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/@nestjs/config/dist/interfaces/config-factory.interface.d.ts": [
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/@nestjs/config/dist/interfaces/config-module-options.interface.d.ts": [
+        "../node_modules/@nestjs/config/dist/interfaces/config-factory.interface.d.ts",
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/@nestjs/config/dist/interfaces/index.d.ts": [
+        "../node_modules/@nestjs/config/dist/interfaces/config-factory.interface.d.ts",
+        "../node_modules/@nestjs/config/dist/interfaces/config-module-options.interface.d.ts",
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/@nestjs/config/dist/types/config.type.d.ts": [
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/@nestjs/config/dist/types/index.d.ts": [
+        "../node_modules/@nestjs/config/dist/types/config.type.d.ts",
+        "../node_modules/@nestjs/config/dist/types/no-infer.type.d.ts",
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/@nestjs/config/dist/types/no-infer.type.d.ts": [
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/@nestjs/config/dist/utils/index.d.ts": [
+        "../node_modules/@nestjs/config/dist/utils/register-as.util.d.ts",
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/@nestjs/config/dist/utils/register-as.util.d.ts": [
+        "../node_modules/@nestjs/config/dist/interfaces/index.d.ts",
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/@nestjs/config/index.d.ts": [
+        "../node_modules/@nestjs/config/dist/index.d.ts",
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
       "../node_modules/@nestjs/core/adapters/http-adapter.d.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@nestjs/common/interfaces/external/cors-options.interface.d.ts",
@@ -16041,6 +16603,126 @@
       ],
       "../node_modules/@nestjs/typeorm/index.d.ts": [
         "../node_modules/@nestjs/typeorm/dist/index.d.ts",
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/@sendgrid/client/index.d.ts": [
+        "../node_modules/@sendgrid/client/src/client.d.ts",
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/@sendgrid/client/src/client.d.ts": [
+        "../node_modules/@sendgrid/client/src/request.d.ts",
+        "../node_modules/@sendgrid/client/src/response.d.ts",
+        "../node_modules/@sendgrid/helpers/classes/index.d.ts",
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/@sendgrid/client/src/request.d.ts": [
+        "../node_modules/@sendgrid/helpers/classes/request.d.ts",
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/@sendgrid/client/src/response.d.ts": [
+        "../node_modules/@sendgrid/helpers/classes/response.d.ts",
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/@sendgrid/helpers/classes/attachment.d.ts": [
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/@sendgrid/helpers/classes/email-address.d.ts": [
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/@sendgrid/helpers/classes/index.d.ts": [
+        "../node_modules/@sendgrid/helpers/classes/attachment.d.ts",
+        "../node_modules/@sendgrid/helpers/classes/email-address.d.ts",
+        "../node_modules/@sendgrid/helpers/classes/mail.d.ts",
+        "../node_modules/@sendgrid/helpers/classes/personalization.d.ts",
+        "../node_modules/@sendgrid/helpers/classes/response-error.d.ts",
+        "../node_modules/@sendgrid/helpers/classes/response.d.ts",
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/@sendgrid/helpers/classes/mail.d.ts": [
+        "../node_modules/@sendgrid/helpers/classes/attachment.d.ts",
+        "../node_modules/@sendgrid/helpers/classes/email-address.d.ts",
+        "../node_modules/@sendgrid/helpers/classes/personalization.d.ts",
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/@sendgrid/helpers/classes/personalization.d.ts": [
+        "../node_modules/@sendgrid/helpers/classes/email-address.d.ts",
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/@sendgrid/helpers/classes/request.d.ts": [
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/https.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/@sendgrid/helpers/classes/response-error.d.ts": [
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/@sendgrid/helpers/classes/response.d.ts": [
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/@sendgrid/mail/index.d.ts": [
+        "../node_modules/@sendgrid/mail/src/mail.d.ts",
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/@sendgrid/mail/src/mail.d.ts": [
+        "../node_modules/@sendgrid/client/index.d.ts",
+        "../node_modules/@sendgrid/client/src/response.d.ts",
+        "../node_modules/@sendgrid/helpers/classes/index.d.ts",
+        "../node_modules/@sendgrid/helpers/classes/mail.d.ts",
         "../node_modules/@types/graceful-fs/index.d.ts",
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
@@ -22332,11 +23014,14 @@
         "../node_modules/@nestjs/common/index.d.ts"
       ],
       "../src/auth/auth.controller.ts": [
+        "../node_modules/typeorm/index.d.ts",
         "../src/auth/auth.service.ts",
         "../src/users/dto/createuser.dto.ts",
         "../src/users/dto/loginuser.dto.ts",
+        "../src/users/dto/updatepass.dto.ts",
         "../src/users/user.entity.ts",
-        "../src/users/users.service.ts"
+        "../src/users/users.service.ts",
+        "../src/utils/findoneparams.ts"
       ],
       "../src/auth/auth.service.ts": [
         "../node_modules/@nestjs/jwt/index.d.ts",
@@ -22426,16 +23111,28 @@
         "../src/rewards/reward.entity.ts",
         "../src/users/user.entity.ts"
       ],
+      "../src/sendgrid/mail.controller.ts": [
+        "../node_modules/@nestjs/jwt/index.d.ts",
+        "../node_modules/@sendgrid/mail/index.d.ts",
+        "../src/sendgrid/dto/createtext.dto.ts",
+        "../src/sendgrid/dto/forgotpassword.dto.ts",
+        "../src/sendgrid/sendgrid.service.ts",
+        "../src/users/users.service.ts"
+      ],
+      "../src/sendgrid/sendgrid.service.ts": [
+        "../node_modules/@nestjs/config/index.d.ts",
+        "../node_modules/@sendgrid/mail/index.d.ts"
+      ],
       "../src/users/user.entity.ts": [
         "../src/audiences/audiences.entity.ts",
         "../src/events/event.entity.ts",
         "../src/rewards/reward.entity.ts",
-        "../src/users/address.entity.ts"
+        "../src/users/bill.entity.ts"
       ],
       "../src/users/users.controller.ts": [
         "../node_modules/typeorm/index.d.ts",
         "../src/attends/dto/attendcreate.dto.ts",
-        "../src/users/dto/addressuser.dto.ts",
+        "../src/users/dto/billuser.dto.ts",
         "../src/users/dto/updateuser.dto.ts",
         "../src/users/users.service.ts",
         "../src/utils/findoneparams.ts"
@@ -22445,9 +23142,10 @@
         "../src/attends/attend.entity.ts",
         "../src/attends/dto/attendcreate.dto.ts",
         "../src/audiences/audiences.entity.ts",
-        "../src/users/address.entity.ts",
-        "../src/users/dto/addressuser.dto.ts",
+        "../src/users/bill.entity.ts",
+        "../src/users/dto/billuser.dto.ts",
         "../src/users/dto/createuser.dto.ts",
+        "../src/users/dto/updatepass.dto.ts",
         "../src/users/dto/updateuser.dto.ts",
         "../src/users/user.entity.ts"
       ]

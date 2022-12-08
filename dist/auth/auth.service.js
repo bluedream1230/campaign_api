@@ -42,7 +42,7 @@ let AuthService = class AuthService {
     async login(_user) {
         const user = await this.usersService.getByEmail(_user.email);
         if (!user || user.password != _user.password)
-            return null;
+            return "The password you entered is incorrect!";
         const { password } = user, payload = __rest(user, ["password"]);
         return {
             access_token: this.jwtService.sign(payload),

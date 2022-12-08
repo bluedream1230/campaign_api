@@ -8,12 +8,27 @@ import {
   ManyToOne,
   OneToOne,
   JoinColumn,
+  Index,
 } from "typeorm";
 import { ApiProperty } from "@nestjs/swagger";
 import Event from "src/events/event.entity";
 import User from "src/users/user.entity";
 
 @Entity("reward")
+@Index(
+  [
+    "name",
+    "type",
+    "category",
+    "image_url",
+    "description",
+    "coinvalue",
+    "ratelimit",
+    "timelimit",
+    "user",
+  ],
+  { unique: true }
+)
 class Reward {
   @PrimaryGeneratedColumn()
   public id: number;
@@ -52,16 +67,16 @@ class Reward {
 
   @ApiProperty()
   @CreateDateColumn({
-    type: "timestamptz", // timestamptz
-    default: () => "CURRENT_TIMESTAMP(6)", // "CURRENT_TIMESTAMP(6)",
+    type: "timestamp", // timestamptz
+    default: () => "NOW()", // "CURRENT_TIMESTAMP(6)",
   })
   createdAt: Date;
 
   @ApiProperty()
   @UpdateDateColumn({
-    type: "timestamptz",
-    default: () => "CURRENT_TIMESTAMP(6)",
-    onUpdate: "CURRENT_TIMESTAMP(6)",
+    type: "timestamp",
+    default: () => "NOW()",
+    onUpdate: "NOW()",
   })
   updatedAt: Date;
 

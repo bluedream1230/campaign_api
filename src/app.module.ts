@@ -1,11 +1,12 @@
 import { Module } from "@nestjs/common";
+import { ConfigModule } from "@nestjs/config";
 // import { AppController } from "./app.controller";
 import { AppService } from "./app.service";
 import { AuthModule } from "./auth/auth.module";
 import { AdminUsersModule } from "./adminUsers/admin.users.module";
 import { TypeOrmModule } from "@nestjs/typeorm";
 import User from "./users/user.entity";
-import Address from "./users/address.entity";
+import Address from "./users/bill.entity";
 import Event from "./events/event.entity";
 import { UsersModule } from "./users/users.module";
 import { EventsModule } from "./events/events.module";
@@ -18,6 +19,7 @@ import { AttendsModule } from "./attends/attends.module";
 import { ApisModule } from "./apis/apis.module";
 import Audience from "./audiences/audiences.entity";
 import { AudiencesModule } from "./audiences/audiences.module";
+import { SendgridService } from "./sendgrid/sendgrid.service";
 
 // postgres://auggncnrngqcyv:5dfe3011e4a2fbe1e60ee4b323515a8be58f0ac7b6e0ceb561bf2edb44d0b7c6@ec2-3-219-135-162.compute-1.amazonaws.com:5432/dt0hlkmjdtsv6
 @Module({
@@ -57,8 +59,10 @@ import { AudiencesModule } from "./audiences/audiences.module";
     AttendsModule,
     ApisModule,
     AudiencesModule,
+    ConfigModule.forRoot(),
   ],
   // controllers: [AppController],
-  providers: [AppService],
+  controllers: [],
+  providers: [AppService, SendgridService],
 })
 export class AppModule {}

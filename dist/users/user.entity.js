@@ -10,7 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const typeorm_1 = require("typeorm");
-const address_entity_1 = require("./address.entity");
+const bill_entity_1 = require("./bill.entity");
 const event_entity_1 = require("../events/event.entity");
 const attend_entity_1 = require("../attends/attend.entity");
 const reward_entity_1 = require("../rewards/reward.entity");
@@ -38,6 +38,26 @@ __decorate([
     typeorm_1.Column({ default: "+1 222 222 2222" }),
     __metadata("design:type", String)
 ], User.prototype, "phone", void 0);
+__decorate([
+    typeorm_1.Column(),
+    __metadata("design:type", String)
+], User.prototype, "street", void 0);
+__decorate([
+    typeorm_1.Column(),
+    __metadata("design:type", String)
+], User.prototype, "suite", void 0);
+__decorate([
+    typeorm_1.Column(),
+    __metadata("design:type", String)
+], User.prototype, "city", void 0);
+__decorate([
+    typeorm_1.Column(),
+    __metadata("design:type", String)
+], User.prototype, "state", void 0);
+__decorate([
+    typeorm_1.Column(),
+    __metadata("design:type", String)
+], User.prototype, "zip", void 0);
 __decorate([
     typeorm_1.Column({ default: "subscription" }),
     __metadata("design:type", String)
@@ -76,13 +96,13 @@ __decorate([
     __metadata("design:type", Date)
 ], User.prototype, "updatedAt", void 0);
 __decorate([
-    typeorm_1.OneToOne(() => address_entity_1.default, {
+    typeorm_1.OneToOne(() => bill_entity_1.default, {
         eager: true,
         cascade: true,
     }),
     typeorm_1.JoinColumn(),
-    __metadata("design:type", address_entity_1.default)
-], User.prototype, "address", void 0);
+    __metadata("design:type", bill_entity_1.default)
+], User.prototype, "bill", void 0);
 __decorate([
     typeorm_1.OneToMany(() => event_entity_1.default, (event) => event.user),
     __metadata("design:type", Array)

@@ -9,7 +9,7 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
-import Address from "./address.entity";
+import Bill from "./bill.entity";
 import Event from "src/events/event.entity";
 import Attend from "src/attends/attend.entity";
 import { IsPhoneNumber } from "class-validator";
@@ -34,6 +34,21 @@ class User {
   @Column({ default: "+1 222 222 2222" })
   public phone?: string;
 
+  @Column()
+  public street: string;
+
+  @Column()
+  public suite: string;
+
+  @Column()
+  public city: string;
+
+  @Column()
+  public state: string;
+
+  @Column()
+  public zip: string;
+
   @Column({ default: "subscription" })
   public subscription?: string;
 
@@ -52,28 +67,28 @@ class User {
 
   @ApiProperty()
   @CreateDateColumn({
-    type: "timestamptz", // timestamptz
-    default: () => "CURRENT_TIMESTAMP(6)", // "CURRENT_TIMESTAMP(6)",
+    type: "timestamp", // timestamptz
+    default: () => "NOW()", // "CURRENT_TIMESTAMP(6)",
   })
   createdAt: Date;
 
   @ApiProperty()
   @UpdateDateColumn({
-    type: "timestamptz",
-    default: () => "CURRENT_TIMESTAMP(6)",
-    onUpdate: "CURRENT_TIMESTAMP(6)",
+    type: "timestamp",
+    default: () => "NOW()",
+    onUpdate: "NOW()",
   })
   updatedAt: Date;
 
   // @Column({ default: 0 })
   // public join_event_id?: number;
 
-  @OneToOne(() => Address, {
+  @OneToOne(() => Bill, {
     eager: true,
     cascade: true,
   })
   @JoinColumn()
-  public address: Address;
+  public bill: Bill;
 
   @OneToMany(() => Event, (event) => event.user)
   public events: Event[];

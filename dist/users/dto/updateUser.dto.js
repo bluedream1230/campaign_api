@@ -32,13 +32,6 @@ __decorate([
     swagger_1.ApiProperty(),
     class_validator_1.IsDefined(),
     class_validator_1.IsNotEmpty(),
-    class_validator_1.IsString(),
-    __metadata("design:type", String)
-], UpdateUserDto.prototype, "logo", void 0);
-__decorate([
-    swagger_1.ApiProperty(),
-    class_validator_1.IsDefined(),
-    class_validator_1.IsNotEmpty(),
     class_validator_1.IsPhoneNumber(null),
     __metadata("design:type", String)
 ], UpdateUserDto.prototype, "phone", void 0);
@@ -55,27 +48,34 @@ __decorate([
     class_validator_1.IsNotEmpty(),
     class_validator_1.IsString(),
     __metadata("design:type", String)
-], UpdateUserDto.prototype, "password", void 0);
+], UpdateUserDto.prototype, "street", void 0);
 __decorate([
     swagger_1.ApiProperty(),
     class_validator_1.IsDefined(),
     class_validator_1.IsNotEmpty(),
-    class_validator_1.IsNumber(),
-    __metadata("design:type", Number)
-], UpdateUserDto.prototype, "coins", void 0);
+    class_validator_1.IsString(),
+    __metadata("design:type", String)
+], UpdateUserDto.prototype, "suite", void 0);
 __decorate([
     swagger_1.ApiProperty(),
     class_validator_1.IsDefined(),
     class_validator_1.IsNotEmpty(),
-    class_validator_1.IsNumber(),
-    __metadata("design:type", Number)
-], UpdateUserDto.prototype, "coinsused", void 0);
+    class_validator_1.IsString(),
+    __metadata("design:type", String)
+], UpdateUserDto.prototype, "city", void 0);
 __decorate([
     swagger_1.ApiProperty(),
     class_validator_1.IsDefined(),
     class_validator_1.IsNotEmpty(),
-    class_validator_1.IsNumber(),
-    __metadata("design:type", Number)
-], UpdateUserDto.prototype, "completion", void 0);
+    class_validator_1.IsString(),
+    __metadata("design:type", String)
+], UpdateUserDto.prototype, "state", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
+    class_validator_1.IsDefined(),
+    class_validator_1.IsNotEmpty(),
+    class_validator_1.IsString(),
+    __metadata("design:type", String)
+], UpdateUserDto.prototype, "zip", void 0);
 exports.default = UpdateUserDto;
 //# sourceMappingURL=updateUser.dto.js.map

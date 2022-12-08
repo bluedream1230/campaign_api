@@ -7,6 +7,7 @@ export default class RewardsController {
     private readonly rewardsService;
     constructor(rewardsService: RewardsService);
     getAllRewards(req: RequestWithUser): Promise<any[]>;
+    getOnlyRewards(req: RequestWithUser): Promise<import("./reward.entity").default[]>;
     getRewardById({ id }: FindOneParams): Promise<import("./reward.entity").default>;
     createReward(reward: CreateRewardDto, req: RequestWithUser): Promise<CreateRewardDto>;
     updateReward({ id }: FindOneParams, reward: UpdateRewardDto): Promise<void>;

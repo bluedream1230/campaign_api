@@ -31,7 +31,7 @@ let FansController = class FansController {
     }
 };
 __decorate([
-    common_1.Get(":id"),
+    common_1.Get(),
     common_1.UseGuards(jwt_auth_guard_1.JwtAuthGuard),
     swagger_1.ApiResponse({
         status: 200,

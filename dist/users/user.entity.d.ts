@@ -1,4 +1,4 @@
-import Address from "./address.entity";
+import Bill from "./bill.entity";
 import Event from "src/events/event.entity";
 import Reward from "src/rewards/reward.entity";
 import Audience from "src/audiences/audiences.entity";
@@ -8,6 +8,11 @@ declare class User {
     name: string;
     logo?: string;
     phone?: string;
+    street: string;
+    suite: string;
+    city: string;
+    state: string;
+    zip: string;
     subscription?: string;
     password: string;
     coins?: number;
@@ -15,7 +20,7 @@ declare class User {
     completion: number;
     createdAt: Date;
     updatedAt: Date;
-    address: Address;
+    bill: Bill;
     events: Event[];
     rewards: Reward[];
     audience: Audience;

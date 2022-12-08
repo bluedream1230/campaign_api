@@ -1,37 +1,43 @@
+import { ApiProperty } from "@nestjs/swagger";
 import {
   Column,
   CreateDateColumn,
   Entity,
-  JoinTable,
-  ManyToMany,
-  ManyToOne,
-  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
-import { ApiProperty } from "@nestjs/swagger";
-import Event from "src/events/event.entity";
 
-@Entity("game")
-class Game {
+@Entity()
+class Bill {
   @PrimaryGeneratedColumn()
   public id: number;
 
-  @ApiProperty()
   @Column()
-  public name: string;
+  public firstname: string;
 
-  @ApiProperty()
   @Column()
-  public type: string;
+  public lastname: string;
 
-  @ApiProperty()
-  @Column()
-  public duration: string;
+  @Column({ unique: true })
+  public email: string;
 
-  @ApiProperty()
+  @Column({ default: "+1 222 222 2222" })
+  public phone?: string;
+
   @Column()
-  public video_url: string;
+  public billingaddress: string;
+
+  @Column()
+  public country: string;
+
+  @Column()
+  public ccn: string;
+
+  @Column()
+  public CVV: string;
+
+  @Column()
+  public expirationdate: Date;
 
   @ApiProperty()
   @CreateDateColumn({
@@ -47,9 +53,6 @@ class Game {
     onUpdate: "NOW()",
   })
   updatedAt: Date;
-
-  @OneToMany(() => Event, (event) => event.game)
-  public events: Event[];
 }
 
-export default Game;
+export default Bill;

@@ -29,7 +29,7 @@ import ApisService from "./apis.service";
 export class FansController {
   constructor(private readonly apisService: ApisService) {}
 
-  @Get(":id")
+  @Get()
   @UseGuards(JwtAuthGuard)
   @ApiResponse({
     status: 200,

@@ -10,6 +10,7 @@ export default class RewardsService {
     private eventsRepository;
     private attendsRepository;
     constructor(rewardsRepository: Repository<Reward>, eventsRepository: Repository<Event>, attendsRepository: Repository<Attend>);
+    getOnlyRewards(user: User): Promise<Reward[]>;
     getAllRewards(user: User): Promise<any[]>;
     getRewardById(id: number): Promise<Reward>;
     createReward(reward: CreateRewardDto, user: User): Promise<Reward>;

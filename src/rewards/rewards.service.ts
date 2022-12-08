@@ -19,6 +19,16 @@ export default class RewardsService {
     private attendsRepository: Repository<Attend>
   ) {}
 
+  async getOnlyRewards(user: User) {
+    const data: Reward[] = await this.rewardsRepository.find({
+      where: {
+        user: { id: user.id },
+      },
+      relations: ["events"],
+    });
+    console.log(data);
+    return data;
+  }
   async getAllRewards(user: User) {
     const data: Reward[] = await this.rewardsRepository.find({
       where: {
@@ -26,6 +36,7 @@ export default class RewardsService {
       },
       relations: ["events"],
     });
+    console.log(data);
     const eventIds = [];
     data.forEach(async (item) => {
       if (item.events) {
@@ -54,9 +65,16 @@ export default class RewardsService {
               event: e,
               users_num: Number(attend.Count),
             });
+          else
+            totalData.push({
+              reward: item,
+              event: e,
+              users_num: 0,
+            });
         });
       } else totalData.push({ reward: item, event: null, users_num: 0 });
     });
+    console.log(totalData);
     return totalData;
   }
 

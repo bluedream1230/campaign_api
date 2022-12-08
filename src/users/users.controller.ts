@@ -9,6 +9,7 @@ import {
   Param,
   Patch,
   Request,
+  Put,
 } from "@nestjs/common";
 import {
   ApiBearerAuth,
@@ -19,7 +20,7 @@ import {
 import CreateUserDto from "./dto/createUser.dto";
 import PostgresErrorCode from "../database/postgresErrorCode.enum";
 import { JwtAuthGuard } from "../auth/guards/jwt-auth.guard";
-import AddressUserDto from "./dto/addressUser.dto";
+import BillUserDto from "./dto/billUser.dto";
 import FindOneParams from "src/utils/findOneParams";
 import UpdateUserDto from "./dto/updateUser.dto";
 import JoinEventDto from "./dto/joinEvent.dto";
@@ -31,7 +32,7 @@ import CreateAttendDto from "src/attends/dto/attendCreate.dto";
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
-  @Patch("update")
+  @Put("update")
   @UseGuards(JwtAuthGuard)
   @ApiOperation({ summary: "Update user" })
   async update(@Request() req, @Body() updateUser: UpdateUserDto) {
@@ -50,19 +51,17 @@ export class UsersController {
     }
   }
 
-  @Patch(":id")
+  @Put("bill")
   @UseGuards(JwtAuthGuard)
-  @ApiOperation({ summary: "Create address" })
-  async updatedAddress(
-    @Param() { id }: FindOneParams,
-    @Body() addressData: AddressUserDto
-  ) {
+  @ApiOperation({ summary: "Update bill" })
+  async updatedBill(@Request() req, @Body() billData: BillUserDto) {
+    const id = req.user.id;
     try {
-      const updatedAddress = await this.usersService.updateAddress(
+      const updatedBill = await this.usersService.updateBill(
         Number(id),
-        addressData
+        billData
       );
-      return addressData;
+      return billData;
     } catch (error) {
       if (error?.code === PostgresErrorCode.UniqueViolation) {
         throw new HttpException(

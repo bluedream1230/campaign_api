@@ -2,6 +2,7 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  Index,
   JoinColumn,
   JoinTable,
   ManyToMany,
@@ -16,6 +17,7 @@ import Event from "src/events/event.entity";
 import User from "src/users/user.entity";
 
 @Entity("audience")
+@Index(["name"], { unique: true })
 class Audience {
   @PrimaryGeneratedColumn()
   public id: number;
@@ -26,16 +28,16 @@ class Audience {
 
   @ApiProperty()
   @CreateDateColumn({
-    type: "timestamptz", // timestamptz
-    default: () => "CURRENT_TIMESTAMP(6)", // "CURRENT_TIMESTAMP(6)",
+    type: "timestamp", // timestamptz
+    default: () => "NOW()", // "CURRENT_TIMESTAMP(6)",
   })
   createdAt: Date;
 
   @ApiProperty()
   @UpdateDateColumn({
-    type: "timestamptz",
-    default: () => "CURRENT_TIMESTAMP(6)",
-    onUpdate: "CURRENT_TIMESTAMP(6)",
+    type: "timestamp",
+    default: () => "NOW()",
+    onUpdate: "NOW()",
   })
   updatedAt: Date;
 

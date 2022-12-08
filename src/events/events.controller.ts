@@ -51,7 +51,7 @@ export default class EventsController {
     return this.eventsService.getEventById(Number(id));
   }
 
-  @Post(":gameId:rewardId:audienceId")
+  @Post(":gameId&:rewardId&:audienceId")
   @UseGuards(JwtAuthGuard)
   @ApiOperation({ summary: "Create event" })
   @ApiResponse({ status: 403, description: "Forbidden." })

@@ -17,15 +17,15 @@ const common_1 = require("@nestjs/common");
 const typeorm_1 = require("@nestjs/typeorm");
 const typeorm_2 = require("typeorm");
 const user_entity_1 = require("./user.entity");
-const address_entity_1 = require("./address.entity");
+const bill_entity_1 = require("./bill.entity");
 const attendCreate_dto_1 = require("../attends/dto/attendCreate.dto");
 const attend_entity_1 = require("../attends/attend.entity");
 const createAudience_dto_1 = require("../audiences/dto/createAudience.dto");
 const audiences_entity_1 = require("../audiences/audiences.entity");
 let UsersService = class UsersService {
-    constructor(usersRepository, usersAddressRepository, attendsRepository, audiencesRepository) {
+    constructor(usersRepository, usersBillRepository, attendsRepository, audiencesRepository) {
         this.usersRepository = usersRepository;
-        this.usersAddressRepository = usersAddressRepository;
+        this.usersBillRepository = usersBillRepository;
         this.attendsRepository = attendsRepository;
         this.audiencesRepository = audiencesRepository;
     }
@@ -51,19 +51,19 @@ let UsersService = class UsersService {
     async update(id, userData) {
         return await this.usersRepository.update(id, userData);
     }
-    async updateAddress(id, address) {
+    async updateBill(id, bill) {
         const user = await this.usersRepository.findOne({
-            relations: ["address"],
+            relations: ["bill"],
             where: { id },
         });
         if (!user)
             return;
-        if (user.address)
-            await this.usersAddressRepository.update(user.address.id, address);
+        if (user.bill)
+            await this.usersBillRepository.update(user.bill.id, bill);
         else {
-            const result = await this.usersAddressRepository.insert(address);
-            const addressId = result.identifiers[0].id;
-            await this.usersRepository.update(id, { address: { id: addressId } });
+            const result = await this.usersBillRepository.insert(bill);
+            const billId = result.identifiers[0].id;
+            await this.usersRepository.update(id, { bill: { id: billId } });
         }
     }
     async updateAudience(id, user_id) {
@@ -77,11 +77,22 @@ let UsersService = class UsersService {
         joinEvent.event_id = id;
         await this.attendsRepository.insert(joinEvent);
     }
+    async updatePassword(password) {
+        const user = await this.usersRepository
+            .createQueryBuilder("user")
+            .where(`user.email = '${password.email}'`)
+            .getOne();
+        if (!user)
+            return;
+        return this.usersRepository.update({ email: password.email }, {
+            password: password.password,
+        });
+    }
 };
 UsersService = __decorate([
     common_1.Injectable(),
     __param(0, typeorm_1.InjectRepository(user_entity_1.default)),
-    __param(1, typeorm_1.InjectRepository(address_entity_1.default)),
+    __param(1, typeorm_1.InjectRepository(bill_entity_1.default)),
     __param(2, typeorm_1.InjectRepository(attend_entity_1.default)),
     __param(3, typeorm_1.InjectRepository(audiences_entity_1.default)),
     __metadata("design:paramtypes", [typeorm_2.Repository,

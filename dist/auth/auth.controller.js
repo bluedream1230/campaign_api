@@ -20,6 +20,8 @@ const users_service_1 = require("../users/users.service");
 const swagger_1 = require("@nestjs/swagger");
 const loginUser_dto_1 = require("../users/dto/loginUser.dto");
 const createUser_dto_1 = require("../users/dto/createUser.dto");
+const findOneParams_1 = require("../utils/findOneParams");
+const updatePass_dto_1 = require("../users/dto/updatePass.dto");
 let AuthController = class AuthController {
     constructor(authService, usersService) {
         this.authService = authService;
@@ -43,6 +45,12 @@ let AuthController = class AuthController {
             throw new common_1.HttpException("Something went wrong", common_1.HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+    getUserById({ id }) {
+        return this.usersService.getById(Number(id));
+    }
+    async updatepass(registrationData) {
+        return this.usersService.updatePassword(registrationData);
+    }
 };
 __decorate([
     common_1.Post("login"),
@@ -61,6 +69,25 @@ __decorate([
     __metadata("design:paramtypes", [createUser_dto_1.default]),
     __metadata("design:returntype", Promise)
 ], AuthController.prototype, "register", null);
+__decorate([
+    common_1.Get("user/:id"),
+    swagger_1.ApiResponse({
+        status: 200,
+        description: "The found record",
+    }),
+    __param(0, common_1.Param()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [findOneParams_1.default]),
+    __metadata("design:returntype", void 0)
+], AuthController.prototype, "getUserById", null);
+__decorate([
+    common_1.Post("updatePass"),
+    swagger_1.ApiOperation({ summary: "Update password" }),
+    __param(0, common_1.Body()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [updatePass_dto_1.default]),
+    __metadata("design:returntype", Promise)
+], AuthController.prototype, "updatepass", null);
 AuthController = __decorate([
     swagger_1.ApiTags("Authentication"),
     common_1.Controller("auth"),

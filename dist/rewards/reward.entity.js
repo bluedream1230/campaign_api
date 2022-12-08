@@ -85,7 +85,18 @@ __decorate([
     __metadata("design:type", Array)
 ], Reward.prototype, "events", void 0);
 Reward = __decorate([
-    typeorm_1.Entity("reward")
+    typeorm_1.Entity("reward"),
+    typeorm_1.Index([
+        "name",
+        "type",
+        "category",
+        "image_url",
+        "description",
+        "coinvalue",
+        "ratelimit",
+        "timelimit",
+        "user",
+    ], { unique: true })
 ], Reward);
 exports.default = Reward;
 //# sourceMappingURL=reward.entity.js.map

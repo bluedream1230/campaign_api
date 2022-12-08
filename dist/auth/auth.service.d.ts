@@ -6,7 +6,7 @@ export declare class AuthService {
     private readonly jwtService;
     constructor(usersService: UsersService, jwtService: JwtService);
     validateUser(email: string): Promise<any>;
-    login(_user: LoginUserDto): Promise<{
+    login(_user: LoginUserDto): Promise<"The password you entered is incorrect!" | {
         access_token: string;
         email: string;
         user: string;

@@ -35,4 +35,34 @@ export default class CreateUserDto {
 
   // @ApiProperty()
   // coinsused: number;
+
+  // @ApiProperty()
+  // @IsDefined()
+  // @IsNotEmpty()
+  // @IsString()
+  // public street: string;
+
+  // @ApiProperty()
+  // @IsDefined()
+  // @IsNotEmpty()
+  // @IsString()
+  // public suite: string;
+
+  // @ApiProperty()
+  // @IsDefined()
+  // @IsNotEmpty()
+  // @IsString()
+  // public city: string;
+
+  // @ApiProperty()
+  // @IsDefined()
+  // @IsNotEmpty()
+  // @IsString()
+  // public state: string;
+
+  // @ApiProperty()
+  // @IsDefined()
+  // @IsNotEmpty()
+  // @IsString()
+  // public zip: string;
 }

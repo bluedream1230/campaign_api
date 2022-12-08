@@ -6,12 +6,14 @@ import {
   OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
+  Index,
 } from "typeorm";
 import { ApiProperty } from "@nestjs/swagger";
 import User from "src/users/user.entity";
 import Event from "src/events/event.entity";
 
 @Entity()
+@Index(["user_id", "event_id"], { unique: true })
 class Attend {
   @PrimaryGeneratedColumn()
   public id: number;
@@ -26,16 +28,16 @@ class Attend {
 
   @ApiProperty()
   @CreateDateColumn({
-    type: "timestamptz", // timestamp
-    default: () => "CURRENT_TIMESTAMP(6)", // "CURRENT_TIMESTAMP(6)","NOW()"
+    type: "timestamp", // timestamp timestamptz
+    default: () => "NOW()", // "CURRENT_TIMESTAMP(6)","NOW()"
   })
   createdAt: Date;
 
   @ApiProperty()
   @UpdateDateColumn({
-    type: "timestamptz",
-    default: () => "CURRENT_TIMESTAMP(6)",
-    onUpdate: "CURRENT_TIMESTAMP(6)",
+    type: "timestamp",
+    default: () => "NOW()",
+    onUpdate: "NOW()",
   })
   updatedAt: Date;
 

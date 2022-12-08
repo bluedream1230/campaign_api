@@ -1,34 +1,23 @@
 import { ApiProperty } from "@nestjs/swagger";
 import { IsDefined, IsEmail, IsNotEmpty, IsString } from "class-validator";
 
-export default class AddressUserDto {
+export default class CreateTextDto {
   @ApiProperty()
   @IsDefined()
   @IsNotEmpty()
+  @IsEmail()
   @IsString()
-  public street: string;
+  email: string;
 
   @ApiProperty()
   @IsDefined()
   @IsNotEmpty()
   @IsString()
-  public suite: string;
+  text: string;
 
   @ApiProperty()
   @IsDefined()
   @IsNotEmpty()
   @IsString()
-  public city: string;
-
-  @ApiProperty()
-  @IsDefined()
-  @IsNotEmpty()
-  @IsString()
-  public state: string;
-
-  @ApiProperty()
-  @IsDefined()
-  @IsNotEmpty()
-  @IsString()
-  public zip: string;
+  sender: string;
 }

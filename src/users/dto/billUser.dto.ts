@@ -1,72 +1,67 @@
 import { ApiProperty } from "@nestjs/swagger";
 import {
+  IsDate,
   IsDefined,
-  isEAN,
   IsEmail,
   IsNotEmpty,
-  IsNumber,
   IsPhoneNumber,
   IsString,
 } from "class-validator";
-export default class UpdateUserDto {
+
+export default class BillUserDto {
+  @ApiProperty()
+  @IsDefined()
+  @IsNotEmpty()
+  @IsString()
+  public firstname: string;
+
+  @ApiProperty()
+  @IsDefined()
+  @IsNotEmpty()
+  @IsString()
+  public lastname: string;
+
   @ApiProperty()
   @IsDefined()
   @IsNotEmpty()
   @IsEmail()
   @IsString()
-  public email: string;
-
-  @ApiProperty()
-  @IsDefined()
-  @IsNotEmpty()
-  @IsString()
-  public name: string;
-
-  // @ApiProperty()
-  // @IsDefined()
-  // @IsNotEmpty()
-  // @IsString()
-  // public logo: string;
+  email: string;
 
   @ApiProperty()
   @IsDefined()
   @IsNotEmpty()
   @IsPhoneNumber(null)
-  public phone: string;
+  phone: string;
 
   @ApiProperty()
   @IsDefined()
   @IsNotEmpty()
   @IsString()
-  public subscription: string;
+  billingaddress: string;
 
   @ApiProperty()
   @IsDefined()
   @IsNotEmpty()
   @IsString()
-  public street: string;
+  country: string;
 
   @ApiProperty()
   @IsDefined()
   @IsNotEmpty()
   @IsString()
-  public suite: string;
+  ccn: string;
 
   @ApiProperty()
   @IsDefined()
   @IsNotEmpty()
   @IsString()
-  public city: string;
+  CVV: string;
 
   @ApiProperty()
   @IsDefined()
   @IsNotEmpty()
   @IsString()
-  public state: string;
-
-  @ApiProperty()
-  @IsDefined()
-  @IsNotEmpty()
-  @IsString()
-  public zip: string;
+  @IsDate()
+  expirationdate: Date;
 }

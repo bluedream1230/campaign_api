@@ -1,11 +1,11 @@
 export default class UpdateUserDto {
     email: string;
     name: string;
-    logo: string;
     phone: string;
     subscription: string;
-    password: string;
-    coins: number;
-    coinsused: number;
-    completion: number;
+    street: string;
+    suite: string;
+    city: string;
+    state: string;
+    zip: string;
 }

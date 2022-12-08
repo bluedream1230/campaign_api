@@ -27,6 +27,9 @@ let RewardsController = class RewardsController {
     getAllRewards(req) {
         return this.rewardsService.getAllRewards(req.user);
     }
+    getOnlyRewards(req) {
+        return this.rewardsService.getOnlyRewards(req.user);
+    }
     getRewardById({ id }) {
         return this.rewardsService.getRewardById(Number(id));
     }
@@ -47,6 +50,15 @@ let RewardsController = class RewardsController {
     }
 };
 __decorate([
+    common_1.Get("rewardsinfo"),
+    common_1.UseGuards(jwt_auth_guard_1.JwtAuthGuard),
+    swagger_1.ApiOperation({ summary: "Get all rewards and info" }),
+    __param(0, common_1.Req()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", void 0)
+], RewardsController.prototype, "getAllRewards", null);
+__decorate([
     common_1.Get(),
     common_1.UseGuards(jwt_auth_guard_1.JwtAuthGuard),
     swagger_1.ApiOperation({ summary: "Get all rewards" }),
@@ -54,7 +66,7 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", void 0)
-], RewardsController.prototype, "getAllRewards", null);
+], RewardsController.prototype, "getOnlyRewards", null);
 __decorate([
     common_1.Get(":id"),
     common_1.UseGuards(jwt_auth_guard_1.JwtAuthGuard),

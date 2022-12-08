@@ -18,7 +18,7 @@ const common_1 = require("@nestjs/common");
 const swagger_1 = require("@nestjs/swagger");
 const postgresErrorCode_enum_1 = require("../database/postgresErrorCode.enum");
 const jwt_auth_guard_1 = require("../auth/guards/jwt-auth.guard");
-const addressUser_dto_1 = require("./dto/addressUser.dto");
+const billUser_dto_1 = require("./dto/billUser.dto");
 const findOneParams_1 = require("../utils/findOneParams");
 const updateUser_dto_1 = require("./dto/updateUser.dto");
 const attendCreate_dto_1 = require("../attends/dto/attendCreate.dto");
@@ -36,10 +36,11 @@ let UsersController = class UsersController {
             throw new common_1.HttpException("Something went wrong", common_1.HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-    async updatedAddress({ id }, addressData) {
+    async updatedBill(req, billData) {
+        const id = req.user.id;
         try {
-            const updatedAddress = await this.usersService.updateAddress(Number(id), addressData);
-            return addressData;
+            const updatedBill = await this.usersService.updateBill(Number(id), billData);
+            return billData;
         }
         catch (error) {
             if ((error === null || error === void 0 ? void 0 : error.code) === postgresErrorCode_enum_1.default.UniqueViolation) {
@@ -70,7 +71,7 @@ let UsersController = class UsersController {
     }
 };
 __decorate([
-    common_1.Patch("update"),
+    common_1.Put("update"),
     common_1.UseGuards(jwt_auth_guard_1.JwtAuthGuard),
     swagger_1.ApiOperation({ summary: "Update user" }),
     __param(0, common_1.Request()), __param(1, common_1.Body()),
@@ -79,16 +80,14 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], UsersController.prototype, "update", null);
 __decorate([
-    common_1.Patch(":id"),
+    common_1.Put("bill"),
     common_1.UseGuards(jwt_auth_guard_1.JwtAuthGuard),
-    swagger_1.ApiOperation({ summary: "Create address" }),
-    __param(0, common_1.Param()),
-    __param(1, common_1.Body()),
+    swagger_1.ApiOperation({ summary: "Update bill" }),
+    __param(0, common_1.Request()), __param(1, common_1.Body()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [findOneParams_1.default,
-        addressUser_dto_1.default]),
+    __metadata("design:paramtypes", [Object, billUser_dto_1.default]),
     __metadata("design:returntype", Promise)
-], UsersController.prototype, "updatedAddress", null);
+], UsersController.prototype, "updatedBill", null);
 __decorate([
     common_1.Patch("join/:id"),
     common_1.UseGuards(jwt_auth_guard_1.JwtAuthGuard),

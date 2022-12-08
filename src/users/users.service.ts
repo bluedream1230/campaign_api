@@ -2,23 +2,24 @@ import { HttpException, HttpStatus, Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { Repository } from "typeorm";
 import User from "./user.entity";
-import Address from "./address.entity";
+import Bill from "./bill.entity";
 import CreateUserDto from "./dto/createUser.dto";
-import AddressUserDto from "./dto/addressUser.dto";
+import BillUserDto from "./dto/billUser.dto";
 import UpdateUserDto from "./dto/updateUser.dto";
 import JoinEventDto from "./dto/joinEvent.dto";
 import CreateAttendDto from "src/attends/dto/attendCreate.dto";
 import Attend from "src/attends/attend.entity";
 import CreateAudienceDto from "src/audiences/dto/createAudience.dto";
 import Audience from "src/audiences/audiences.entity";
+import UpdatePassDto from "./dto/updatePass.dto";
 
 @Injectable()
 export class UsersService {
   constructor(
     @InjectRepository(User)
     private usersRepository: Repository<User>,
-    @InjectRepository(Address)
-    private usersAddressRepository: Repository<Address>,
+    @InjectRepository(Bill)
+    private usersBillRepository: Repository<Bill>,
     @InjectRepository(Attend)
     private attendsRepository: Repository<Attend>,
     @InjectRepository(Audience)
@@ -57,19 +58,18 @@ export class UsersService {
     return await this.usersRepository.update(id, userData);
   }
 
-  async updateAddress(id: number, address: AddressUserDto) {
+  async updateBill(id: number, bill: BillUserDto) {
     const user = await this.usersRepository.findOne({
-      relations: ["address"],
+      relations: ["bill"],
       where: { id },
     });
 
     if (!user) return;
-    if (user.address)
-      await this.usersAddressRepository.update(user.address.id, address);
+    if (user.bill) await this.usersBillRepository.update(user.bill.id, bill);
     else {
-      const result = await this.usersAddressRepository.insert(address);
-      const addressId = result.identifiers[0].id;
-      await this.usersRepository.update(id, { address: { id: addressId } });
+      const result = await this.usersBillRepository.insert(bill);
+      const billId = result.identifiers[0].id;
+      await this.usersRepository.update(id, { bill: { id: billId } });
     }
   }
 
@@ -84,5 +84,19 @@ export class UsersService {
     joinEvent.user_id = user_id;
     joinEvent.event_id = id;
     await this.attendsRepository.insert(joinEvent);
+  }
+
+  async updatePassword(password: UpdatePassDto) {
+    const user = await this.usersRepository
+      .createQueryBuilder("user")
+      .where(`user.email = '${password.email}'`)
+      .getOne();
+    if (!user) return;
+    return this.usersRepository.update(
+      { email: password.email },
+      {
+        password: password.password,
+      }
+    );
   }
 }

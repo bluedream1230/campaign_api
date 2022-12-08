@@ -47,7 +47,8 @@ __decorate([
     __metadata("design:type", Date)
 ], Attend.prototype, "updatedAt", void 0);
 Attend = __decorate([
-    typeorm_1.Entity()
+    typeorm_1.Entity(),
+    typeorm_1.Index(["user_id", "event_id"], { unique: true })
 ], Attend);
 exports.default = Attend;
 //# sourceMappingURL=attend.entity.js.map
