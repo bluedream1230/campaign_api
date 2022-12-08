@@ -1,6 +1,6 @@
 import { Controller, Post, Query, Body } from "@nestjs/common";
-import { SendgridService } from "src/sendgrid/sendgrid.service"; // add this
-import CreateTextDto from "./dto/CreateText.dto";
+import { SendgridService } from "src/sendgrid/sendgrid.service";
+import CreateTextDto from "./dto/createText.dto";
 import ForgotPasswordDto from "./dto/forgotPassword.dto";
 import { getEmailHtml } from "./emailHtml";
 import { JwtService } from "@nestjs/jwt";
@@ -20,7 +20,7 @@ export class MailController {
     console.log(user);
     const { ...payload } = user;
     const access_token = this.jwtService.sign(payload);
-    const url = `http://44.206.254.252:3000/auth/createpassword/${access_token}`;
+    const url = `http://localhost:3000/auth/createpassword/${access_token}`;
     const message = getEmailHtml([
       { type: "element1", data: ["Password Reset"] },
       {
