@@ -20,7 +20,7 @@ export class MailController {
     console.log(user);
     const { ...payload } = user;
     const access_token = this.jwtService.sign(payload);
-    const url = `http://localhost:3000/auth/createpassword/${access_token}`;
+    const url = `http://44.206.254.252:3000/auth/createpassword/${access_token}`;
     const message = getEmailHtml([
       { type: "element1", data: ["Password Reset"] },
       {
