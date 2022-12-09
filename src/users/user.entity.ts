@@ -34,19 +34,19 @@ class User {
   @Column({ default: "+1 222 222 2222" })
   public phone?: string;
 
-  @Column()
-  public street: string;
+  @Column({default: ""})
+  public street?: string;
 
-  @Column()
-  public suite: string;
+  @Column({default: ""})
+  public suite?: string;
 
-  @Column()
+  @Column({default: ""})
   public city: string;
 
-  @Column()
+  @Column({default: ""})
   public state: string;
 
-  @Column()
+  @Column({default: ""})
   public zip: string;
 
   @Column({ default: "subscription" })

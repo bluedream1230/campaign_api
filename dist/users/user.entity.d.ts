@@ -8,8 +8,8 @@ declare class User {
     name: string;
     logo?: string;
     phone?: string;
-    street: string;
-    suite: string;
+    street?: string;
+    suite?: string;
     city: string;
     state: string;
     zip: string;

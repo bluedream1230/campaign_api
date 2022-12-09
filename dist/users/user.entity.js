@@ -39,23 +39,23 @@ __decorate([
     __metadata("design:type", String)
 ], User.prototype, "phone", void 0);
 __decorate([
-    typeorm_1.Column(),
+    typeorm_1.Column({ default: "" }),
     __metadata("design:type", String)
 ], User.prototype, "street", void 0);
 __decorate([
-    typeorm_1.Column(),
+    typeorm_1.Column({ default: "" }),
     __metadata("design:type", String)
 ], User.prototype, "suite", void 0);
 __decorate([
-    typeorm_1.Column(),
+    typeorm_1.Column({ default: "" }),
     __metadata("design:type", String)
 ], User.prototype, "city", void 0);
 __decorate([
-    typeorm_1.Column(),
+    typeorm_1.Column({ default: "" }),
     __metadata("design:type", String)
 ], User.prototype, "state", void 0);
 __decorate([
-    typeorm_1.Column(),
+    typeorm_1.Column({ default: "" }),
     __metadata("design:type", String)
 ], User.prototype, "zip", void 0);
 __decorate([
@@ -81,17 +81,17 @@ __decorate([
 __decorate([
     swagger_1.ApiProperty(),
     typeorm_1.CreateDateColumn({
-        type: "timestamp",
-        default: () => "NOW()",
+        type: "timestamptz",
+        default: () => "CURRENT_TIMESTAMP(6)",
     }),
     __metadata("design:type", Date)
 ], User.prototype, "createdAt", void 0);
 __decorate([
     swagger_1.ApiProperty(),
     typeorm_1.UpdateDateColumn({
-        type: "timestamp",
-        default: () => "NOW()",
-        onUpdate: "NOW()",
+        type: "timestamptz",
+        default: () => "CURRENT_TIMESTAMP(6)",
+        onUpdate: "CURRENT_TIMESTAMP(6)",
     }),
     __metadata("design:type", Date)
 ], User.prototype, "updatedAt", void 0);

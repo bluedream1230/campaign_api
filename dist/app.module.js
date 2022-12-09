@@ -8,7 +8,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppModule = void 0;
 const common_1 = require("@nestjs/common");
-const config_1 = require("@nestjs/config");
 const app_service_1 = require("./app.service");
 const auth_module_1 = require("./auth/auth.module");
 const admin_users_module_1 = require("./adminUsers/admin.users.module");
@@ -27,21 +26,31 @@ const attends_module_1 = require("./attends/attends.module");
 const apis_module_1 = require("./apis/apis.module");
 const audiences_entity_1 = require("./audiences/audiences.entity");
 const audiences_module_1 = require("./audiences/audiences.module");
-const sendgrid_service_1 = require("./sendgrid/sendgrid.service");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
     common_1.Module({
         imports: [
             typeorm_1.TypeOrmModule.forRoot({
-                type: "mysql",
+                type: "postgres",
                 host: "localhost",
-                port: 3306,
-                username: "root",
-                password: "",
-                database: "zoom",
+                port: 5432,
+                username: "zoomin",
+                password: "zoomin",
+                database: "zoomin",
                 entities: [user_entity_1.default, bill_entity_1.default, event_entity_1.default, game_entity_1.default, reward_entity_1.default, attend_entity_1.default, audiences_entity_1.default],
                 synchronize: true,
+                ssl: {
+                    require: true,
+                    rejectUnauthorized: false,
+                },
+                migrationsRun: false,
+                logging: false,
+                logger: "file",
+                migrations: [__dirname + "/migrations/**/*{.ts,.js}"],
+                cli: {
+                    migrationsDir: "src/migrations",
+                },
             }),
             auth_module_1.AuthModule,
             admin_users_module_1.AdminUsersModule,
@@ -51,11 +60,10 @@ AppModule = __decorate([
             rewards_module_1.RewardsModule,
             attends_module_1.AttendsModule,
             apis_module_1.ApisModule,
-            audiences_module_1.AudiencesModule,
-            config_1.ConfigModule.forRoot(),
+            audiences_module_1.AudiencesModule
         ],
         controllers: [],
-        providers: [app_service_1.AppService, sendgrid_service_1.SendgridService],
+        providers: [app_service_1.AppService],
     })
 ], AppModule);
 exports.AppModule = AppModule;

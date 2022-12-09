@@ -28,10 +28,10 @@ import { SendgridService } from "./sendgrid/sendgrid.service";
       type: "postgres",
       host: "localhost",
       port: 5432,
-      username: "postgres",
-      password: "",
-      database: "postgres",
-      entities: [User, Address, Event, Game, Reward, Attend],
+      username: "zoomin",
+      password: "zoomin",
+      database: "zoomin",
+      entities: [User, Address, Event, Game, Reward, Attend, Audience],
       synchronize: true,
       ssl: {
         require: true,
@@ -58,11 +58,10 @@ import { SendgridService } from "./sendgrid/sendgrid.service";
     RewardsModule,
     AttendsModule,
     ApisModule,
-    AudiencesModule,
-    ConfigModule.forRoot(),
+    AudiencesModule
   ],
   // controllers: [AppController],
   controllers: [],
-  providers: [AppService, SendgridService],
+  providers: [AppService],
 })
 export class AppModule {}

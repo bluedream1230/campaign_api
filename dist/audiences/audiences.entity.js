@@ -27,17 +27,17 @@ __decorate([
 __decorate([
     swagger_1.ApiProperty(),
     typeorm_1.CreateDateColumn({
-        type: "timestamp",
-        default: () => "NOW()",
+        type: "timestamptz",
+        default: () => "CURRENT_TIMESTAMP(6)",
     }),
     __metadata("design:type", Date)
 ], Audience.prototype, "createdAt", void 0);
 __decorate([
     swagger_1.ApiProperty(),
     typeorm_1.UpdateDateColumn({
-        type: "timestamp",
-        default: () => "NOW()",
-        onUpdate: "NOW()",
+        type: "timestamptz",
+        default: () => "CURRENT_TIMESTAMP(6)",
+        onUpdate: "CURRENT_TIMESTAMP(6)",
     }),
     __metadata("design:type", Date)
 ], Audience.prototype, "updatedAt", void 0);
