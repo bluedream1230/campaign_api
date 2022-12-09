@@ -4,11 +4,17 @@ import { JwtService } from "@nestjs/jwt";
 import CreateUserDto from "src/users/dto/createUser.dto";
 import LoginUserDto from "src/users/dto/loginUser.dto";
 import { UsersService } from "src/users/users.service";
+import EventsService from "src/events/events.service";
+import { InjectRepository } from "@nestjs/typeorm";
+import { Repository } from "typeorm";
+import Event from "src/events/event.entity";
 @Injectable()
 export class AuthService {
   constructor(
     private readonly usersService: UsersService,
-    private readonly jwtService: JwtService
+    private readonly jwtService: JwtService,
+    @InjectRepository(Event)
+    private eventsRepository: Repository<Event>
   ) {}
 
   async validateUser(email: string): Promise<any> {
@@ -32,5 +38,10 @@ export class AuthService {
       email: payload.email,
       user: payload.name,
     };
+  }
+
+  async getAllEventsWithoutSignin() {
+    const events = await this.eventsRepository.find();
+    return events;
   }
 }

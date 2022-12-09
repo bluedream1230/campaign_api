@@ -23,6 +23,7 @@ import LoginUserDto from "../users/dto/loginUser.dto";
 import CreateUserDto from "../users/dto/createUser.dto";
 import FindOneParams from "src/utils/findOneParams";
 import UpdatePassDto from "src/users/dto/updatePass.dto";
+import EventsService from "src/events/events.service";
 
 @ApiTags("Authentication")
 @Controller("auth")
@@ -77,5 +78,10 @@ export class AuthController {
   @ApiOperation({ summary: "Update password" })
   async updatepass(@Body() registrationData: UpdatePassDto) {
     return this.usersService.updatePassword(registrationData);
+  }
+
+  @Get("getevents")
+  async getallevents() {
+    return this.authService.getAllEventsWithoutSignin();
   }
 }
