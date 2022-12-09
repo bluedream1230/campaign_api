@@ -25,8 +25,14 @@ class User {
   @Column({ unique: true })
   public email: string;
 
-  @Column()
+  @Column({ default: "zoominuser" })
   public name: string;
+
+  @Column({ default: "zoominuser" })
+  public lastname: string;
+
+  @Column({ default: "zoomin" })
+  public company: string;
 
   @Column({ default: "logo" })
   public logo?: string;
@@ -34,19 +40,19 @@ class User {
   @Column({ default: "+1 222 222 2222" })
   public phone?: string;
 
-  @Column({default: ""})
+  @Column({ default: "" })
   public street?: string;
 
-  @Column({default: ""})
+  @Column({ default: "" })
   public suite?: string;
 
-  @Column({default: ""})
+  @Column({ default: "" })
   public city: string;
 
-  @Column({default: ""})
+  @Column({ default: "" })
   public state: string;
 
-  @Column({default: ""})
+  @Column({ default: "" })
   public zip: string;
 
   @Column({ default: "subscription" })
@@ -67,16 +73,16 @@ class User {
 
   @ApiProperty()
   @CreateDateColumn({
-    type: "timestamptz", // timestamptz
-    default: () => "CURRENT_TIMESTAMP(6)", // "CURRENT_TIMESTAMP(6)",
+    type: "timestamp", // timestamptz
+    default: () => "NOW()", // "CURRENT_TIMESTAMP(6)",
   })
   createdAt: Date;
 
   @ApiProperty()
   @UpdateDateColumn({
-    type: "timestamptz",
-    default: () => "CURRENT_TIMESTAMP(6)",
-    onUpdate: "CURRENT_TIMESTAMP(6)",
+    type: "timestamp",
+    default: () => "NOW()",
+    onUpdate: "NOW()",
   })
   updatedAt: Date;
 

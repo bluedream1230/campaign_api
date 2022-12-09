@@ -19,10 +19,25 @@ export default class CreateUserDto {
   @IsDefined()
   @IsNotEmpty()
   @IsString()
+  lastname: string;
+
+  @ApiProperty()
+  @IsDefined()
+  @IsNotEmpty()
+  @IsString()
   password: string;
 
-  // @ApiProperty()
-  // logo: string;
+  @ApiProperty()
+  @IsDefined()
+  @IsNotEmpty()
+  @IsString()
+  company: string;
+
+  @ApiProperty()
+  @IsDefined()
+  @IsNotEmpty()
+  @IsString()
+  phone: string;
 
   // @ApiProperty()
   // phone: string;

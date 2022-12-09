@@ -22,6 +22,12 @@ export default class UpdateUserDto {
   @IsString()
   public name: string;
 
+  @ApiProperty()
+  @IsDefined()
+  @IsNotEmpty()
+  @IsString()
+  public lastname: string;
+
   // @ApiProperty()
   // @IsDefined()
   // @IsNotEmpty()
