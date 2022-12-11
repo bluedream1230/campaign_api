@@ -34,6 +34,10 @@ class Game {
   public video_url: string;
 
   @ApiProperty()
+  @Column()
+  public img_url: string;
+
+  @ApiProperty()
   @CreateDateColumn({
     type: "timestamptz", // timestamptz
     default: () => "CURRENT_TIMESTAMP(6)", // "CURRENT_TIMESTAMP(6)",
