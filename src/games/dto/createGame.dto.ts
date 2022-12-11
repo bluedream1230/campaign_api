@@ -12,4 +12,7 @@ export default class CreateGameDto {
 
   @ApiProperty()
   public video_url: string;
+
+  @ApiProperty()
+  public img_url: string;
 }
