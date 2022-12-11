@@ -23,7 +23,6 @@ import LoginUserDto from "../users/dto/loginUser.dto";
 import CreateUserDto from "../users/dto/createUser.dto";
 import FindOneParams from "src/utils/findOneParams";
 import UpdatePassDto from "src/users/dto/updatePass.dto";
-import EventsService from "src/events/events.service";
 
 @ApiTags("Authentication")
 @Controller("auth")
@@ -80,8 +79,8 @@ export class AuthController {
     return this.usersService.updatePassword(registrationData);
   }
 
-  @Get("getevents")
-  async getallevents() {
-    return this.authService.getAllEventsWithoutSignin();
+  @Get("getevents/:id")
+  async getallevents(@Param() { id }: FindOneParams) {
+    return this.authService.getEventByIdWithoutSignin(Number(id));
   }
 }

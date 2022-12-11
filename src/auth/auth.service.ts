@@ -40,8 +40,8 @@ export class AuthService {
     };
   }
 
-  async getAllEventsWithoutSignin() {
-    const events = await this.eventsRepository.find();
+  async getEventByIdWithoutSignin(id: number) {
+    const events = await this.eventsRepository.findOne(id);
     return events;
   }
 }
