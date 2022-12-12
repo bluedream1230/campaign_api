@@ -72,9 +72,10 @@ export default class EventsService {
         id: audienceId,
       },
     });
-    await this.eventsRepository.save(newEvent);
+    console.log(newEvent);
+    const result = await this.eventsRepository.save(newEvent);
 
-    return newEvent;
+    return result;
   }
 
   async updateEvent(id: number, event: UpdateEventDto) {
