@@ -27,10 +27,6 @@ class Game {
 
   @ApiProperty()
   @Column()
-  public duration: number;
-
-  @ApiProperty()
-  @Column()
   public video_url: string;
 
   @ApiProperty()

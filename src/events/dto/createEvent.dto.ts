@@ -21,4 +21,7 @@ export default class CreateEventDto {
 
   @ApiProperty()
   public event_coins: number;
+
+  @ApiProperty()
+  public duration: number;
 }
