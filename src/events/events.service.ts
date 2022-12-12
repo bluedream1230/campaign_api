@@ -32,6 +32,7 @@ export default class EventsService {
           .createQueryBuilder()
           .where(`attend.event_id = '${item.id}'`)
           .getCount();
+        console.log("users_ number : ", users_num);
         const event = await this.eventsRepository
           .createQueryBuilder("event")
           .leftJoinAndSelect("event.game", "game")
