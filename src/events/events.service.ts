@@ -24,17 +24,14 @@ export default class EventsService {
       .createQueryBuilder("event")
       .where(`event.userId = '${user.id}'`)
       .getMany();
-    console.log("events : ", events);
     const totalList = [];
     await Promise.all(
       events.map(async (item, index) => {
         // item.id;
-        console.log(item.id);
         const users_num = await this.attendsRepository
           .createQueryBuilder()
           .where(`event_id = '${item.id}'`)
           .getCount();
-        console.log("users_ number : ", users_num);
         const event = await this.eventsRepository
           .createQueryBuilder("event")
           .leftJoinAndSelect("event.game", "game")
@@ -43,7 +40,6 @@ export default class EventsService {
         totalList.push({ ...(event[0] || {}), users_num });
       })
     );
-    console.log(totalList);
     return totalList;
   }
 
