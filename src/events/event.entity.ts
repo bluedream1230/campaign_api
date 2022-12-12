@@ -55,14 +55,14 @@ class Event {
   public end_time: Date;
 
   @ApiProperty()
-  @Column({ default: 0 })
+  @Column({ default: 1 })
   public user_limit: number;
 
-  @ApiProperty()
+  @ApiProperty({ default: "url" })
   @Column()
   public qr_code: string;
 
-  @ApiProperty()
+  @ApiProperty({ default: 10 })
   @Column()
   public event_coins: number;
 
