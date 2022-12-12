@@ -29,6 +29,7 @@ export default class EventsService {
     await Promise.all(
       events.map(async (item, index) => {
         // item.id;
+        console.log(item.id);
         const users_num = await this.attendsRepository
           .createQueryBuilder()
           .where(`attend.event_id = '${item.id}'`)
