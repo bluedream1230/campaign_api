@@ -32,7 +32,7 @@ export default class EventsService {
         console.log(item.id);
         const users_num = await this.attendsRepository
           .createQueryBuilder()
-          .where(`attend.event_id = '${item.id}'`)
+          .where(`event_id = '${item.id}'`)
           .getCount();
         console.log("users_ number : ", users_num);
         const event = await this.eventsRepository
