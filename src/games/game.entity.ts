@@ -27,7 +27,7 @@ class Game {
 
   @ApiProperty()
   @Column()
-  public duration: string;
+  public duration: number;
 
   @ApiProperty()
   @Column()
