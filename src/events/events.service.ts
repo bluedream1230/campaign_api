@@ -24,6 +24,7 @@ export default class EventsService {
       .createQueryBuilder("event")
       .where(`event.userId = '${user.id}'`)
       .getMany();
+    console.log("events : ", events);
     const totalList = [];
     await Promise.all(
       events.map(async (item, index) => {
@@ -41,6 +42,7 @@ export default class EventsService {
         totalList.push({ ...(event[0] || {}), users_num });
       })
     );
+    console.log(totalList);
     return totalList;
   }
 
