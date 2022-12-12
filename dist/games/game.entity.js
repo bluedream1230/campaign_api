@@ -40,6 +40,11 @@ __decorate([
 ], Game.prototype, "video_url", void 0);
 __decorate([
     swagger_1.ApiProperty(),
+    typeorm_1.Column(),
+    __metadata("design:type", String)
+], Game.prototype, "img_url", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
     typeorm_1.CreateDateColumn({
         type: "timestamptz",
         default: () => "CURRENT_TIMESTAMP(6)",

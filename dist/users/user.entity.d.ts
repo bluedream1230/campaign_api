@@ -6,6 +6,8 @@ declare class User {
     id: number;
     email: string;
     name: string;
+    lastname: string;
+    company: string;
     logo?: string;
     phone?: string;
     street?: string;

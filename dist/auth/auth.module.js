@@ -10,6 +10,10 @@ exports.AuthModule = void 0;
 const common_1 = require("@nestjs/common");
 const jwt_1 = require("@nestjs/jwt");
 const passport_1 = require("@nestjs/passport");
+const typeorm_1 = require("@nestjs/typeorm");
+const event_entity_1 = require("../events/event.entity");
+const events_module_1 = require("../events/events.module");
+const events_service_1 = require("../events/events.service");
 const users_module_1 = require("../users/users.module");
 const admin_users_module_1 = require("../adminUsers/admin.users.module");
 const auth_controller_1 = require("./auth.controller");
@@ -28,6 +32,7 @@ AuthModule = __decorate([
                 signOptions: { expiresIn: "7d" },
             }),
             users_module_1.UsersModule,
+            typeorm_1.TypeOrmModule.forFeature([event_entity_1.default]),
         ],
         providers: [auth_service_1.AuthService, jwt_strategy_1.JwtStrategy],
         exports: [auth_service_1.AuthService],

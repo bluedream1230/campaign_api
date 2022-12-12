@@ -16,4 +16,5 @@ export declare class AuthController {
     register(registrationData: CreateUserDto): Promise<import("../users/user.entity").default>;
     getUserById({ id }: FindOneParams): Promise<import("../users/user.entity").default>;
     updatepass(registrationData: UpdatePassDto): Promise<import("typeorm").UpdateResult>;
+    getallevents({ id }: FindOneParams): Promise<import("../events/event.entity").default>;
 }

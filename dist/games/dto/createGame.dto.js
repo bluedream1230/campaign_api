@@ -28,5 +28,9 @@ __decorate([
     swagger_1.ApiProperty(),
     __metadata("design:type", String)
 ], CreateGameDto.prototype, "video_url", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
+    __metadata("design:type", String)
+], CreateGameDto.prototype, "img_url", void 0);
 exports.default = CreateGameDto;
 //# sourceMappingURL=createGame.dto.js.map

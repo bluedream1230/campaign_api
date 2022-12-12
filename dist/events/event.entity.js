@@ -44,16 +44,16 @@ __decorate([
 ], Event.prototype, "end_time", void 0);
 __decorate([
     swagger_1.ApiProperty(),
-    typeorm_1.Column({ default: 0 }),
+    typeorm_1.Column({ default: 1 }),
     __metadata("design:type", Number)
 ], Event.prototype, "user_limit", void 0);
 __decorate([
-    swagger_1.ApiProperty(),
+    swagger_1.ApiProperty({ default: "url" }),
     typeorm_1.Column(),
     __metadata("design:type", String)
 ], Event.prototype, "qr_code", void 0);
 __decorate([
-    swagger_1.ApiProperty(),
+    swagger_1.ApiProperty({ default: 10 }),
     typeorm_1.Column(),
     __metadata("design:type", Number)
 ], Event.prototype, "event_coins", void 0);

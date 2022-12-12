@@ -27,9 +27,17 @@ __decorate([
     __metadata("design:type", String)
 ], User.prototype, "email", void 0);
 __decorate([
-    typeorm_1.Column(),
+    typeorm_1.Column({ default: "zoominuser" }),
     __metadata("design:type", String)
 ], User.prototype, "name", void 0);
+__decorate([
+    typeorm_1.Column({ default: "zoominuser" }),
+    __metadata("design:type", String)
+], User.prototype, "lastname", void 0);
+__decorate([
+    typeorm_1.Column({ default: "zoomin" }),
+    __metadata("design:type", String)
+], User.prototype, "company", void 0);
 __decorate([
     typeorm_1.Column({ default: "logo" }),
     __metadata("design:type", String)
@@ -81,17 +89,17 @@ __decorate([
 __decorate([
     swagger_1.ApiProperty(),
     typeorm_1.CreateDateColumn({
-        type: "timestamptz",
-        default: () => "CURRENT_TIMESTAMP(6)",
+        type: "timestamp",
+        default: () => "NOW()",
     }),
     __metadata("design:type", Date)
 ], User.prototype, "createdAt", void 0);
 __decorate([
     swagger_1.ApiProperty(),
     typeorm_1.UpdateDateColumn({
-        type: "timestamptz",
-        default: () => "CURRENT_TIMESTAMP(6)",
-        onUpdate: "CURRENT_TIMESTAMP(6)",
+        type: "timestamp",
+        default: () => "NOW()",
+        onUpdate: "NOW()",
     }),
     __metadata("design:type", Date)
 ], User.prototype, "updatedAt", void 0);

@@ -3,4 +3,5 @@ export default class CreateGameDto {
     type: string;
     duration: string;
     video_url: string;
+    img_url: string;
 }
