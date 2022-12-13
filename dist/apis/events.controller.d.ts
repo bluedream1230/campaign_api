@@ -20,6 +20,6 @@ export declare class EventsController {
         EventReward: string;
         EventRewardPool: number;
         EventUserLimit: number;
-        EventQRCodeURL: string;
+        EventQRCodeURL: any;
     }>;
 }

@@ -60,7 +60,9 @@ let AuthService = class AuthService {
     }
     async getEventByIdWithoutSignin(id) {
         const events = await this.eventsRepository.findOne(id);
-        return events;
+        const qrcode = require("qrcode-js");
+        const base64 = qrcode.toDataURL(events.qr_code, 4);
+        return Object.assign(Object.assign({}, events), { qr_code: base64 });
     }
 };
 AuthService = __decorate([

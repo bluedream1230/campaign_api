@@ -42,6 +42,8 @@ let ApisService = class ApisService {
             .createQueryBuilder("reward")
             .leftJoinAndSelect("reward.events", "event")
             .getOne();
+        const qrcode = require("qrcode-js");
+        const base64 = qrcode.toDataURL(event.qr_code, 4);
         const result = {
             SponsorID: user.id,
             SponsorName: user.name,
@@ -59,7 +61,7 @@ let ApisService = class ApisService {
             EventReward: reward.name,
             EventRewardPool: reward.ratelimit,
             EventUserLimit: event.user_limit,
-            EventQRCodeURL: event.qr_code,
+            EventQRCodeURL: base64,
         };
         return result;
     }

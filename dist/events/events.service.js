@@ -42,15 +42,22 @@ let EventsService = class EventsService {
                 .leftJoinAndSelect("event.game", "game")
                 .where(`event.id = '${item.id}'`)
                 .getMany();
-            totalList.push(Object.assign(Object.assign({}, (event[0] || {})), { users_num }));
+            const qrcode = require("qrcode-js");
+            const base64 = qrcode.toDataURL(event[0].qr_code, 4);
+            totalList.push(Object.assign(Object.assign({}, (Object.assign(Object.assign({}, event[0]), { qr_code: base64 }) || {})), { users_num }));
         }));
         return totalList;
     }
     async getEventById(id) {
         const event = await this.eventsRepository.findOne(id);
+        const qrcode = require("qrcode-js");
+        const url = "https://saviour.earth/ZoomIn?event_id=" + event.id;
+        const base64 = qrcode.toDataURL(url, 4);
+        console.log(base64);
         if (event) {
-            return event;
+            return Object.assign(Object.assign({}, event), { qr_code: base64 });
         }
+        console.log(event);
         throw new eventNotFound_exception_1.default(id);
     }
     async createEvent(gameId, rewardId, audienceId, event, user) {
@@ -68,7 +75,7 @@ let EventsService = class EventsService {
         const base64 = qrcode.toDataURL(url, 4);
         console.log(base64);
         const final = await this.eventsRepository.update(result.id, {
-            qr_code: base64,
+            qr_code: url,
         });
         const res = await this.eventsRepository.findOne(result.id);
         return res;

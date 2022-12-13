@@ -11,7 +11,23 @@ export default class EventsService {
     private gamesRepository;
     constructor(eventsRepository: Repository<Event>, attendsRepository: Repository<Attend>, gamesRepository: Repository<Game>);
     getAllEvents(user: User): Promise<any[]>;
-    getEventById(id: number): Promise<Event>;
+    getEventById(id: number): Promise<{
+        qr_code: any;
+        id: number;
+        name: string;
+        location: string;
+        start_time: Date;
+        end_time: Date;
+        user_limit: number;
+        event_coins: number;
+        duration: number;
+        createdAt: Date;
+        updatedAt: Date;
+        game: Game;
+        user: User;
+        reward: import("../rewards/reward.entity").default;
+        audience: import("../audiences/audiences.entity").default;
+    }>;
     createEvent(gameId: number, rewardId: number, audienceId: number, event: CreateEventDto, user: User): Promise<Event>;
     updateEvent(id: number, event: UpdateEventDto): Promise<void>;
     deleteEvent(id: number): Promise<void>;

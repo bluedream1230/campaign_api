@@ -10,7 +10,23 @@ export default class EventsController {
     private readonly eventsService;
     constructor(eventsService: EventsService);
     getAllEvents(req: RequestWithUser): Promise<any[]>;
-    getEventById({ id }: FindOneParams): Promise<import("./event.entity").default>;
+    getEventById({ id }: FindOneParams): Promise<{
+        qr_code: any;
+        id: number;
+        name: string;
+        location: string;
+        start_time: Date;
+        end_time: Date;
+        user_limit: number;
+        event_coins: number;
+        duration: number;
+        createdAt: Date;
+        updatedAt: Date;
+        game: import("../games/game.entity").default;
+        user: import("../users/user.entity").default;
+        reward: import("../rewards/reward.entity").default;
+        audience: import("../audiences/audiences.entity").default;
+    }>;
     createEvent({ gameId }: FindGameParams, { rewardId }: FindRewardParams, { audienceId }: FindAudienceParams, event: CreateEventDto, req: RequestWithUser): Promise<CreateEventDto>;
     updateEvent({ id }: FindOneParams, event: UpdateEventDto): Promise<void>;
     deleteEvent({ id }: FindOneParams): Promise<void>;

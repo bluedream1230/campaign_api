@@ -28,7 +28,7 @@ export default class ApisService {
         EventReward: string;
         EventRewardPool: number;
         EventUserLimit: number;
-        EventQRCodeURL: string;
+        EventQRCodeURL: any;
     }>;
     getCoinById(id: number): Promise<0 | {
         SpnsorId: number;

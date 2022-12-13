@@ -4147,12 +4147,12 @@
         "affectsGlobalScope": false
       },
       "../src/rewards/reward.entity.ts": {
-        "version": "35ea5adff5f53969887ee6b4e85545171954737d034c4b4ad877607bf09a206b",
+        "version": "7250b601f6c1f1408eb5940f540aeaa8c46cd166edcb5680aa5552eb685f0513",
         "signature": "57843a53c18de5bbcde2c2b9082e1ce025afff0d796d006cb9236702bb1164b5",
         "affectsGlobalScope": false
       },
       "../src/audiences/audiences.entity.ts": {
-        "version": "2c8f852c025b028b3eab8a71b8c46fff6c472fbdedd22e08bf1d59a7222c6bc4",
+        "version": "29f2d06d9a0f78033eb432a3807dcc7efc81d28e4832c6bcd30ce728c1fa464f",
         "signature": "e9e94eaaf16b91142332112afdffd5ce915a27d20bbcc80463b74e1f8d7f6dc8",
         "affectsGlobalScope": false
       },
@@ -4192,8 +4192,8 @@
         "affectsGlobalScope": false
       },
       "../src/events/events.service.ts": {
-        "version": "2f35914c49129cbfe9852ad2a3dade4791351c69c0ba83c8e9432738d565c7d7",
-        "signature": "e7b9cc24e8e3763b4fde22800ae4d6672ff249c36dcce6d0c7857d0acb4cd1b8",
+        "version": "119f9bad91167b1c29047e21a261e5b81df1f613ba771861bc7af2b1b3d5c7b2",
+        "signature": "4244d16db4de2ab89f817c978860a54c674a78519dc8d1b8382af4a77aa3ca3f",
         "affectsGlobalScope": false
       },
       "../node_modules/@types/range-parser/index.d.ts": {
@@ -4258,7 +4258,7 @@
       },
       "../src/events/events.controller.ts": {
         "version": "d0f727ca21d7106b8dd433ed7af8f149166182ee2dd2ff74c43e9573fa6613ee",
-        "signature": "4346164f02a5d942ed8fa163331d1738249f9ce9d76a6349f164c03aae0668f3",
+        "signature": "2427d25f482050b3b498cddc8bfc4ec20d2c372f82e9664734c546ddd8434421",
         "affectsGlobalScope": false
       },
       "../src/events/events.module.ts": {
@@ -4437,13 +4437,13 @@
         "affectsGlobalScope": false
       },
       "../src/auth/auth.service.ts": {
-        "version": "f7dffeb140c93ae9e6d1f4940196ee8084fa762c1dc7154e113a70a6ccaf82bf",
-        "signature": "e63857f3232d38d67d02bd271fa21040adf29f1f24c397794f463875e55c0c6f",
+        "version": "4549cd6c80da60fa9c8b5443254e8b65da0e2eb1471cf9b2c6603dd0cf89d57f",
+        "signature": "6dae834c2549798961e293a6e45071db90f7901e55d2027eab1b8832ff6c28a2",
         "affectsGlobalScope": false
       },
       "../src/auth/auth.controller.ts": {
         "version": "95ead44a21e1db972b3fcedec74003d49e517c09215bfe02c648978737da1312",
-        "signature": "392fe29ab951ee992428621d8c8c7bc8fba7eabf20d6f4bd1ab1138d578cb5b2",
+        "signature": "4f56bb89521a8a10d78e86ee48f4b6cf18326c05ba59adb8cf633837b1b2c608",
         "affectsGlobalScope": false
       },
       "../src/auth/strategies/jwt.strategy.ts": {
@@ -4517,13 +4517,13 @@
         "affectsGlobalScope": false
       },
       "../src/apis/apis.service.ts": {
-        "version": "ca598d0aaf2d117dc56415287c53654fe6f684d8c89b8590a8f58c75edbcbe0f",
-        "signature": "5f0651793f2d8696117f51a5b1b4c941ff7e9e177e308726f30fe04e44cd9613",
+        "version": "e2e7fa3c14e62e0e7ef1efc8b84e18c6f34c8a6017c81f37a46cfb1a51e1fdfb",
+        "signature": "23776b07aabaf5cea6cbe619e25e87603b76cbff837d7ca7bccc51ff2456f6bc",
         "affectsGlobalScope": false
       },
       "../src/apis/events.controller.ts": {
         "version": "34b7f211a1c8dc138e88a35cbf114c7561c4be1c9f1469131a6cb18fc24e5ad9",
-        "signature": "b666cafd481eadd43dcbe725de4c3889e8eb19cc059723e5e9fc01243822b8ce",
+        "signature": "bae3f2dde4713070a7aee4bbc7715b1df24ee27c14fe9aa8d5b62df159bea1ad",
         "affectsGlobalScope": false
       },
       "../src/apis/coins.controller.ts": {
@@ -23011,8 +23011,10 @@
       ],
       "../src/auth/auth.controller.ts": [
         "../node_modules/typeorm/index.d.ts",
+        "../src/audiences/audiences.entity.ts",
         "../src/auth/auth.service.ts",
-        "../src/events/event.entity.ts",
+        "../src/games/game.entity.ts",
+        "../src/rewards/reward.entity.ts",
         "../src/users/dto/createuser.dto.ts",
         "../src/users/dto/loginuser.dto.ts",
         "../src/users/dto/updatepass.dto.ts",
@@ -23023,8 +23025,12 @@
       "../src/auth/auth.service.ts": [
         "../node_modules/@nestjs/jwt/index.d.ts",
         "../node_modules/typeorm/index.d.ts",
+        "../src/audiences/audiences.entity.ts",
         "../src/events/event.entity.ts",
+        "../src/games/game.entity.ts",
+        "../src/rewards/reward.entity.ts",
         "../src/users/dto/loginuser.dto.ts",
+        "../src/users/user.entity.ts",
         "../src/users/users.service.ts"
       ],
       "../src/auth/guards/jwt-auth.guard.ts": [
@@ -23047,11 +23053,14 @@
         "../src/users/user.entity.ts"
       ],
       "../src/events/events.controller.ts": [
+        "../src/audiences/audiences.entity.ts",
         "../src/auth/interface/requestwithuser.ts",
         "../src/events/dto/createevent.dto.ts",
         "../src/events/dto/updateevent.dto.ts",
-        "../src/events/event.entity.ts",
         "../src/events/events.service.ts",
+        "../src/games/game.entity.ts",
+        "../src/rewards/reward.entity.ts",
+        "../src/users/user.entity.ts",
         "../src/utils/findaudienceparams.ts",
         "../src/utils/findgameparams.ts",
         "../src/utils/findoneparams.ts",
@@ -23060,10 +23069,12 @@
       "../src/events/events.service.ts": [
         "../node_modules/typeorm/index.d.ts",
         "../src/attends/attend.entity.ts",
+        "../src/audiences/audiences.entity.ts",
         "../src/events/dto/createevent.dto.ts",
         "../src/events/dto/updateevent.dto.ts",
         "../src/events/event.entity.ts",
         "../src/games/game.entity.ts",
+        "../src/rewards/reward.entity.ts",
         "../src/users/user.entity.ts"
       ],
       "../src/events/exceptions/eventnotfound.exception.ts": [

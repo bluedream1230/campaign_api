@@ -16,5 +16,21 @@ export declare class AuthController {
     register(registrationData: CreateUserDto): Promise<import("../users/user.entity").default>;
     getUserById({ id }: FindOneParams): Promise<import("../users/user.entity").default>;
     updatepass(registrationData: UpdatePassDto): Promise<import("typeorm").UpdateResult>;
-    getallevents({ id }: FindOneParams): Promise<import("../events/event.entity").default>;
+    getallevents({ id }: FindOneParams): Promise<{
+        qr_code: any;
+        id: number;
+        name: string;
+        location: string;
+        start_time: Date;
+        end_time: Date;
+        user_limit: number;
+        event_coins: number;
+        duration: number;
+        createdAt: Date;
+        updatedAt: Date;
+        game: import("../games/game.entity").default;
+        user: import("../users/user.entity").default;
+        reward: import("../rewards/reward.entity").default;
+        audience: import("../audiences/audiences.entity").default;
+    }>;
 }
