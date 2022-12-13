@@ -32,6 +32,13 @@ __decorate([
     swagger_1.ApiProperty(),
     class_validator_1.IsDefined(),
     class_validator_1.IsNotEmpty(),
+    class_validator_1.IsString(),
+    __metadata("design:type", String)
+], UpdateUserDto.prototype, "lastname", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
+    class_validator_1.IsDefined(),
+    class_validator_1.IsNotEmpty(),
     class_validator_1.IsPhoneNumber(null),
     __metadata("design:type", String)
 ], UpdateUserDto.prototype, "phone", void 0);

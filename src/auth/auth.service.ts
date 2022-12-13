@@ -42,6 +42,8 @@ export class AuthService {
 
   async getEventByIdWithoutSignin(id: number) {
     const events = await this.eventsRepository.findOne(id);
-    return events;
+    const qrcode = require("qrcode-js");
+    const base64 = qrcode.toDataURL(events.qr_code, 4);
+    return { ...events, qr_code: base64 };
   }
 }

@@ -40,5 +40,9 @@ __decorate([
     swagger_1.ApiProperty(),
     __metadata("design:type", Number)
 ], CreateEventDto.prototype, "event_coins", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
+    __metadata("design:type", Number)
+], CreateEventDto.prototype, "duration", void 0);
 exports.default = CreateEventDto;
 //# sourceMappingURL=createEvent.dto.js.map

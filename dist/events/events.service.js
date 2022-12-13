@@ -35,7 +35,7 @@ let EventsService = class EventsService {
         await Promise.all(events.map(async (item, index) => {
             const users_num = await this.attendsRepository
                 .createQueryBuilder()
-                .where(`attend.event_id = '${item.id}'`)
+                .where(`event_id = '${item.id}'`)
                 .getCount();
             const event = await this.eventsRepository
                 .createQueryBuilder("event")
@@ -61,8 +61,17 @@ let EventsService = class EventsService {
             }, audience: {
                 id: audienceId,
             } }));
-        await this.eventsRepository.save(newEvent);
-        return newEvent;
+        console.log(newEvent);
+        const result = await this.eventsRepository.save(newEvent);
+        const qrcode = require("qrcode-js");
+        const url = "https://saviour.earth/ZoomIn?event_id=" + result.id;
+        const base64 = qrcode.toDataURL(url, 4);
+        console.log(base64);
+        const final = await this.eventsRepository.update(result.id, {
+            qr_code: base64,
+        });
+        const res = await this.eventsRepository.findOne(result.id);
+        return res;
     }
     async updateEvent(id, event) {
         await this.eventsRepository.update(id, event);

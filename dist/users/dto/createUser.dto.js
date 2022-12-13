@@ -34,6 +34,27 @@ __decorate([
     class_validator_1.IsNotEmpty(),
     class_validator_1.IsString(),
     __metadata("design:type", String)
+], CreateUserDto.prototype, "lastname", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
+    class_validator_1.IsDefined(),
+    class_validator_1.IsNotEmpty(),
+    class_validator_1.IsString(),
+    __metadata("design:type", String)
 ], CreateUserDto.prototype, "password", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
+    class_validator_1.IsDefined(),
+    class_validator_1.IsNotEmpty(),
+    class_validator_1.IsString(),
+    __metadata("design:type", String)
+], CreateUserDto.prototype, "company", void 0);
+__decorate([
+    swagger_1.ApiProperty(),
+    class_validator_1.IsDefined(),
+    class_validator_1.IsNotEmpty(),
+    class_validator_1.IsString(),
+    __metadata("design:type", String)
+], CreateUserDto.prototype, "phone", void 0);
 exports.default = CreateUserDto;
 //# sourceMappingURL=createUser.dto.js.map

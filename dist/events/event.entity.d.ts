@@ -11,6 +11,7 @@ declare class Event {
     user_limit: number;
     qr_code: string;
     event_coins: number;
+    duration: number;
     createdAt: Date;
     updatedAt: Date;
     game: Game;

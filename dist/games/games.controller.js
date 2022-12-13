@@ -38,7 +38,6 @@ let GamesController = class GamesController {
 };
 __decorate([
     common_1.Get(),
-    common_1.UseGuards(jwt_auth_guard_1.JwtAuthGuard),
     swagger_1.ApiOperation({ summary: "Get all games" }),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
@@ -46,7 +45,6 @@ __decorate([
 ], GamesController.prototype, "getAllGames", null);
 __decorate([
     common_1.Get(":id"),
-    common_1.UseGuards(jwt_auth_guard_1.JwtAuthGuard),
     swagger_1.ApiResponse({
         status: 200,
         description: "The found record",
@@ -58,7 +56,6 @@ __decorate([
 ], GamesController.prototype, "getGameById", null);
 __decorate([
     common_1.Post(),
-    common_1.UseGuards(jwt_auth_guard_1.JwtAuthGuard),
     swagger_1.ApiOperation({ summary: "Create game" }),
     swagger_1.ApiResponse({ status: 403, description: "Forbidden." }),
     __param(0, common_1.Body()),
@@ -68,7 +65,6 @@ __decorate([
 ], GamesController.prototype, "createGame", null);
 __decorate([
     common_1.Delete(":id"),
-    common_1.UseGuards(jwt_auth_guard_1.JwtAuthGuard),
     swagger_1.ApiOperation({ summary: "Delete game" }),
     __param(0, common_1.Param()),
     __metadata("design:type", Function),
@@ -76,7 +72,6 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], GamesController.prototype, "deleteGame", null);
 GamesController = __decorate([
-    swagger_1.ApiBearerAuth(),
     swagger_1.ApiTags("Games"),
     common_1.Controller("games"),
     common_1.UseInterceptors(common_1.ClassSerializerInterceptor),

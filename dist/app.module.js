@@ -32,25 +32,14 @@ AppModule = __decorate([
     common_1.Module({
         imports: [
             typeorm_1.TypeOrmModule.forRoot({
-                type: "postgres",
+                type: "mysql",
                 host: "localhost",
-                port: 5432,
-                username: "zoomin",
-                password: "zoomin",
-                database: "zoomin",
+                port: 3306,
+                username: "root",
+                password: "",
+                database: "zoom",
                 entities: [user_entity_1.default, bill_entity_1.default, event_entity_1.default, game_entity_1.default, reward_entity_1.default, attend_entity_1.default, audiences_entity_1.default],
                 synchronize: true,
-                ssl: {
-                    require: true,
-                    rejectUnauthorized: false,
-                },
-                migrationsRun: false,
-                logging: false,
-                logger: "file",
-                migrations: [__dirname + "/migrations/**/*{.ts,.js}"],
-                cli: {
-                    migrationsDir: "src/migrations",
-                },
             }),
             auth_module_1.AuthModule,
             admin_users_module_1.AdminUsersModule,
@@ -60,7 +49,7 @@ AppModule = __decorate([
             rewards_module_1.RewardsModule,
             attends_module_1.AttendsModule,
             apis_module_1.ApisModule,
-            audiences_module_1.AudiencesModule
+            audiences_module_1.AudiencesModule,
         ],
         controllers: [],
         providers: [app_service_1.AppService],

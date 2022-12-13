@@ -32,12 +32,12 @@ __decorate([
     swagger_1.ApiProperty(),
     typeorm_1.Column(),
     __metadata("design:type", String)
-], Game.prototype, "duration", void 0);
+], Game.prototype, "video_url", void 0);
 __decorate([
     swagger_1.ApiProperty(),
     typeorm_1.Column(),
     __metadata("design:type", String)
-], Game.prototype, "video_url", void 0);
+], Game.prototype, "img_url", void 0);
 __decorate([
     swagger_1.ApiProperty(),
     typeorm_1.CreateDateColumn({

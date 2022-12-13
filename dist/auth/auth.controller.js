@@ -51,6 +51,9 @@ let AuthController = class AuthController {
     async updatepass(registrationData) {
         return this.usersService.updatePassword(registrationData);
     }
+    async getallevents({ id }) {
+        return this.authService.getEventByIdWithoutSignin(Number(id));
+    }
 };
 __decorate([
     common_1.Post("login"),
@@ -88,6 +91,13 @@ __decorate([
     __metadata("design:paramtypes", [updatePass_dto_1.default]),
     __metadata("design:returntype", Promise)
 ], AuthController.prototype, "updatepass", null);
+__decorate([
+    common_1.Get("getevents/:id"),
+    __param(0, common_1.Param()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [findOneParams_1.default]),
+    __metadata("design:returntype", Promise)
+], AuthController.prototype, "getallevents", null);
 AuthController = __decorate([
     swagger_1.ApiTags("Authentication"),
     common_1.Controller("auth"),
