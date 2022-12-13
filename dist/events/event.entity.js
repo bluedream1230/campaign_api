@@ -58,6 +58,11 @@ __decorate([
     __metadata("design:type", Number)
 ], Event.prototype, "event_coins", void 0);
 __decorate([
+    swagger_1.ApiProperty({ default: 5 }),
+    typeorm_1.Column(),
+    __metadata("design:type", Number)
+], Event.prototype, "duration", void 0);
+__decorate([
     swagger_1.ApiProperty(),
     typeorm_1.CreateDateColumn({
         type: "timestamptz",

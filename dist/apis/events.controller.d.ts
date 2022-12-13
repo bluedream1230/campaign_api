@@ -12,11 +12,13 @@ export declare class EventsController {
         EventStartTimeDate: Date;
         EventCompleteTimeDate: Date;
         SponsorEventCoins: number;
+        GameId: number;
+        TriviaId: string;
+        Time_Limit: number;
         EventGameType: string;
         EventVideoURL: string;
         EventReward: string;
         EventRewardPool: number;
-        EventGameDuration: string;
         EventUserLimit: number;
         EventQRCodeURL: string;
     }>;

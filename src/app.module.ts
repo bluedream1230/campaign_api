@@ -30,7 +30,7 @@ import { SendgridService } from "./sendgrid/sendgrid.service";
       port: 5432,
       username: "zoomin",
       password: "zoomin",
-      database: "zoom",
+      database: "zoomin",
       entities: [User, Address, Event, Game, Reward, Attend, Audience],
       synchronize: true,
       ssl: {

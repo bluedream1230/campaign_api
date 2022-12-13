@@ -23,10 +23,6 @@ __decorate([
 __decorate([
     swagger_1.ApiProperty(),
     __metadata("design:type", String)
-], CreateGameDto.prototype, "duration", void 0);
-__decorate([
-    swagger_1.ApiProperty(),
-    __metadata("design:type", String)
 ], CreateGameDto.prototype, "video_url", void 0);
 __decorate([
     swagger_1.ApiProperty(),

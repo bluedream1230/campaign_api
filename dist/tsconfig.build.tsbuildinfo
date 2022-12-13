@@ -3517,8 +3517,8 @@
         "affectsGlobalScope": false
       },
       "../src/games/game.entity.ts": {
-        "version": "52ba4c325675cdbd59c5e7965b3943de4ff92ee662c78310fa216a0a7c6ebfc0",
-        "signature": "86e07301dcea0f85e770c1cbb29a73e2b507185045e8d9a85187ad3b53407564",
+        "version": "c02215c3d5279a36d6679c0c3ed292afd1745551cf3e03ee291dbce629f54674",
+        "signature": "f20de520431819c14e2ad83e985e8291bb0f18e474799a853311b9364c15bd48",
         "affectsGlobalScope": false
       },
       "../src/users/bill.entity.ts": {
@@ -4162,8 +4162,8 @@
         "affectsGlobalScope": false
       },
       "../src/events/event.entity.ts": {
-        "version": "9a17febc1d1a998de5e9fab2e536d91ab7bd83c93fc9bf5bc293f1b6709b4f1d",
-        "signature": "f8a1c3f4dfe0802d3b499ee7501bb8f9f216cc05b207a4fd11977326ea364d5e",
+        "version": "322113de656fd2cdc61369de82041c53a67a726ecbb5d9f9eeba5abf06be7e42",
+        "signature": "87188c87b0dffba15f17adeb2c785816abfb3ec1a8a53f06121e305de6457925",
         "affectsGlobalScope": false
       },
       "../src/auth/guards/jwt-auth.guard.ts": {
@@ -4177,13 +4177,13 @@
         "affectsGlobalScope": false
       },
       "../src/events/dto/createEvent.dto.ts": {
-        "version": "23add38d2134d02ed691a8dc24ae46dd17749bc564587fe52e678e00a3425ffd",
-        "signature": "ba2f02586dc80fe2e8c9d9fe9b737956f0a9b7805e378746965ad6d5a7f65f9a",
+        "version": "b775113c39f0aad20b75f511b83abcbbfa042bf62d101fbc6fddc1af8898ad0b",
+        "signature": "f0021bddc8d48b4295fd5b81a3ebbaffce9dc5fe03a3fa6f4fdbca4e1a0a3e7a",
         "affectsGlobalScope": false
       },
       "../src/events/dto/updateEvent.dto.ts": {
-        "version": "cf921c4741230bdace9e86b8dd88f69e93352207f938e044184a9d477bc77457",
-        "signature": "1e299bf8ad41a0b1e96133b93b9db02caf8ee8c0bcd4e3ee743cf6f95bc639f7",
+        "version": "bbb22ebb34e6d0a614992b72cd7aca69421ffcb401ab015960776e35ec0e2378",
+        "signature": "6c8319569f80a1d0aa05563a83be68710e1779db23d66ee42a05f6919f2adeca",
         "affectsGlobalScope": false
       },
       "../src/events/exceptions/eventNotFound.exception.ts": {
@@ -4457,8 +4457,8 @@
         "affectsGlobalScope": false
       },
       "../src/games/dto/createGame.dto.ts": {
-        "version": "a29339178efdae88e7f2c478ea0274f8711883dcb3e820426c664c298da785bc",
-        "signature": "5cc434bce23c4e65209a6b5db10540cc56ca99742dbf9724e06d40306350ed56",
+        "version": "ef2aab40931cd8ab3e3413f2828ebb9eb2977b48abe0df8d26ed4502ad99762d",
+        "signature": "400218032a4e60112ef065a6628d3af1f1c873b090a90d684485c69fa460f55d",
         "affectsGlobalScope": false
       },
       "../src/games/exceptions/gameNotFound.exception.ts": {
@@ -4517,13 +4517,13 @@
         "affectsGlobalScope": false
       },
       "../src/apis/apis.service.ts": {
-        "version": "3653d6c3ab445b710e991b0f992e5a74d7e2a987c692afbb5b4ff8e6c716e0c2",
-        "signature": "7d81566ae90b484e2e73a7c89806a8661f39f71c512515022bc05f9c3f25ec7b",
+        "version": "13eaf0289142a2c0938a535ba604160ac7b1afd10b2b9bd72bec8dbfa5d6aac8",
+        "signature": "67d4a80e55afb0249c1627a6b0243760d41bc8ad79465b9ccf3d20e4b56a7828",
         "affectsGlobalScope": false
       },
       "../src/apis/events.controller.ts": {
         "version": "b25fd13a47d92b02c84cbcb8a1798c42b985351158c1efdcd9322532f3793f3f",
-        "signature": "d5160b9948468a195a96969cb59d54538ab17d0589de1208c7b6c941da3294f7",
+        "signature": "08a6595ef760719d32e14b3d81e6ffb7735c1e69075402915eca7eaf9c539408",
         "affectsGlobalScope": false
       },
       "../src/apis/coins.Controller.ts": {
@@ -4572,7 +4572,7 @@
         "affectsGlobalScope": false
       },
       "../src/app.module.ts": {
-        "version": "ef491c24ab35ba7c50230a80f089d25e0fe99035ec18422122c11cffb3583ef0",
+        "version": "8616754b6c21685c3474029d8a1ca989d44ace801235cb3c5b34180203108a0b",
         "signature": "b82491e2990291580288c5602d4c017238977749d52b17391f0e45d9a29be644",
         "affectsGlobalScope": false
       },

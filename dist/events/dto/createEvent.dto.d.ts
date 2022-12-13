@@ -6,4 +6,5 @@ export default class CreateEventDto {
     user_limit: number;
     qr_code: string;
     event_coins: number;
+    duration: number;
 }

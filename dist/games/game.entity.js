@@ -20,27 +20,22 @@ __decorate([
 ], Game.prototype, "id", void 0);
 __decorate([
     swagger_1.ApiProperty(),
-    typeorm_1.Column(),
+    typeorm_1.Column({ default: 'name' }),
     __metadata("design:type", String)
 ], Game.prototype, "name", void 0);
 __decorate([
     swagger_1.ApiProperty(),
-    typeorm_1.Column(),
+    typeorm_1.Column({ default: 'type' }),
     __metadata("design:type", String)
 ], Game.prototype, "type", void 0);
 __decorate([
     swagger_1.ApiProperty(),
-    typeorm_1.Column(),
-    __metadata("design:type", String)
-], Game.prototype, "duration", void 0);
-__decorate([
-    swagger_1.ApiProperty(),
-    typeorm_1.Column(),
+    typeorm_1.Column({ default: 'video url' }),
     __metadata("design:type", String)
 ], Game.prototype, "video_url", void 0);
 __decorate([
     swagger_1.ApiProperty(),
-    typeorm_1.Column(),
+    typeorm_1.Column({ default: 'img_url' }),
     __metadata("design:type", String)
 ], Game.prototype, "img_url", void 0);
 __decorate([

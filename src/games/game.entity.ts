@@ -18,23 +18,19 @@ class Game {
   public id: number;
 
   @ApiProperty()
-  @Column()
+  @Column({default: 'name'})
   public name: string;
 
   @ApiProperty()
-  @Column()
+  @Column({ default : 'type'})
   public type: string;
 
   @ApiProperty()
-  @Column()
-  public duration: string;
-
-  @ApiProperty()
-  @Column()
+  @Column({ default:'video url'})
   public video_url: string;
 
   @ApiProperty()
-  @Column()
+  @Column({default: 'img_url'})
   public img_url: string;
 
   @ApiProperty()

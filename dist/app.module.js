@@ -37,7 +37,7 @@ AppModule = __decorate([
                 port: 5432,
                 username: "zoomin",
                 password: "zoomin",
-                database: "zoom",
+                database: "zoomin",
                 entities: [user_entity_1.default, bill_entity_1.default, event_entity_1.default, game_entity_1.default, reward_entity_1.default, attend_entity_1.default, audiences_entity_1.default],
                 synchronize: true,
                 ssl: {

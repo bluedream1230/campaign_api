@@ -8,9 +8,6 @@ export default class CreateGameDto {
   public type: string;
 
   @ApiProperty()
-  public duration: string;
-
-  @ApiProperty()
   public video_url: string;
 
   @ApiProperty()
