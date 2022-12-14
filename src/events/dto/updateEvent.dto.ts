@@ -19,9 +19,12 @@ export default class UpdateEventDto {
   @ApiProperty()
   public qr_code: string;
 
-  @ApiProperty()
-  public event_coins: number;
+  // @ApiProperty()
+  // public event_coins: number;
 
   @ApiProperty()
   public duration: number;
+
+  @ApiProperty()
+  public trivia_id: number;
 }

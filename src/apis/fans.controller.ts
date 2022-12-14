@@ -22,7 +22,6 @@ import RequestWithUser from "src/auth/interface/requestWithUser";
 import FindOneParams from "src/utils/findOneParams";
 import ApisService from "./apis.service";
 
-@ApiBearerAuth()
 @ApiTags("Fans")
 @Controller("fan")
 @UseInterceptors(ClassSerializerInterceptor)
@@ -30,7 +29,6 @@ export class FansController {
   constructor(private readonly apisService: ApisService) {}
 
   @Get()
-  @UseGuards(JwtAuthGuard)
   @ApiResponse({
     status: 200,
     description: "The found record",
@@ -40,7 +38,6 @@ export class FansController {
   }
 
   @Get("event/:id")
-  @UseGuards(JwtAuthGuard)
   @ApiResponse({
     status: 200,
     description: "The found record",

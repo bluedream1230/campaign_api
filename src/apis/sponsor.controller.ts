@@ -20,8 +20,6 @@ import {
 import { JwtAuthGuard } from "src/auth/guards/jwt-auth.guard";
 import FindOneParams from "src/utils/findOneParams";
 import ApisService from "./apis.service";
-
-@ApiBearerAuth()
 @ApiTags("MOBILE:Sponsors")
 @Controller("sponsor_api")
 @UseInterceptors(ClassSerializerInterceptor)
@@ -29,7 +27,6 @@ export class SponsorsController {
   constructor(private readonly apisService: ApisService) {}
 
   @Get(":id")
-  @UseGuards(JwtAuthGuard)
   @ApiResponse({
     status: 200,
     description: "The found record",

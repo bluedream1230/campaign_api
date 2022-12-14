@@ -43,13 +43,14 @@ export default class ApisService {
       SponsorID: user.id,
       SponsorName: user.name,
       SponsorLogoURL: user.logo,
+      EventId: event.id,
       EventName: event.name,
       EventLocation: event.location,
       EventStartTimeDate: event.start_time,
       EventCompleteTimeDate: event.end_time,
-      SponsorEventCoins: event.event_coins,
+      SponsorEventCoins: reward.coinvalue,
       GameId: game.id,
-      TriviaId: "",
+      TriviaId: event.trivia_id,
       Time_Limit: event.duration,
       EventGameType: game.type,
       EventVideoURL: game.video_url,
@@ -71,9 +72,30 @@ export default class ApisService {
     if (!events || !events.length) {
       return 0;
     }
-    const sum = events.reduce((total, item) => {
-      return total + Number(item.event_coins);
-    }, 0);
+
+    // async createEvent(
+    //   @Param() { gameId }: FindGameParams,
+    //   @Param() { rewardId }: FindRewardParams,
+    //   @Param() { audienceId }: FindAudienceParams,
+    //   @Body() event: CreateEventDto,
+    //   @Req() req: RequestWithUser
+    // ): Promise<CreateEventDto> {
+    // await Promise.all(
+    //   events.forEach(async (item) => {
+    //     const reward = this.rewardsRepository.findOne(item.reward);
+    //     return total + Number(reward.coinvalue);
+    //   })
+    // );
+
+    const sum = (
+      await Promise.all(
+        events.map(async (item) => {
+          const reward = await this.rewardsRepository.findOne(item.reward);
+          return Number(reward.coinvalue);
+        })
+      )
+    ).reduce((total, item) => total + item, 0);
+
     const user = await this.usersRepository.findOne(id);
 
     return {

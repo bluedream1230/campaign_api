@@ -21,7 +21,6 @@ import { JwtAuthGuard } from "src/auth/guards/jwt-auth.guard";
 import FindOneParams from "src/utils/findOneParams";
 import ApisService from "./apis.service";
 
-@ApiBearerAuth()
 @ApiTags("MOBILE:Coins")
 @Controller("coin_api")
 @UseInterceptors(ClassSerializerInterceptor)
@@ -29,7 +28,6 @@ export default class CoinsController {
   constructor(private readonly apisService: ApisService) {}
 
   @Get(":id")
-  @UseGuards(JwtAuthGuard)
   @ApiResponse({
     status: 200,
     description: "The found record",

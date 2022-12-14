@@ -26,7 +26,6 @@ import Audience from "src/audiences/audiences.entity";
     "end_time",
     "user_limit",
     "qr_code",
-    "event_coins",
     "game",
     "user",
     "audience",
@@ -62,13 +61,17 @@ class Event {
   @Column()
   public qr_code: string;
 
-  @ApiProperty({ default: 10 })
-  @Column()
-  public event_coins: number;
+  // @ApiProperty({ default: 10 })
+  // @Column()
+  // public event_coins: number;
 
   @ApiProperty({ default: 5 })
   @Column()
   public duration: number;
+
+  @ApiProperty()
+  @Column()
+  public trivia_id: number;
 
   @ApiProperty()
   @CreateDateColumn({
