@@ -50,6 +50,7 @@ export default class ApisService {
       EventCompleteTimeDate: event.end_time,
       SponsorEventCoins: reward.coinvalue,
       GameId: game.id,
+      GameName: game.name,
       TriviaId: event.trivia_id,
       Time_Limit: event.duration,
       EventGameType: game.type,
