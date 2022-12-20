@@ -20,6 +20,7 @@ import { ApisModule } from "./apis/apis.module";
 import Audience from "./audiences/audiences.entity";
 import { AudiencesModule } from "./audiences/audiences.module";
 import { SendgridService } from "./sendgrid/sendgrid.service";
+import { MulterModule } from "@nestjs/platform-express/multer";
 
 // postgres://auggncnrngqcyv:5dfe3011e4a2fbe1e60ee4b323515a8be58f0ac7b6e0ceb561bf2edb44d0b7c6@ec2-3-219-135-162.compute-1.amazonaws.com:5432/dt0hlkmjdtsv6
 @Module({
@@ -33,22 +34,22 @@ import { SendgridService } from "./sendgrid/sendgrid.service";
       database: "zoomin",
       entities: [User, Address, Event, Game, Reward, Attend, Audience],
       synchronize: true,
-       ssl: {
-         require: true,
-         rejectUnauthorized: false,
-       },
-       // Run migrations automatically,
-       // you can disable this if you prefer running migration manually.
-       migrationsRun: false,
-       logging: false,
-       logger: "file",
+      ssl: {
+        require: true,
+        rejectUnauthorized: false,
+      },
+      // Run migrations automatically,
+      // you can disable this if you prefer running migration manually.
+      migrationsRun: false,
+      logging: false,
+      logger: "file",
 
-       migrations: [__dirname + "/migrations/**/*{.ts,.js}"],
+      migrations: [__dirname + "/migrations/**/*{.ts,.js}"],
       cli: {
-         // Location of migration should be inside src folder
-         // to be compiled into dist/ folder.
-         migrationsDir: "src/migrations",
-       },
+        // Location of migration should be inside src folder
+        // to be compiled into dist/ folder.
+        migrationsDir: "src/migrations",
+      },
     }),
     AuthModule,
     AdminUsersModule,
@@ -59,6 +60,11 @@ import { SendgridService } from "./sendgrid/sendgrid.service";
     AttendsModule,
     ApisModule,
     AudiencesModule,
+    MulterModule.registerAsync({
+      useFactory: () => ({
+        dest: "./upload",
+      }),
+    }),
   ],
   // controllers: [AppController],
   controllers: [],

@@ -8,7 +8,9 @@ import {
   ManyToOne,
   OneToOne,
   JoinColumn,
+  ManyToMany,
   Index,
+  JoinTable,
 } from "typeorm";
 import { ApiProperty } from "@nestjs/swagger";
 import Event from "src/events/event.entity";
@@ -83,7 +85,8 @@ class Reward {
   @ManyToOne(() => User, (user) => user.rewards)
   public user: User;
 
-  @OneToMany(() => Event, (event) => event.reward)
+  @ManyToMany(() => Event, (event) => event.rewards)
+  @JoinTable()
   public events: Event[];
 }
 

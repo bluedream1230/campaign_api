@@ -8,6 +8,8 @@ import EventNotFoundException from "./exceptions/eventNotFound.exception";
 import User from "src/users/user.entity";
 import Attend from "src/attends/attend.entity";
 import Game from "src/games/game.entity";
+import { S3Url } from "aws-sdk/clients/cloudformation";
+import Reward from "src/rewards/reward.entity";
 @Injectable()
 export default class EventsService {
   constructor(
@@ -16,7 +18,11 @@ export default class EventsService {
     @InjectRepository(Attend)
     private attendsRepository: Repository<Attend>,
     @InjectRepository(Game)
-    private gamesRepository: Repository<Game>
+    private gamesRepository: Repository<Game>,
+    @InjectRepository(Reward)
+    private rewardsRepository: Repository<Reward>,
+    @InjectRepository(User)
+    private usersRepository: Repository<User>
   ) {}
 
   async getAllEvents(user: User) {
@@ -67,10 +73,12 @@ export default class EventsService {
 
   async createEvent(
     gameId: number,
-    rewardId: number,
     audienceId: number,
     event: CreateEventDto,
-    user: User
+    rewardIds: number[],
+    video_url: string,
+    user: User,
+    s3url: S3Url
   ) {
     const newEvent = await this.eventsRepository.create({
       ...event,
@@ -78,13 +86,16 @@ export default class EventsService {
       game: {
         id: gameId,
       },
-      reward: {
-        id: rewardId,
-      },
       audience: {
         id: audienceId,
       },
     });
+    const rewards = [];
+    for (const id of rewardIds) {
+      const reward = await this.rewardsRepository.findOne(id);
+      rewards.push(reward);
+    }
+    newEvent.rewards = rewards;
     console.log(newEvent);
     const result = await this.eventsRepository.save(newEvent);
     // const result1 = await
@@ -94,6 +105,10 @@ export default class EventsService {
     console.log(base64);
     const final = await this.eventsRepository.update(result.id, {
       qr_code: url,
+    });
+    const user_info = await this.usersRepository.update(user.id, {
+      logo: s3url,
+      video_url: video_url,
     });
     const res = await this.eventsRepository.findOne(result.id);
     return res;

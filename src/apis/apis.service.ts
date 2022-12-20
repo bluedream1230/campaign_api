@@ -57,7 +57,6 @@ export default class ApisService {
       EventVideoURL: game.video_url,
       EventReward: reward.name,
       EventRewardPool: reward.ratelimit,
-      EventUserLimit: event.user_limit,
       EventQRCodeURL: base64,
     };
 
@@ -91,8 +90,8 @@ export default class ApisService {
     const sum = (
       await Promise.all(
         events.map(async (item) => {
-          const reward = await this.rewardsRepository.findOne(item.reward);
-          return Number(reward.coinvalue);
+          // const reward = await this.rewardsRepository.findOne(item.reward);
+          return Number(item.event_coins);
         })
       )
     ).reduce((total, item) => total + item, 0);

@@ -13,7 +13,7 @@ export default class BillUserDto {
   @IsDefined()
   @IsNotEmpty()
   @IsString()
-  public name: string;
+  public firstname: string;
 
   @ApiProperty()
   @IsDefined()

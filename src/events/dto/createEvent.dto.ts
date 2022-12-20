@@ -8,23 +8,29 @@ export default class CreateEventDto {
   public location: string;
 
   @ApiProperty()
+  public sponsorname: string;
+
+  @ApiProperty()
   public start_time: Date;
 
   @ApiProperty()
   public end_time: Date;
 
   @ApiProperty()
-  public user_limit: number;
-
-  @ApiProperty()
   public qr_code: string;
 
-  // @ApiProperty()
-  // public event_coins: number;
+  @ApiProperty()
+  public event_coins: number;
+
+  @ApiProperty()
+  public rewardpool: number;
 
   @ApiProperty()
   public duration: number;
 
   @ApiProperty()
   public trivia_id: number;
+
+  @ApiProperty()
+  public trivia_url: string;
 }

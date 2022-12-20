@@ -37,6 +37,9 @@ class User {
   @Column({ default: "logo" })
   public logo?: string;
 
+  @Column({ default: "ad_video_url" })
+  public video_url?: string;
+
   @Column({ default: "+1 222 222 2222" })
   public phone?: string;
 

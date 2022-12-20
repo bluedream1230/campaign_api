@@ -9,6 +9,8 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
   Index,
+  ManyToMany,
+  JoinTable,
 } from "typeorm";
 import { ApiProperty } from "@nestjs/swagger";
 import Game from "src/games/game.entity";
@@ -24,12 +26,10 @@ import Audience from "src/audiences/audiences.entity";
     "location",
     "start_time",
     "end_time",
-    "user_limit",
     "qr_code",
     "game",
     "user",
     "audience",
-    "reward",
   ],
   { unique: true }
 )
@@ -46,6 +46,10 @@ class Event {
   public location: string;
 
   @ApiProperty()
+  @Column()
+  public sponsorname: string;
+
+  @ApiProperty()
   @Column({ default: "2022.11.01" })
   public start_time: Date;
 
@@ -53,25 +57,29 @@ class Event {
   @Column({ default: "2022.11.01" })
   public end_time: Date;
 
-  @ApiProperty()
-  @Column({ default: 1 })
-  public user_limit: number;
-
   @ApiProperty({ default: "url" })
   @Column()
   public qr_code: string;
 
-  // @ApiProperty({ default: 10 })
-  // @Column()
-  // public event_coins: number;
+  @ApiProperty({ default: 10 })
+  @Column()
+  public event_coins: number;
 
   @ApiProperty({ default: 5 })
   @Column()
   public duration: number;
 
-  @ApiProperty()
+  @ApiProperty({ default: 0 })
   @Column()
   public trivia_id: number;
+
+  @ApiProperty({ default: "" })
+  @Column()
+  public trivia_url: string;
+
+  @ApiProperty()
+  @Column()
+  public rewardpool: number;
 
   @ApiProperty()
   @CreateDateColumn({
@@ -94,8 +102,8 @@ class Event {
   @ManyToOne(() => User, (user) => user.events)
   public user: User;
 
-  @ManyToOne(() => Reward, (reward) => reward.events)
-  public reward: Reward;
+  @ManyToMany(() => Reward, (reward) => reward.events)
+  public rewards: Reward[];
 
   @ManyToOne(() => Audience, (audience) => audience.id)
   public audience: Audience;

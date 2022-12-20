@@ -26,13 +26,20 @@ import RequestWithUser from "src/auth/interface/requestWithUser";
 import FindGameParams from "src/utils/findGameParams";
 import FindRewardParams from "src/utils/findRewardParams";
 import FindAudienceParams from "src/utils/findAudienceParams";
+import { AnyFilesInterceptor } from "@nestjs/platform-express";
+import { UploadedFiles } from "@nestjs/common/decorators";
+import { S3Service } from "src/share/s3.service";
+import { Console } from "console";
 
 @ApiBearerAuth()
 @ApiTags("Events")
 @Controller("events")
 @UseInterceptors(ClassSerializerInterceptor)
 export default class EventsController {
-  constructor(private readonly eventsService: EventsService) {}
+  constructor(
+    private readonly eventsService: EventsService,
+    private readonly S3Service: S3Service
+  ) {}
 
   @Get()
   @UseGuards(JwtAuthGuard)
@@ -51,23 +58,37 @@ export default class EventsController {
     return this.eventsService.getEventById(Number(id));
   }
 
-  @Post(":gameId&:rewardId&:audienceId")
+  @Post(":gameId/:audienceId")
   @UseGuards(JwtAuthGuard)
   @ApiOperation({ summary: "Create event" })
   @ApiResponse({ status: 403, description: "Forbidden." })
+  @UseInterceptors(AnyFilesInterceptor({ dest: "./upload" }))
   async createEvent(
     @Param() { gameId }: FindGameParams,
-    @Param() { rewardId }: FindRewardParams,
     @Param() { audienceId }: FindAudienceParams,
-    @Body() event: CreateEventDto,
+    @Body() data,
+    @UploadedFiles() files: Array<Express.Multer.File>,
     @Req() req: RequestWithUser
   ): Promise<CreateEventDto> {
+    const event = JSON.parse(data.data) as CreateEventDto;
+    const rewardIds = JSON.parse(data.rewardIds) as number[];
+    const video_url = JSON.parse(data.videourl) as string;
+    const path = "/test";
+    let s3Url;
+    console.log("sdfsd", rewardIds, event, video_url);
+    for (const file of files) {
+      console.log(file);
+      s3Url = await this.S3Service.upload(path, file);
+      console.log(s3Url);
+    }
     return this.eventsService.createEvent(
       Number(gameId),
-      Number(rewardId),
       Number(audienceId),
       event,
-      req.user
+      rewardIds,
+      video_url,
+      req.user,
+      s3Url
     );
   }
 
