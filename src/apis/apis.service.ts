@@ -8,6 +8,8 @@ import Reward from "src/rewards/reward.entity";
 import Attend from "src/attends/attend.entity";
 import { totalmem } from "os";
 
+const axios = require("axios");
+
 @Injectable()
 export default class ApisService {
   constructor(
@@ -200,5 +202,18 @@ export default class ApisService {
     });
     // console.log(win_num);
     return { totalData, event, user_num, win_num };
+  }
+
+  async addTrivia(data: any) {
+    console.log(data);
+    const res = axios
+      .post("https://saviour.earth/ZoomIn/api/index.php/Trivia/addTrivia", data)
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    console.log(res);
   }
 }
