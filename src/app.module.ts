@@ -21,6 +21,7 @@ import Audience from "./audiences/audiences.entity";
 import { AudiencesModule } from "./audiences/audiences.module";
 import { SendgridService } from "./sendgrid/sendgrid.service";
 import { MulterModule } from "@nestjs/platform-express/multer";
+import { PaymentsModule } from "./payment/payments.module";
 
 // postgres://auggncnrngqcyv:5dfe3011e4a2fbe1e60ee4b323515a8be58f0ac7b6e0ceb561bf2edb44d0b7c6@ec2-3-219-135-162.compute-1.amazonaws.com:5432/dt0hlkmjdtsv6
 @Module({
@@ -60,6 +61,7 @@ import { MulterModule } from "@nestjs/platform-express/multer";
     AttendsModule,
     ApisModule,
     AudiencesModule,
+    PaymentsModule,
     MulterModule.registerAsync({
       useFactory: () => ({
         dest: "./upload",
