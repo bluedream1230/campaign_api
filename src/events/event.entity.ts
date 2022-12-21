@@ -75,11 +75,11 @@ class Event {
   public duration: number;
 
   @ApiProperty({ default: 0 })
-  @Column()
+  @Column({ nullable: true, default: 0 })
   public trivia_id: number;
 
   @ApiProperty({ default: "" })
-  @Column()
+  @Column({ nullable: true, default: "" })
   public trivia_url: string;
 
   @ApiProperty()
