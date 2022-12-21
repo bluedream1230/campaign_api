@@ -75,6 +75,7 @@ export default class EventsController {
     const rewardIds = JSON.parse(data.rewardIds) as number[];
     const video_url = data.videourl as string;
     const path = "/test";
+    console.log("prize pool id", id);
     let s3Url;
     console.log("sdfsd", rewardIds, event, video_url);
     for (const file of files) {

@@ -81,6 +81,7 @@ export default class EventsService {
     user: User,
     s3url: S3Url
   ) {
+    console.log("rewardpool id", rewardpoolId);
     const newEvent = await this.eventsRepository.create({
       ...event,
       user: user,
