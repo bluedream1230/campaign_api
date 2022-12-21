@@ -59,7 +59,7 @@ class Event {
 
   @ApiProperty({ default: "url" })
   @Column()
-  public qr_code: string;
+  public qr_code?: string;
 
   @ApiProperty({ default: 10 })
   @Column()
