@@ -28,16 +28,16 @@ class Audience {
 
   @ApiProperty()
   @CreateDateColumn({
-    type: "timestamp", // timestamptz
-    default: () => "NOW()", // "CURRENT_TIMESTAMP(6)",
+    type: "timestamptz", // timestamp timestamptz
+    default: () => "CURRENT_TIMESTAMP(6)", // "CURRENT_TIMESTAMP(6)","NOW()"
   })
   createdAt: Date;
 
   @ApiProperty()
   @UpdateDateColumn({
-    type: "timestamp",
-    default: () => "NOW()",
-    onUpdate: "NOW()",
+    type: "timestamptz",
+    default: () => "CURRENT_TIMESTAMP(6)",
+    onUpdate: "CURRENT_TIMESTAMP(6)",
   })
   updatedAt: Date;
 
