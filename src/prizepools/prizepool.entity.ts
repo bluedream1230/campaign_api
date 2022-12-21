@@ -23,11 +23,11 @@ class Prizepool {
 
   @ApiProperty()
   @Column()
-  public place: number;
+  public name: string;
 
   @ApiProperty()
   @Column()
-  public coin: number;
+  public prizepool: string;
 
   @OneToMany(() => User, (user) => user.audience)
   public users: User[];

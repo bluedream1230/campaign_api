@@ -1,9 +1,10 @@
 import { ApiProperty } from "@nestjs/swagger";
+import { PrimaryGeneratedColumn } from "typeorm";
 
 export default class CreatePrizePoolDto {
   @ApiProperty()
-  public place: number;
+  public name: string;
 
   @ApiProperty()
-  public coin: number;
+  public prizepool: string;
 }
