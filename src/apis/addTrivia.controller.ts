@@ -22,8 +22,7 @@ export class TriviaController {
   constructor(private readonly apisService: ApisService) {}
 
   @Post()
-  async addTrivia(@Body() data: any) {
-    console.log(data);
+  addTrivia(@Body() data: any) {
     return this.apisService.addTrivia(data);
   }
 }

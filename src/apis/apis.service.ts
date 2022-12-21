@@ -206,16 +206,11 @@ export default class ApisService {
   }
 
   async addTrivia(data: any) {
-    console.log(data);
-    const res = axios
-      .post("https://saviour.earth/ZoomIn/api/index.php/Trivia/addTrivia", data)
-      .then(function (response) {
-        console.log("response", response);
-      })
-      .catch(function (error) {
-        console.log("error", error);
-      });
-    console.log("res", res);
-    return response;
+    const { data: resData } = await axios.post(
+      "https://saviour.earth/ZoomIn/api/index.php/Trivia/addTrivia",
+      data
+    );
+    console.log(resData);
+    return resData;
   }
 }
