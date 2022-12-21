@@ -17,7 +17,7 @@ export default class CreateEventDto {
   public end_time: Date;
 
   @ApiProperty()
-  public qr_code?: string;
+  public qr_code: string;
 
   @ApiProperty()
   public event_coins: number;

@@ -58,8 +58,8 @@ class Event {
   public end_time: Date;
 
   @ApiProperty({ default: "url" })
-  @Column()
-  public qr_code?: string;
+  @Column({ nullable: true, default: "" })
+  public qr_code: string;
 
   @ApiProperty({ default: 10 })
   @Column()
