@@ -7,6 +7,7 @@ import Game from "src/games/game.entity";
 import Reward from "src/rewards/reward.entity";
 import Attend from "src/attends/attend.entity";
 import { totalmem } from "os";
+import { response } from "express";
 
 const axios = require("axios");
 
@@ -209,11 +210,12 @@ export default class ApisService {
     const res = axios
       .post("https://saviour.earth/ZoomIn/api/index.php/Trivia/addTrivia", data)
       .then(function (response) {
-        console.log(response);
+        console.log("response", response);
       })
       .catch(function (error) {
-        console.log(error);
+        console.log("error", error);
       });
-    console.log(res.data);
+    console.log("res", res);
+    return response;
   }
 }
