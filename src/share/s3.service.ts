@@ -45,7 +45,7 @@ export class S3Service {
       this.s3.upload(params, (err, data) => {
         if (file.path && fs.existsSync(file.path)) fs.unlinkSync(file.path);
         if (err) reject(err);
-        resolve(data.Location);
+        else resolve(data.Location);
       });
     });
   }

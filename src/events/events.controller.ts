@@ -72,7 +72,7 @@ export default class EventsController {
   ): Promise<CreateEventDto> {
     const event = JSON.parse(data.data) as CreateEventDto;
     const rewardIds = JSON.parse(data.rewardIds) as number[];
-    const video_url = JSON.parse(data.videourl) as string;
+    const video_url = data.videourl as string;
     const path = "/test";
     let s3Url;
     console.log("sdfsd", rewardIds, event, video_url);
