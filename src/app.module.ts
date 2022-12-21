@@ -35,7 +35,16 @@ import Prizepool from "./prizepools/prizepool.entity";
       username: "zoomin",
       password: "zoomin",
       database: "zoomin",
-      entities: [User, Address, Event, Game, Reward, Attend, Audience],
+      entities: [
+        User,
+        Address,
+        Event,
+        Game,
+        Reward,
+        Attend,
+        Audience,
+        Prizepool,
+      ],
       synchronize: true,
       ssl: {
         require: true,
