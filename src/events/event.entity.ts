@@ -59,7 +59,7 @@ class Event {
 
   @ApiProperty({ default: "url" })
   @Column()
-  public qr_code: string;
+  public qr_code?: string;
 
   @ApiProperty({ default: 10 })
   @Column()
@@ -83,16 +83,16 @@ class Event {
 
   @ApiProperty()
   @CreateDateColumn({
-    type: "timestamptz", // timestamp timestamptz
-    default: () => "CURRENT_TIMESTAMP(6)", // "CURRENT_TIMESTAMP(6)","NOW()"
+    type: "timestamp", // timestamptz
+    default: () => "NOW()", // "CURRENT_TIMESTAMP(6)",
   })
   createdAt: Date;
 
   @ApiProperty()
   @UpdateDateColumn({
-    type: "timestamptz",
-    default: () => "CURRENT_TIMESTAMP(6)",
-    onUpdate: "CURRENT_TIMESTAMP(6)",
+    type: "timestamp",
+    default: () => "NOW()",
+    onUpdate: "NOW()",
   })
   updatedAt: Date;
 
