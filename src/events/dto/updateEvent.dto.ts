@@ -23,6 +23,9 @@ export default class UpdateEventDto {
   public event_coins: number;
 
   @ApiProperty()
+  public subscribe: number;
+
+  @ApiProperty()
   public duration: number;
 
   @ApiProperty()
