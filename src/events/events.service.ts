@@ -74,6 +74,7 @@ export default class EventsService {
   async createEvent(
     gameId: number,
     audienceId: number,
+    rewardpoolId: number,
     event: CreateEventDto,
     rewardIds: number[],
     video_url: string,
@@ -88,6 +89,9 @@ export default class EventsService {
       },
       audience: {
         id: audienceId,
+      },
+      prizepool: {
+        id: rewardpoolId,
       },
     });
     const rewards = [];

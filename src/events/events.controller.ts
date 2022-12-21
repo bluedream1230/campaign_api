@@ -66,6 +66,7 @@ export default class EventsController {
   async createEvent(
     @Param() { gameId }: FindGameParams,
     @Param() { audienceId }: FindAudienceParams,
+    @Param() { rewardpool },
     @Body() data,
     @UploadedFiles() files: Array<Express.Multer.File>,
     @Req() req: RequestWithUser
@@ -84,6 +85,7 @@ export default class EventsController {
     return this.eventsService.createEvent(
       Number(gameId),
       Number(audienceId),
+      Number(rewardpool),
       event,
       rewardIds,
       video_url,

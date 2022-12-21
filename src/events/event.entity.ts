@@ -18,6 +18,7 @@ import User from "src/users/user.entity";
 import Attend from "src/attends/attend.entity";
 import Reward from "src/rewards/reward.entity";
 import Audience from "src/audiences/audiences.entity";
+import Prizepool from "src/prizepools/prizepool.entity";
 
 @Entity("event")
 @Index(
@@ -78,10 +79,6 @@ class Event {
   public trivia_url: string;
 
   @ApiProperty()
-  @Column()
-  public rewardpool: number;
-
-  @ApiProperty()
   @CreateDateColumn({
     type: "timestamptz", // timestamp timestamptz
     default: () => "CURRENT_TIMESTAMP(6)", // "CURRENT_TIMESTAMP(6)","NOW()"
@@ -107,6 +104,9 @@ class Event {
 
   @ManyToOne(() => Audience, (audience) => audience.id)
   public audience: Audience;
+
+  @ManyToOne(() => Prizepool, (prizepool) => prizepool.id)
+  public prizepool: Prizepool;
 }
 
 export default Event;
