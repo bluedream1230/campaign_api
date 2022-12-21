@@ -63,11 +63,11 @@ class Event {
   public qr_code: string;
 
   @ApiProperty({ default: 10 })
-  @Column()
+  @Column({ nullable: true, default: "" })
   public event_coins: number;
 
   @ApiProperty({ default: 10 })
-  @Column()
+  @Column({ nullable: true, default: "" })
   public subscribe: number;
 
   @ApiProperty({ default: 5 })
