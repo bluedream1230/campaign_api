@@ -56,10 +56,12 @@ export class UsersController {
   @UseInterceptors(AnyFilesInterceptor({ dest: "./upload" }))
   async update(
     @Request() req,
-    @Body() updateUser: UpdateUserDto,
+    @Body() data,
     @UploadedFiles() file: Express.Multer.File
   ) {
     const id = req.user.id;
+    const updateUser = JSON.parse(data.data) as UpdateUserDto;
+
     const path = "/test";
     console.log(file);
     const s3Url = await this.S3Service.upload(path, file[0]);
