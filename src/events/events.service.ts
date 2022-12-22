@@ -41,6 +41,7 @@ export default class EventsService {
         const event = await this.eventsRepository
           .createQueryBuilder("event")
           .leftJoinAndSelect("event.game", "game")
+          .leftJoinAndSelect("event.audience", "audience")
           .where(`event.id = '${item.id}'`)
           .getMany();
         const qrcode = require("qrcode-js");

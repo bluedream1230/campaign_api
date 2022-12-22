@@ -184,7 +184,7 @@ export default class ApisService {
       where: {
         id: id,
       },
-      relations: ["game"],
+      relations: ["game", "audience"],
     });
     const user_num = fans.length;
     const totalData = [];

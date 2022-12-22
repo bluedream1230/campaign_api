@@ -38,7 +38,10 @@ export class UsersService {
   }
 
   async getById(id: number) {
-    const user = await this.usersRepository.findOne({ id });
+    const user = await this.usersRepository.findOne({
+      relations: ["bill"],
+      where: { id },
+    });
     if (user) {
       return user;
     }

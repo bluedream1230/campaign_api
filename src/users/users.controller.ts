@@ -10,6 +10,8 @@ import {
   Patch,
   Request,
   Put,
+  Get,
+  Req,
 } from "@nestjs/common";
 import {
   ApiBearerAuth,
@@ -25,12 +27,20 @@ import FindOneParams from "src/utils/findOneParams";
 import UpdateUserDto from "./dto/updateUser.dto";
 import JoinEventDto from "./dto/joinEvent.dto";
 import CreateAttendDto from "src/attends/dto/attendCreate.dto";
+import RequestWithUser from "src/auth/interface/requestWithUser";
 
 @ApiBearerAuth()
 @ApiTags("Users")
 @Controller("users")
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
+
+  @Get()
+  @UseGuards(JwtAuthGuard)
+  @ApiOperation({ summary: "Get user info" })
+  getOnlyRewards(@Req() req: RequestWithUser) {
+    return this.usersService.getById(req.user.id);
+  }
 
   @Put("update")
   @UseGuards(JwtAuthGuard)
