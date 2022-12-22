@@ -8,6 +8,7 @@ import {
   HttpException,
   HttpStatus,
   Patch,
+  Put,
   UseGuards,
   UseInterceptors,
   ClassSerializerInterceptor,
@@ -78,7 +79,7 @@ export default class RewardsController {
     }
   }
 
-  @Patch(":id")
+  @Put(":id")
   @UseGuards(JwtAuthGuard)
   @ApiOperation({ summary: "Update reward" })
   @ApiResponse({ status: 403, description: "Forbidden." })

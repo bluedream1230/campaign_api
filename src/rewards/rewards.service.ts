@@ -43,17 +43,19 @@ export default class RewardsService {
         eventIds.push(...item.events.map((e) => e.id));
       }
     });
-
+    console.log(eventIds);
     const attends: {
       Count: string;
       event_id: number;
-    }[] = await this.attendsRepository
-      .createQueryBuilder()
-      .select(`COUNT(user_id) as "Count", event_id`)
-      .where(`event_id IN (${eventIds.join(",")})`)
-      .groupBy(`event_id`)
-      .execute();
-
+    }[] = !eventIds.length
+      ? []
+      : await this.attendsRepository
+          .createQueryBuilder()
+          .select(`COUNT(user_id) as "Count", event_id`)
+          .where(`event_id IN (${eventIds.join(",")})`)
+          .groupBy(`event_id`)
+          .execute();
+    console.log(attends);
     const totalData = [];
     data.forEach((item) => {
       if (item.events.length) {
@@ -98,7 +100,7 @@ export default class RewardsService {
 
   async updateReward(id: number, reward: UpdateRewardDto) {
     await this.rewardsRepository.update(id, reward);
-    throw new RewardNotFoundException(id);
+    // throw new RewardNotFoundException(id);
   }
 
   async deleteReward(id: number) {
