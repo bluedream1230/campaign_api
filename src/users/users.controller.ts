@@ -14,6 +14,7 @@ import {
   Get,
   Req,
   UploadedFiles,
+  UseInterceptors,
 } from "@nestjs/common";
 import {
   ApiBearerAuth,
@@ -31,6 +32,7 @@ import JoinEventDto from "./dto/joinEvent.dto";
 import CreateAttendDto from "src/attends/dto/attendCreate.dto";
 import RequestWithUser from "src/auth/interface/requestWithUser";
 import { S3Service } from "src/share/s3.service";
+import { AnyFilesInterceptor } from "@nestjs/platform-express";
 
 @ApiBearerAuth()
 @ApiTags("Users")
@@ -51,19 +53,17 @@ export class UsersController {
   @Put("update")
   @UseGuards(JwtAuthGuard)
   @ApiOperation({ summary: "Update user" })
+  @UseInterceptors(AnyFilesInterceptor({ dest: "./upload" }))
   async update(
     @Request() req,
     @Body() updateUser: UpdateUserDto,
-    @UploadedFiles() files: Array<Express.Multer.File>
+    @UploadedFiles() file: Express.Multer.File
   ) {
     const id = req.user.id;
     const path = "/test";
-    let s3Url;
-    for (const file of files) {
-      console.log(file);
-      s3Url = await this.S3Service.upload(path, file);
-      console.log(s3Url);
-    }
+    console.log(file);
+    const s3Url = await this.S3Service.upload(path, file[0]);
+    console.log(s3Url);
     try {
       const updatedUser = await this.usersService.update(Number(id), {
         ...updateUser,
