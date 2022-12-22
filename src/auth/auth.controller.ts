@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import {
   Body,
   Controller,
@@ -35,7 +36,7 @@ export class AuthController {
   @Post("login")
   @ApiOperation({ summary: "Login with default name and pwd" })
   @ApiResponse({ status: 403, description: "Forbidden." })
-  async login(@Body() loginData: LoginUserDto) {
+  async login(@Body() loginData: LoginUserDto): Promise<any> {
     return this.authService.login(loginData);
   }
 

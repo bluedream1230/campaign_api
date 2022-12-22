@@ -29,6 +29,12 @@ export default class UpdateEventDto {
   public subscribe_name: string;
 
   @ApiProperty()
+  public sponsor_video_url: string;
+
+  @ApiProperty()
+  public sponsor_logo: string;
+
+  @ApiProperty()
   public duration: number;
 
   @ApiProperty()

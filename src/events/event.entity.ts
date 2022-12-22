@@ -78,6 +78,14 @@ class Event {
   @Column()
   public duration: number;
 
+  @ApiProperty()
+  @Column({ nullable: true })
+  public sponsor_logo: string;
+
+  @ApiProperty()
+  @Column({ nullable: true })
+  public sponsor_video_url: string;
+
   @ApiProperty({ default: 0 })
   @Column({ nullable: true, default: 0 })
   public trivia_id: number;

@@ -28,11 +28,11 @@ export default class UpdateUserDto {
   @IsString()
   public lastname: string;
 
-  // @ApiProperty()
-  // @IsDefined()
-  // @IsNotEmpty()
-  // @IsString()
-  // public logo: string;
+  @ApiProperty()
+  @IsDefined()
+  @IsNotEmpty()
+  @IsString()
+  public logo: string;
 
   @ApiProperty()
   @IsDefined()

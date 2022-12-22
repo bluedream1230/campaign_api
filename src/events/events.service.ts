@@ -111,10 +111,8 @@ export default class EventsService {
     console.log(base64);
     const final = await this.eventsRepository.update(result.id, {
       qr_code: url,
-    });
-    const user_info = await this.usersRepository.update(user.id, {
-      logo: s3url,
-      video_url: video_url,
+      sponsor_logo: s3url,
+      sponsor_video_url: video_url,
     });
     const res = await this.eventsRepository.findOne(result.id);
     return res;

@@ -26,7 +26,7 @@ export class AuthService {
     return null;
   }
 
-  async login(_user: LoginUserDto) {
+  async login(_user: LoginUserDto): Promise<any> {
     const user = await this.usersService.getByEmail(_user.email);
     if (!user || user.password != _user.password)
       return "The password you entered is incorrect!";

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { UsersService } from "./users.service";
 import {
   Controller,
@@ -12,6 +13,7 @@ import {
   Put,
   Get,
   Req,
+  UploadedFiles,
 } from "@nestjs/common";
 import {
   ApiBearerAuth,
@@ -28,12 +30,16 @@ import UpdateUserDto from "./dto/updateUser.dto";
 import JoinEventDto from "./dto/joinEvent.dto";
 import CreateAttendDto from "src/attends/dto/attendCreate.dto";
 import RequestWithUser from "src/auth/interface/requestWithUser";
+import { S3Service } from "src/share/s3.service";
 
 @ApiBearerAuth()
 @ApiTags("Users")
 @Controller("users")
 export class UsersController {
-  constructor(private readonly usersService: UsersService) {}
+  constructor(
+    private readonly usersService: UsersService,
+    private readonly S3Service: S3Service
+  ) {}
 
   @Get()
   @UseGuards(JwtAuthGuard)
@@ -45,15 +51,27 @@ export class UsersController {
   @Put("update")
   @UseGuards(JwtAuthGuard)
   @ApiOperation({ summary: "Update user" })
-  async update(@Request() req, @Body() updateUser: UpdateUserDto) {
+  async update(
+    @Request() req,
+    @Body() updateUser: UpdateUserDto,
+    @UploadedFiles() files: Array<Express.Multer.File>
+  ) {
     const id = req.user.id;
+    const path = "/test";
+    let s3Url;
+    for (const file of files) {
+      console.log(file);
+      s3Url = await this.S3Service.upload(path, file);
+      console.log(s3Url);
+    }
     try {
-      const updatedUser = await this.usersService.update(
-        Number(id),
-        updateUser
-      );
+      const updatedUser = await this.usersService.update(Number(id), {
+        ...updateUser,
+        logo: s3Url,
+      });
       return updatedUser;
     } catch (error) {
+      console.log(error);
       throw new HttpException(
         "Something went wrong",
         HttpStatus.INTERNAL_SERVER_ERROR
@@ -73,6 +91,7 @@ export class UsersController {
       );
       return billData;
     } catch (error) {
+      console.log(error);
       if (error?.code === PostgresErrorCode.UniqueViolation) {
         throw new HttpException(
           "User with that email already exists",
