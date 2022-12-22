@@ -26,6 +26,9 @@ export default class UpdateEventDto {
   public subscribe: number;
 
   @ApiProperty()
+  public subscribe_name: string;
+
+  @ApiProperty()
   public duration: number;
 
   @ApiProperty()

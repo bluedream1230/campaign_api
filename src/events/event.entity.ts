@@ -70,6 +70,10 @@ class Event {
   @Column({ nullable: true, default: 0 })
   public subscribe: number;
 
+  @ApiProperty({ default: "subscribe1" })
+  @Column({ nullable: true, default: "Subscribe" })
+  public subscribe_name: string;
+
   @ApiProperty({ default: 5 })
   @Column()
   public duration: number;
