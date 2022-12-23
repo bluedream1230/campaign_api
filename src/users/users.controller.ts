@@ -47,7 +47,8 @@ export class UsersController {
   @UseGuards(JwtAuthGuard)
   @ApiOperation({ summary: "Get user info" })
   getOnlyRewards(@Req() req: RequestWithUser) {
-    return this.usersService.getById(req.user.id);
+    console.log(req.user);
+    return this.usersService.getById(Number(req.user.id));
   }
 
   @Put("update")

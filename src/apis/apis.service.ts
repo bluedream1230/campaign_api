@@ -149,12 +149,8 @@ export default class ApisService {
     };
   }
 
-  async getUsers(user: User) {
-    const events = await this.eventsRepository.find({
-      where: {
-        user: { id: user.id },
-      },
-    });
+  async getUsers() {
+    const events = await this.eventsRepository.find();
     const eventIds = events.map((e) => e.id);
 
     const attendevent = await this.attendsRepository.find({
