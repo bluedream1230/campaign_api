@@ -28,6 +28,7 @@ export default class ApisService {
 
   async getEventById(id: number) {
     const event = await this.eventsRepository.findOne(id);
+    console.log("event:", event);
     const user = await this.usersRepository
       .createQueryBuilder("user")
       .leftJoinAndSelect("user.events", "event")
@@ -36,7 +37,7 @@ export default class ApisService {
       .createQueryBuilder("game")
       .leftJoinAndSelect("game.events", "event")
       .getOne();
-    console.log(game);
+    console.log("game", game);
     const reward = await this.rewardsRepository
       .createQueryBuilder("reward")
       .leftJoinAndSelect("reward.events", "event")
