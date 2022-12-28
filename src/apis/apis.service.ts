@@ -36,6 +36,7 @@ export default class ApisService {
       .createQueryBuilder("game")
       .leftJoinAndSelect("game.events", "event")
       .getOne();
+    console.log(game);
     const reward = await this.rewardsRepository
       .createQueryBuilder("reward")
       .leftJoinAndSelect("reward.events", "event")
