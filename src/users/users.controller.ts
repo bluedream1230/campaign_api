@@ -65,12 +65,12 @@ export class UsersController {
 
     const path = "test";
     console.log(file);
-    // const s3Url = await this.S3Service.upload(path, file[0]);
-    // console.log(s3Url);
+    const s3Url = await this.S3Service.upload(path, file[0]);
+    console.log(s3Url);
     try {
       const updatedUser = await this.usersService.update(Number(id), {
         ...updateUser,
-        // logo: s3Url,
+        logo: s3Url,
       });
       return updatedUser;
     } catch (error) {
