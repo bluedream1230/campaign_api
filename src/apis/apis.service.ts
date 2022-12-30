@@ -205,8 +205,15 @@ export default class ApisService {
       }
       // console.log(item.fan.completion);
     });
+    let total_completion = 0;
+    totalData.map((item, index) => {
+      if (item.fan.completion >= total_completion) {
+        total_completion = item.fan.completion;
+      }
+      // console.log(item.fan.completion);
+    });
     // console.log(win_num);
-    return { totalData, event, user_num, win_num };
+    return { totalData, event, user_num, win_num, total_completion };
   }
 
   async addTrivia(data: any) {
