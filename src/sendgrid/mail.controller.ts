@@ -20,7 +20,7 @@ export class MailController {
     console.log(user);
     const { ...payload } = user;
     const access_token = this.jwtService.sign(payload);
-    const url = `http://localhost:3000/auth/createpassword/${access_token}`;
+    const url = `https://play.zoomingaming.com/auth/createpassword/${access_token}`;
     const message = getEmailHtml([
       { type: "element1", data: ["Password Reset"] },
       {
@@ -50,7 +50,7 @@ export class MailController {
         type: "element2",
         data: [body.text],
       },
-      { type: "element6", data: [body.sender] },
+      // { type: "element6", data: [body.sender] },
     ]);
     const mail = {
       to: body.email,
