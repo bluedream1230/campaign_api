@@ -49,6 +49,7 @@ export default class EventsService {
         totalList.push({
           ...({ ...event[0], qr_code: base64 } || {}),
           users_num,
+          url: event[0].qr_code,
         });
       })
     );
