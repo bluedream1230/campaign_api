@@ -48,6 +48,7 @@ export default class EventsService {
           .leftJoinAndSelect("event.subscription", "subscription")
           .where(`event.id = '${item.id}'`)
           .getMany();
+        console.log(event);
         const qrcode = require("qrcode-js");
         const base64 = qrcode.toDataURL(event[0].qr_code, 4);
         totalList.push({
