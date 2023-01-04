@@ -35,7 +35,14 @@ export default class ApisService {
       where: {
         id: id,
       },
-      relations: ["game", "audience", "user", "subscription"],
+      relations: [
+        "game",
+        "audience",
+        "user",
+        "subscription",
+        "prizepool",
+        "rewards",
+      ],
     });
     console.log(event);
     // const user = await this.usersRepository
@@ -49,7 +56,7 @@ export default class ApisService {
     const reward = await this.rewardsRepository
       .createQueryBuilder("reward")
       .leftJoinAndSelect("reward.events", "event")
-      .getOne();
+      .getMany();
     const qrcode = require("qrcode-js");
     const base64 = qrcode.toDataURL(event[0].qr_code, 4);
     console.log(event[0].game.id);
@@ -69,8 +76,8 @@ export default class ApisService {
       Time_Limit: event[0].duration,
       EventGameType: event[0].game.type,
       EventVideoURL: event[0].game.video_url,
-      EventReward: reward.name,
-      EventRewardPool: reward.ratelimit,
+      EventReward: reward,
+      EventRewardPool: event[0].prizepool,
       EventQRCodeURL: base64,
     };
 
