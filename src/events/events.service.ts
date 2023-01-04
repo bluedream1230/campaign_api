@@ -45,6 +45,7 @@ export default class EventsService {
           .createQueryBuilder("event")
           .leftJoinAndSelect("event.game", "game")
           .leftJoinAndSelect("event.audience", "audience")
+          .leftJoinAndSelect("event.subscription", "subscription")
           .where(`event.id = '${item.id}'`)
           .getMany();
         const qrcode = require("qrcode-js");
