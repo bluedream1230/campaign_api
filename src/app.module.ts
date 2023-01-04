@@ -55,7 +55,7 @@ import { SubscriptionsModule } from "./subscriptions/subscriptions.module";
       },
       // Run migrations automatically,
       // you can disable this if you prefer running migration manually.
-      migrationsRun: true,
+      migrationsRun: false,
       logging: false,
       logger: "file",
 
