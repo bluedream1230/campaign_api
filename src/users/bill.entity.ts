@@ -36,10 +36,10 @@ class Bill {
   @Column()
   public CVV: string;
 
-  @Column()
+  @Column({ nullable: true })
   public billexpirationdateM: number;
 
-  @Column()
+  @Column({ nullable: true })
   public billexpirationdateY: number;
 
   @ApiProperty()
