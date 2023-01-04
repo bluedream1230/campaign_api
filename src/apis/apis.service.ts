@@ -77,7 +77,7 @@ export default class ApisService {
       TriviaId: event[0].trivia_id,
       Time_Limit: event[0].duration,
       EventGameType: event[0].game.type,
-      EventVideoURL: event[0].game.video_url,
+      EventVideoURL: event[0].sponsor_video_url,
       EventReward: event[0].rewards,
       EventRewardPool: event[0].prizepool,
       EventQRCodeURL: base64,
