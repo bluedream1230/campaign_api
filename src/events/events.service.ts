@@ -10,6 +10,7 @@ import Attend from "src/attends/attend.entity";
 import Game from "src/games/game.entity";
 import { S3Url } from "aws-sdk/clients/cloudformation";
 import Reward from "src/rewards/reward.entity";
+import Subscription from "src/subscriptions/subscription.entity";
 @Injectable()
 export default class EventsService {
   constructor(
@@ -22,7 +23,9 @@ export default class EventsService {
     @InjectRepository(Reward)
     private rewardsRepository: Repository<Reward>,
     @InjectRepository(User)
-    private usersRepository: Repository<User>
+    private usersRepository: Repository<User>,
+    @InjectRepository(Subscription)
+    private subscriptionsRepository: Repository<Subscription>
   ) {}
 
   async getAllEvents(user: User) {
@@ -77,6 +80,7 @@ export default class EventsService {
     gameId: number,
     audienceId: number,
     rewardpoolId: number,
+    subscribeId: number,
     event: CreateEventDto,
     rewardIds: number[],
     video_url: string,
@@ -95,6 +99,9 @@ export default class EventsService {
       },
       prizepool: {
         id: rewardpoolId,
+      },
+      subscription: {
+        id: subscribeId,
       },
     });
     const rewards = [];
@@ -116,6 +123,19 @@ export default class EventsService {
       sponsor_video_url: video_url,
     });
     const res = await this.eventsRepository.findOne(result.id);
+    const subscription = await this.subscriptionsRepository.findOne(
+      subscribeId
+    );
+    const userUpdate = await this.usersRepository
+      .createQueryBuilder("user")
+      .where(`user.id = '${user.id}'`)
+      .getOne();
+    if (!user) return;
+    userUpdate.coins = Number(userUpdate.coins) + Number(subscription.coins);
+    userUpdate.coinsused =
+      Number(userUpdate.coinsused) + Number(subscription.coins);
+    const userUpdateCoin = await this.usersRepository.save(userUpdate);
+    console.log("userUpdateCoin", userUpdateCoin);
     return res;
   }
 

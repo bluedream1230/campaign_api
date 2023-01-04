@@ -19,21 +19,9 @@ import Attend from "src/attends/attend.entity";
 import Reward from "src/rewards/reward.entity";
 import Audience from "src/audiences/audiences.entity";
 import Prizepool from "src/prizepools/prizepool.entity";
+import Subscription from "src/subscriptions/subscription.entity";
 
 @Entity("event")
-@Index(
-  [
-    "name",
-    "location",
-    "start_time",
-    "end_time",
-    "qr_code",
-    "game",
-    "user",
-    "audience",
-  ],
-  { unique: true }
-)
 class Event {
   @PrimaryGeneratedColumn()
   public id: number;
@@ -61,18 +49,6 @@ class Event {
   @ApiProperty({ default: "url" })
   @Column({ nullable: true, default: "" })
   public qr_code: string;
-
-  @ApiProperty({ default: 10 })
-  @Column({ nullable: true, default: 0 })
-  public event_coins: number;
-
-  @ApiProperty({ default: 10 })
-  @Column({ nullable: true, default: 0 })
-  public subscribe: number;
-
-  @ApiProperty({ default: "subscribe1" })
-  @Column({ nullable: true, default: "Subscribe" })
-  public subscribe_name: string;
 
   @ApiProperty({ default: 5 })
   @Column()
@@ -123,6 +99,9 @@ class Event {
 
   @ManyToOne(() => Prizepool, (prizepool) => prizepool.id)
   public prizepool: Prizepool;
+
+  @ManyToOne(() => Subscription, (subscription) => subscription.id)
+  public subscription: Subscription;
 }
 
 export default Event;

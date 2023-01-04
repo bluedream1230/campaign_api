@@ -8,6 +8,7 @@ import Reward from "src/rewards/reward.entity";
 import Attend from "src/attends/attend.entity";
 import { totalmem } from "os";
 import { response } from "express";
+import Subscription from "src/subscriptions/subscription.entity";
 
 const axios = require("axios");
 
@@ -23,7 +24,9 @@ export default class ApisService {
     @InjectRepository(Reward)
     private rewardsRepository: Repository<Reward>,
     @InjectRepository(Attend)
-    private attendsRepository: Repository<Attend>
+    private attendsRepository: Repository<Attend>,
+    @InjectRepository(Subscription)
+    private subscriptionsRepository: Repository<Subscription>
   ) {}
 
   async getEventById(id: number) {
@@ -32,7 +35,7 @@ export default class ApisService {
       where: {
         id: id,
       },
-      relations: ["game", "audience", "user"],
+      relations: ["game", "audience", "user", "subscription"],
     });
     console.log(event);
     // const user = await this.usersRepository
@@ -59,7 +62,7 @@ export default class ApisService {
       EventLocation: event[0].location,
       EventStartTimeDate: event[0].start_time,
       EventCompleteTimeDate: event[0].end_time,
-      SponsorEventCoins: reward.coinvalue,
+      SponsorEventCoins: event[0].subscription.coins,
       GameId: event[0].game.id,
       GameName: event[0].game.name,
       TriviaId: event[0].trivia_id,
@@ -101,8 +104,10 @@ export default class ApisService {
     const sum = (
       await Promise.all(
         events.map(async (item) => {
-          // const reward = await this.rewardsRepository.findOne(item.reward);
-          return Number(item.event_coins);
+          const subscription = await this.subscriptionsRepository.findOne(
+            item.subscription
+          );
+          return Number(subscription.coins);
         })
       )
     ).reduce((total, item) => total + item, 0);
@@ -188,7 +193,7 @@ export default class ApisService {
       where: {
         id: id,
       },
-      relations: ["game", "audience"],
+      relations: ["game", "audience", "subscription"],
     });
     const user_num = fans.length;
     const totalData = [];

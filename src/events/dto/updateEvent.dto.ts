@@ -20,15 +20,6 @@ export default class UpdateEventDto {
   public qr_code: string;
 
   @ApiProperty()
-  public event_coins: number;
-
-  @ApiProperty()
-  public subscribe: number;
-
-  @ApiProperty()
-  public subscribe_name: string;
-
-  @ApiProperty()
   public sponsor_video_url: string;
 
   @ApiProperty()
