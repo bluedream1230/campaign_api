@@ -74,6 +74,9 @@ class User {
   @Column({ default: 0 })
   public completion: number;
 
+  @Column({ default: "sponsor" })
+  public type: string;
+
   @ApiProperty()
   @CreateDateColumn({
     type: "timestamptz", // timestamp timestamptz
