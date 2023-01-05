@@ -44,19 +44,24 @@ export class MailController {
 
   @Post("sendmail")
   async sendEmail(@Query("email") email, @Body() body: CreateTextDto) {
+    console.log(body);
     const message = getEmailHtml([
       { type: "element1", data: ["Support"] },
       {
         type: "element2",
         data: [body.text],
       },
+      {
+        type: "element2",
+        data: [`From ${body.email}`],
+      },
       // { type: "element6", data: [body.sender] },
     ]);
     const to = "team@zoomingaming.com";
     const mail = {
-      to: body.email,
+      to: to,
       subject: "From ZoomIn",
-      from: body.email, // Fill it with your validated email on SendGrid account
+      from: "info@em8559.zoomingaming.com", // Fill it with your validated email on SendGrid account
       text: "Support",
       html: message,
     };
