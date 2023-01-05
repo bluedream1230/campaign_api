@@ -52,10 +52,11 @@ export class MailController {
       },
       // { type: "element6", data: [body.sender] },
     ]);
+    const to = "team@zoomingaming.com";
     const mail = {
       to: body.email,
       subject: "From ZoomIn",
-      from: "info@em8559.zoomingaming.com", // Fill it with your validated email on SendGrid account
+      from: body.email, // Fill it with your validated email on SendGrid account
       text: "Support",
       html: message,
     };
