@@ -21,6 +21,10 @@ class Subscription {
   @ApiProperty()
   @Column()
   public user_limit: number;
+
+  @ApiProperty()
+  @Column({ nullable: true })
+  public price_id: string;
 }
 
 export default Subscription;

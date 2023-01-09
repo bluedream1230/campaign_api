@@ -12,4 +12,7 @@ export default class CreateSubscriptionDto {
 
   @ApiProperty()
   public user_limit: number;
+
+  @ApiProperty()
+  public price_id: string;
 }
