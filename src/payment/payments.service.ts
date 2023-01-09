@@ -60,7 +60,7 @@ export class PaymentsService {
   async createCheckOutSession(req: any): Promise<any> {
     try {
       const session = await this.stripe.checkout.sessions.create({
-        mode: "subscription",
+        mode: "payment",
         customer_email: req.userData.bill.email,
         line_items: [
           {
