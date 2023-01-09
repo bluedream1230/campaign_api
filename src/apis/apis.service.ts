@@ -135,12 +135,11 @@ export default class ApisService {
 
   async getRewardsById(id: number) {
     const reward = await this.rewardsRepository.findOne(id);
-    const event = await this.eventsRepository
-      .createQueryBuilder("event")
-      .leftJoinAndSelect("event.reward", "reward")
-      .getOne();
+    // const event = await this.eventsRepository
+    //   .createQueryBuilder("event")
+    //   .leftJoinAndSelect("event.reward", "reward")
+    //   .getOne();
     return {
-      EventName: event.name,
       RewardType: reward.type,
       RewardCategory: reward.category,
       RewardName: reward.name,
