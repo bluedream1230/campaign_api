@@ -29,6 +29,38 @@ export default class ApisService {
     private subscriptionsRepository: Repository<Subscription>
   ) {}
 
+  async getAllEvents() {
+    const events = await this.eventsRepository
+      .createQueryBuilder("event")
+      .getMany();
+    const totalList = [];
+    await Promise.all(
+      events.map(async (item, index) => {
+        // item.id;
+        const users_num = await this.attendsRepository
+          .createQueryBuilder()
+          .where(`event_id = '${item.id}'`)
+          .getCount();
+        const event = await this.eventsRepository
+          .createQueryBuilder("event")
+          .leftJoinAndSelect("event.game", "game")
+          .leftJoinAndSelect("event.audience", "audience")
+          .leftJoinAndSelect("event.subscription", "subscription")
+          .where(`event.id = '${item.id}'`)
+          .getMany();
+        console.log(event);
+        const qrcode = require("qrcode-js");
+        const base64 = qrcode.toDataURL(event[0].qr_code, 4);
+        totalList.push({
+          ...({ ...event[0], qr_code: base64 } || {}),
+          users_num,
+          url: event[0].qr_code,
+        });
+      })
+    );
+    return totalList;
+  }
+
   async getEventById(id: number) {
     // const event = await this.eventsRepository.findOne(id);
     const event = await this.eventsRepository.find({

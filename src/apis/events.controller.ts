@@ -27,6 +27,12 @@ import ApisService from "./apis.service";
 export class EventsController {
   constructor(private readonly apisService: ApisService) {}
 
+  @Get()
+  @ApiOperation({ summary: "Get all events" })
+  async getAllEvents() {
+    return this.apisService.getAllEvents();
+  }
+
   @Get(":id")
   @ApiResponse({
     status: 200,
