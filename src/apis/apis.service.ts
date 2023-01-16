@@ -46,6 +46,8 @@ export default class ApisService {
           .leftJoinAndSelect("event.game", "game")
           .leftJoinAndSelect("event.audience", "audience")
           .leftJoinAndSelect("event.subscription", "subscription")
+          .leftJoinAndSelect("event.rewards", "rewards")
+          .leftJoinAndSelect("event.prizepool", "prizepool")
           .where(`event.id = '${item.id}'`)
           .getMany();
         console.log(event);
