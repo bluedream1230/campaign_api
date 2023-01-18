@@ -28,6 +28,12 @@ import ApisService from "./apis.service";
 export class RewardsController {
   constructor(private readonly apisService: ApisService) {}
 
+  @Get()
+  @ApiOperation({ summary: "Get all rewards" })
+  getAllRewards() {
+    return this.apisService.getAllRewards();
+  }
+
   @Get(":id")
   @ApiResponse({
     status: 200,
