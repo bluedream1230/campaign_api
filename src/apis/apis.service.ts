@@ -168,9 +168,7 @@ export default class ApisService {
   }
 
   async getAllRewards() {
-    const rewards = await this.eventsRepository
-      .createQueryBuilder("reward")
-      .getMany();
+    const rewards = await this.rewardsRepository.find();
     return rewards;
   }
 
