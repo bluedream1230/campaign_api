@@ -35,7 +35,7 @@ export default class ApisService {
       .orderBy("start_time", "ASC")
       .getMany();
     console.log(events);
-    const totalList = [];
+    const totalList = Array(events.length);
     await Promise.all(
       events.map(async (item, index) => {
         // item.id;
@@ -54,13 +54,14 @@ export default class ApisService {
           .getMany();
         const qrcode = require("qrcode-js");
         const base64 = qrcode.toDataURL(event[0].qr_code, 4);
-        totalList.push({
+        totalList[index] = {
           ...({ ...event[0], qr_code: base64 } || {}),
           users_num,
           url: event[0].qr_code,
-        });
+        };
       })
     );
+    // totalList.sort((a, b) => (a.start_time > b.start_time ? 1 : -1));
     console.log(totalList);
     return totalList;
   }
