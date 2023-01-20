@@ -32,7 +32,9 @@ export default class ApisService {
   async getAllEvents() {
     const events = await this.eventsRepository
       .createQueryBuilder("event")
+      .orderBy("start_time", "ASC")
       .getMany();
+    console.log(events);
     const totalList = [];
     await Promise.all(
       events.map(async (item, index) => {
@@ -50,7 +52,6 @@ export default class ApisService {
           .leftJoinAndSelect("event.prizepool", "prizepool")
           .where(`event.id = '${item.id}'`)
           .getMany();
-        console.log(event);
         const qrcode = require("qrcode-js");
         const base64 = qrcode.toDataURL(event[0].qr_code, 4);
         totalList.push({
@@ -60,6 +61,7 @@ export default class ApisService {
         });
       })
     );
+    console.log(totalList);
     return totalList;
   }
 
