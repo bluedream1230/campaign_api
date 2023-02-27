@@ -61,12 +61,12 @@ export default class BillUserDto {
   @ApiProperty()
   @IsDefined()
   @IsNotEmpty()
-  @IsString()
-  billexpirationdateM: string;
+  @IsDate()
+  billexpirationdateM: number;
 
   @ApiProperty()
   @IsDefined()
   @IsNotEmpty()
-  @IsString()
-  billexpirationdateY: string;
+  @IsDate()
+  billexpirationdateY: number;
 }

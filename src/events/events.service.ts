@@ -10,6 +10,7 @@ import Attend from "src/attends/attend.entity";
 import Game from "src/games/game.entity";
 import { S3Url } from "aws-sdk/clients/cloudformation";
 import Reward from "src/rewards/reward.entity";
+import Subscription from "src/subscriptions/subscription.entity";
 @Injectable()
 export default class EventsService {
   constructor(
@@ -22,7 +23,9 @@ export default class EventsService {
     @InjectRepository(Reward)
     private rewardsRepository: Repository<Reward>,
     @InjectRepository(User)
-    private usersRepository: Repository<User>
+    private usersRepository: Repository<User>,
+    @InjectRepository(Subscription)
+    private subscriptionsRepository: Repository<Subscription>
   ) {}
 
   async getAllEvents(user: User) {
@@ -41,13 +44,17 @@ export default class EventsService {
         const event = await this.eventsRepository
           .createQueryBuilder("event")
           .leftJoinAndSelect("event.game", "game")
+          .leftJoinAndSelect("event.audience", "audience")
+          .leftJoinAndSelect("event.subscription", "subscription")
           .where(`event.id = '${item.id}'`)
           .getMany();
+        console.log(event);
         const qrcode = require("qrcode-js");
         const base64 = qrcode.toDataURL(event[0].qr_code, 4);
         totalList.push({
           ...({ ...event[0], qr_code: base64 } || {}),
           users_num,
+          url: event[0].qr_code,
         });
       })
     );
@@ -74,12 +81,15 @@ export default class EventsService {
   async createEvent(
     gameId: number,
     audienceId: number,
+    rewardpoolId: number,
+    subscribeId: number,
     event: CreateEventDto,
     rewardIds: number[],
     video_url: string,
     user: User,
     s3url: S3Url
   ) {
+    console.log("rewardpool id", rewardpoolId);
     const newEvent = await this.eventsRepository.create({
       ...event,
       user: user,
@@ -88,6 +98,12 @@ export default class EventsService {
       },
       audience: {
         id: audienceId,
+      },
+      prizepool: {
+        id: rewardpoolId,
+      },
+      subscription: {
+        id: subscribeId,
       },
     });
     const rewards = [];
@@ -105,12 +121,23 @@ export default class EventsService {
     console.log(base64);
     const final = await this.eventsRepository.update(result.id, {
       qr_code: url,
-    });
-    const user_info = await this.usersRepository.update(user.id, {
-      logo: s3url,
-      video_url: video_url,
+      sponsor_logo: s3url,
+      sponsor_video_url: video_url,
     });
     const res = await this.eventsRepository.findOne(result.id);
+    const subscription = await this.subscriptionsRepository.findOne(
+      subscribeId
+    );
+    const userUpdate = await this.usersRepository
+      .createQueryBuilder("user")
+      .where(`user.id = '${user.id}'`)
+      .getOne();
+    if (!user) return;
+    userUpdate.coins = Number(userUpdate.coins) + Number(subscription.coins);
+    userUpdate.coinsused =
+      Number(userUpdate.coinsused) + Number(subscription.coins);
+    const userUpdateCoin = await this.usersRepository.save(userUpdate);
+    console.log("userUpdateCoin", userUpdateCoin);
     return res;
   }
 

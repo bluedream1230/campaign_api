@@ -22,6 +22,10 @@ import { AudiencesModule } from "./audiences/audiences.module";
 import { SendgridService } from "./sendgrid/sendgrid.service";
 import { MulterModule } from "@nestjs/platform-express/multer";
 import { PaymentsModule } from "./payment/payments.module";
+import { PrizepoolsModule } from "./prizepools/prizepools.module";
+import Prizepool from "./prizepools/prizepool.entity";
+import Subscription from "./subscriptions/subscription.entity";
+import { SubscriptionsModule } from "./subscriptions/subscriptions.module";
 
 // postgres://auggncnrngqcyv:5dfe3011e4a2fbe1e60ee4b323515a8be58f0ac7b6e0ceb561bf2edb44d0b7c6@ec2-3-219-135-162.compute-1.amazonaws.com:5432/dt0hlkmjdtsv6
 @Module({
@@ -33,7 +37,17 @@ import { PaymentsModule } from "./payment/payments.module";
       username: "postgres",
       password: "postgres",
       database: "zoomin",
-      entities: [User, Address, Event, Game, Reward, Attend, Audience],
+      entities: [
+        User,
+        Address,
+        Event,
+        Game,
+        Reward,
+        Attend,
+        Audience,
+        Prizepool,
+        Subscription,
+      ],
       synchronize: true,
       ssl: {
         require: true,
@@ -62,6 +76,8 @@ import { PaymentsModule } from "./payment/payments.module";
     ApisModule,
     AudiencesModule,
     PaymentsModule,
+    PrizepoolsModule,
+    SubscriptionsModule,
     MulterModule.registerAsync({
       useFactory: () => ({
         dest: "./upload",

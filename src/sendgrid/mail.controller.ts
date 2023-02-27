@@ -17,10 +17,10 @@ export class MailController {
   @Post("resetpassword")
   async sendResetPasswordEmail(@Body() body: ForgotPasswordDto) {
     const user = await this.usersService.getByEmail(body.userid);
-    console.log(user);
     const { ...payload } = user;
     const access_token = this.jwtService.sign(payload);
-    const url = `http://localhost:3000/auth/createpassword/${access_token}`;
+    console.log(body);
+    const url = `https://play.zoomingaming.com/auth/createpassword/${access_token}`;
     const message = getEmailHtml([
       { type: "element1", data: ["Password Reset"] },
       {
@@ -44,16 +44,22 @@ export class MailController {
 
   @Post("sendmail")
   async sendEmail(@Query("email") email, @Body() body: CreateTextDto) {
+    console.log(body);
     const message = getEmailHtml([
       { type: "element1", data: ["Support"] },
       {
         type: "element2",
         data: [body.text],
       },
-      { type: "element6", data: [body.sender] },
+      {
+        type: "element2",
+        data: [`From ${body.email}`],
+      },
+      // { type: "element6", data: [body.sender] },
     ]);
+    const to = "team@zoomingaming.com";
     const mail = {
-      to: body.email,
+      to: to,
       subject: "From ZoomIn",
       from: "info@em8559.zoomingaming.com", // Fill it with your validated email on SendGrid account
       text: "Support",

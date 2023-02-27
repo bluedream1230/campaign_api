@@ -33,8 +33,8 @@ export class FansController {
     status: 200,
     description: "The found record",
   })
-  getUsers(@Req() req: RequestWithUser) {
-    return this.apisService.getUsers(req.user);
+  getUsers() {
+    return this.apisService.getUsers();
   }
 
   @Get("event/:id")

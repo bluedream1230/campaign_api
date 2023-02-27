@@ -19,11 +19,11 @@ export default class CreateEventDto {
   @ApiProperty()
   public qr_code: string;
 
-  // @ApiProperty()
-  // public event_coins: number;
+  @ApiProperty()
+  public sponsor_video_url: string;
 
-  // @ApiProperty()
-  // public rewardpool: number;
+  @ApiProperty()
+  public sponsor_logo: string;
 
   @ApiProperty()
   public duration: number;

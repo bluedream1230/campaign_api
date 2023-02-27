@@ -18,21 +18,10 @@ import User from "src/users/user.entity";
 import Attend from "src/attends/attend.entity";
 import Reward from "src/rewards/reward.entity";
 import Audience from "src/audiences/audiences.entity";
+import Prizepool from "src/prizepools/prizepool.entity";
+import Subscription from "src/subscriptions/subscription.entity";
 
 @Entity("event")
-@Index(
-  [
-    "name",
-    "location",
-    "start_time",
-    "end_time",
-    "qr_code",
-    "game",
-    "user",
-    "audience",
-  ],
-  { unique: true }
-)
 class Event {
   @PrimaryGeneratedColumn()
   public id: number;
@@ -58,33 +47,33 @@ class Event {
   public end_time: Date;
 
   @ApiProperty({ default: "url" })
-  @Column()
+  @Column({ nullable: true, default: "" })
   public qr_code: string;
-
-  // @ApiProperty({ default: 10 })
-  // @Column()
-  // public event_coins: number;
 
   @ApiProperty({ default: 5 })
   @Column()
   public duration: number;
 
+  @ApiProperty()
+  @Column({ nullable: true })
+  public sponsor_logo: string;
+
+  @ApiProperty()
+  @Column({ nullable: true })
+  public sponsor_video_url: string;
+
   @ApiProperty({ default: 0 })
-  @Column()
+  @Column({ nullable: true, default: 0 })
   public trivia_id: number;
 
   @ApiProperty({ default: "" })
-  @Column()
+  @Column({ nullable: true, default: "" })
   public trivia_url: string;
-
-  // @ApiProperty()
-  // @Column()
-  // public rewardpool: number;
 
   @ApiProperty()
   @CreateDateColumn({
-    type: "timestamptz", // timestamptz
-    default: () => "CURRENT_TIMESTAMP(6)", // "CURRENT_TIMESTAMP(6)",
+    type: "timestamptz", // timestamp timestamptz
+    default: () => "CURRENT_TIMESTAMP(6)", // "CURRENT_TIMESTAMP(6)","NOW()"
   })
   createdAt: Date;
 
@@ -107,6 +96,12 @@ class Event {
 
   @ManyToOne(() => Audience, (audience) => audience.id)
   public audience: Audience;
+
+  @ManyToOne(() => Prizepool, (prizepool) => prizepool.id)
+  public prizepool: Prizepool;
+
+  @ManyToOne(() => Subscription, (subscription) => subscription.id)
+  public subscription: Subscription;
 }
 
 export default Event;

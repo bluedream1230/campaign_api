@@ -74,10 +74,13 @@ class User {
   @Column({ default: 0 })
   public completion: number;
 
+  @Column({ default: "sponsor" })
+  public type: string;
+
   @ApiProperty()
   @CreateDateColumn({
-    type: "timestamptz", // timestamptz
-    default: () => "CURRENT_TIMESTAMP(6)", // "CURRENT_TIMESTAMP(6)",
+    type: "timestamptz", // timestamp timestamptz
+    default: () => "CURRENT_TIMESTAMP(6)", // "CURRENT_TIMESTAMP(6)","NOW()"
   })
   createdAt: Date;
 

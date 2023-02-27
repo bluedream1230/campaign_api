@@ -69,8 +69,8 @@ class Reward {
 
   @ApiProperty()
   @CreateDateColumn({
-    type: "timestamptz", // timestamptz
-    default: () => "CURRENT_TIMESTAMP(6)", // "CURRENT_TIMESTAMP(6)", NOW()
+    type: "timestamptz", // timestamp timestamptz
+    default: () => "CURRENT_TIMESTAMP(6)", // "CURRENT_TIMESTAMP(6)","NOW()"
   })
   createdAt: Date;
 

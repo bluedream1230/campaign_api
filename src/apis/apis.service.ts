@@ -7,6 +7,10 @@ import Game from "src/games/game.entity";
 import Reward from "src/rewards/reward.entity";
 import Attend from "src/attends/attend.entity";
 import { totalmem } from "os";
+import { response } from "express";
+import Subscription from "src/subscriptions/subscription.entity";
+
+const axios = require("axios");
 
 @Injectable()
 export default class ApisService {
@@ -20,43 +24,99 @@ export default class ApisService {
     @InjectRepository(Reward)
     private rewardsRepository: Repository<Reward>,
     @InjectRepository(Attend)
-    private attendsRepository: Repository<Attend>
+    private attendsRepository: Repository<Attend>,
+    @InjectRepository(Subscription)
+    private subscriptionsRepository: Repository<Subscription>
   ) {}
 
+  async getAllEvents() {
+    const events = await this.eventsRepository
+      .createQueryBuilder("event")
+      .orderBy("start_time", "ASC")
+      .getMany();
+    console.log(events);
+    const totalList = Array(events.length);
+    await Promise.all(
+      events.map(async (item, index) => {
+        // item.id;
+        const users_num = await this.attendsRepository
+          .createQueryBuilder()
+          .where(`event_id = '${item.id}'`)
+          .getCount();
+        const event = await this.eventsRepository
+          .createQueryBuilder("event")
+          .leftJoinAndSelect("event.game", "game")
+          .leftJoinAndSelect("event.audience", "audience")
+          .leftJoinAndSelect("event.subscription", "subscription")
+          .leftJoinAndSelect("event.rewards", "rewards")
+          .leftJoinAndSelect("event.prizepool", "prizepool")
+          .where(`event.id = '${item.id}'`)
+          .getMany();
+        const qrcode = require("qrcode-js");
+        const base64 = qrcode.toDataURL(event[0].qr_code, 4);
+        totalList[index] = {
+          ...({ ...event[0], qr_code: base64 } || {}),
+          users_num,
+          url: event[0].qr_code,
+        };
+      })
+    );
+    // totalList.sort((a, b) => (a.start_time > b.start_time ? 1 : -1));
+    console.log(totalList);
+    return totalList;
+  }
+
   async getEventById(id: number) {
-    const event = await this.eventsRepository.findOne(id);
-    const user = await this.usersRepository
-      .createQueryBuilder("user")
-      .leftJoinAndSelect("user.events", "event")
-      .getOne();
-    const game = await this.gamesRepository
-      .createQueryBuilder("game")
-      .leftJoinAndSelect("game.events", "event")
-      .getOne();
+    // const event = await this.eventsRepository.findOne(id);
+    const event = await this.eventsRepository.find({
+      where: {
+        id: id,
+      },
+      relations: [
+        "game",
+        "audience",
+        "user",
+        "subscription",
+        "prizepool",
+        "rewards",
+      ],
+    });
+    console.log(event);
+    console.log(event[0].rewards);
+    // const user = await this.usersRepository
+    //   .createQueryBuilder("user")
+    //   .leftJoinAndSelect("user.events", "event")
+    //   .getOne();
+    // const game = await this.gamesRepository
+    //   .createQueryBuilder("game")
+    //   .leftJoinAndSelect("game.events", "event")
+    //   .getOne();
     const reward = await this.rewardsRepository
       .createQueryBuilder("reward")
       .leftJoinAndSelect("reward.events", "event")
-      .getOne();
+      .getMany();
+    console.log(reward);
     const qrcode = require("qrcode-js");
-    const base64 = qrcode.toDataURL(event.qr_code, 4);
+    const base64 = qrcode.toDataURL(event[0].qr_code, 4);
+    console.log(event[0].game.id);
     const result = {
-      SponsorID: user.id,
-      SponsorName: user.name,
-      SponsorLogoURL: user.logo,
-      EventId: event.id,
-      EventName: event.name,
-      EventLocation: event.location,
-      EventStartTimeDate: event.start_time,
-      EventCompleteTimeDate: event.end_time,
-      SponsorEventCoins: reward.coinvalue,
-      GameId: game.id,
-      GameName: game.name,
-      TriviaId: event.trivia_id,
-      Time_Limit: event.duration,
-      EventGameType: game.type,
-      EventVideoURL: game.video_url,
-      EventReward: reward.name,
-      EventRewardPool: reward.ratelimit,
+      SponsorID: event[0].user.id,
+      SponsorName: event[0].user.name,
+      SponsorLogoURL: event[0].user.logo,
+      EventId: event[0].id,
+      EventName: event[0].name,
+      EventLocation: event[0].location,
+      EventStartTimeDate: event[0].start_time,
+      EventCompleteTimeDate: event[0].end_time,
+      SponsorEventCoins: event[0].subscription.coins,
+      GameId: event[0].game.id,
+      GameName: event[0].game.name,
+      TriviaId: event[0].trivia_id,
+      Time_Limit: event[0].duration,
+      EventGameType: event[0].game.type,
+      EventVideoURL: event[0].sponsor_video_url,
+      EventReward: event[0].rewards,
+      EventRewardPool: event[0].prizepool,
       EventQRCodeURL: base64,
     };
 
@@ -87,14 +147,14 @@ export default class ApisService {
     //   })
     // );
 
-    // const sum = (
-    //   await Promise.all(
-    //     events.map(async (item) => {
-    //       // const reward = await this.rewardsRepository.findOne(item.reward);
-    //       return Number(item.subscriptioin);
-    //     })
-    //   )
-    // ).reduce((total, item) => total + item, 0);
+    const sum = (
+      await Promise.all(
+        events.map(async (item) => {
+          // const reward = await this.rewardsRepository.findOne(item.reward);
+          return Number(item.event_coins);
+        })
+      )
+    ).reduce((total, item) => total + item, 0);
 
     const user = await this.usersRepository.findOne(id);
 
@@ -108,14 +168,18 @@ export default class ApisService {
     // return event;
   }
 
+  async getAllRewards() {
+    const rewards = await this.rewardsRepository.find();
+    return rewards;
+  }
+
   async getRewardsById(id: number) {
     const reward = await this.rewardsRepository.findOne(id);
-    const event = await this.eventsRepository
-      .createQueryBuilder("event")
-      .leftJoinAndSelect("event.reward", "reward")
-      .getOne();
+    // const event = await this.eventsRepository
+    //   .createQueryBuilder("event")
+    //   .leftJoinAndSelect("event.reward", "reward")
+    //   .getOne();
     return {
-      EventName: event.name,
       RewardType: reward.type,
       RewardCategory: reward.category,
       RewardName: reward.name,
@@ -151,12 +215,8 @@ export default class ApisService {
     };
   }
 
-  async getUsers(user: User) {
-    const events = await this.eventsRepository.find({
-      where: {
-        user: { id: user.id },
-      },
-    });
+  async getUsers() {
+    const events = await this.eventsRepository.find();
     const eventIds = events.map((e) => e.id);
 
     const attendevent = await this.attendsRepository.find({
@@ -186,7 +246,7 @@ export default class ApisService {
       where: {
         id: id,
       },
-      relations: ["game"],
+      relations: ["game", "audience", "subscription"],
     });
     const user_num = fans.length;
     const totalData = [];
@@ -203,7 +263,23 @@ export default class ApisService {
       }
       // console.log(item.fan.completion);
     });
+    let total_completion = 0;
+    totalData.map((item, index) => {
+      if (item.fan.completion >= total_completion) {
+        total_completion = item.fan.completion;
+      }
+      // console.log(item.fan.completion);
+    });
     // console.log(win_num);
-    return { totalData, event, user_num, win_num };
+    return { totalData, event, user_num, win_num, total_completion };
+  }
+
+  async addTrivia(data: any) {
+    const { data: resData } = await axios.post(
+      "https://saviour.earth/ZoomIn/api/index.php/Trivia/addTrivia",
+      data
+    );
+    console.log(resData);
+    return resData;
   }
 }

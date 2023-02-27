@@ -11,6 +11,7 @@ import { JwtModule } from "@nestjs/jwt";
 import { jwtConstants } from "src/auth/constants";
 import { SendgridService } from "src/sendgrid/sendgrid.service";
 import { ConfigModule } from "@nestjs/config";
+import { S3Service } from "src/share/s3.service";
 
 @Module({
   imports: [
@@ -21,7 +22,7 @@ import { ConfigModule } from "@nestjs/config";
     }),
     ConfigModule.forRoot(),
   ],
-  providers: [UsersService, SendgridService],
+  providers: [UsersService, SendgridService, S3Service],
   exports: [UsersService, SendgridService],
   controllers: [UsersController, MailController],
 })

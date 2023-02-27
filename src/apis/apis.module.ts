@@ -11,15 +11,20 @@ import { RewardsController } from "./rewards.controller";
 import { SponsorsController } from "./sponsor.controller";
 import { FansController } from "./fans.controller";
 import Attend from "src/attends/attend.entity";
+import { TriviaController } from "./addTrivia.controller";
+import Subscription from "src/subscriptions/subscription.entity";
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Event, User, Game, Reward, Attend])],
+  imports: [
+    TypeOrmModule.forFeature([Event, User, Game, Reward, Attend, Subscription]),
+  ],
   controllers: [
     EventsController,
     CoinsController,
     RewardsController,
     SponsorsController,
     FansController,
+    TriviaController,
   ],
   providers: [ApisService],
 })

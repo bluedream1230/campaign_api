@@ -1,15 +1,10 @@
 import {
-  Body,
   Controller,
-  Delete,
-  Get,
+  Post,
   Param,
-  Patch,
-  UseGuards,
   UseInterceptors,
   ClassSerializerInterceptor,
-  Post,
-  Req,
+  Body,
 } from "@nestjs/common";
 import {
   ApiBearerAuth,
@@ -21,24 +16,13 @@ import { JwtAuthGuard } from "src/auth/guards/jwt-auth.guard";
 import FindOneParams from "src/utils/findOneParams";
 import ApisService from "./apis.service";
 
-@ApiTags("MOBILE:Events")
-@Controller("event_api")
+@Controller("addtrivia")
 @UseInterceptors(ClassSerializerInterceptor)
-export class EventsController {
+export class TriviaController {
   constructor(private readonly apisService: ApisService) {}
 
-  @Get()
-  @ApiOperation({ summary: "Get all events" })
-  async getAllEvents() {
-    return this.apisService.getAllEvents();
-  }
-
-  @Get(":id")
-  @ApiResponse({
-    status: 200,
-    description: "The found record",
-  })
-  getEventById(@Param() { id }: FindOneParams) {
-    return this.apisService.getEventById(Number(id));
+  @Post()
+  addTrivia(@Body() data: any) {
+    return this.apisService.addTrivia(data);
   }
 }

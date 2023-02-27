@@ -1,4 +1,4 @@
-import { Injectable } from "@nestjs/common";
+import { HttpException, HttpStatus, Injectable } from "@nestjs/common";
 import Stripe from "stripe";
 
 @Injectable()
@@ -55,5 +55,36 @@ export class PaymentsService {
       clientSecret: subscription.latest_invoice.payment_intent.client_secret,
       subscriptionId: subscription.id,
     };
+  }
+
+  async createCheckOutSession(req: any): Promise<any> {
+    try {
+      const session = await this.stripe.checkout.sessions.create({
+        mode: "payment",
+        customer_email: req.userData.bill.email,
+        line_items: [
+          {
+            price: req.priceId,
+            quantity: 1,
+          },
+        ],
+        // ?session_id={CHECKOUT_SESSION_ID} means the redirect will have the session ID set as a query param
+        success_url: `http://localhost:3000/campaigns/information/${req.dataId}?session_id={CHECKOUT_SESSION_ID}`,
+        cancel_url: `http://localhost:3000/launch/index`,
+      });
+      return { url: session.url };
+    } catch (e) {
+      console.log(e);
+      throw new HttpException(e.message, HttpStatus.BAD_REQUEST);
+    }
+  }
+
+  async checkOutSession(req: any): Promise<any> {
+    console.log(req);
+    // const { sessionId } = req.query;
+    const session = await this.stripe.checkout.sessions.retrieve(
+      req.session_id
+    );
+    return session;
   }
 }

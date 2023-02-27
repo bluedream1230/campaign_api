@@ -35,8 +35,8 @@ class Game {
 
   @ApiProperty()
   @CreateDateColumn({
-    type: "timestamptz", // timestamptz
-    default: () => "CURRENT_TIMESTAMP(6)", // "CURRENT_TIMESTAMP(6)",
+    type: "timestamptz", // timestamp timestamptz
+    default: () => "CURRENT_TIMESTAMP(6)", // "CURRENT_TIMESTAMP(6)","NOW()"
   })
   createdAt: Date;
 

@@ -36,24 +36,24 @@ class Bill {
   @Column()
   public CVV: string;
 
-  @Column({ default: "12" })
-  public billexpirationdateM?: string;
+  @Column({ nullable: true })
+  public billexpirationdateM: number;
 
-  @Column({ default: "34" })
-  public billexpirationdateY?: string;
+  @Column({ nullable: true })
+  public billexpirationdateY: number;
 
   @ApiProperty()
   @CreateDateColumn({
-    type: "timestamp", // timestamptz
-    default: () => "NOW()", // "CURRENT_TIMESTAMP(6)",
+    type: "timestamptz", // timestamp timestamptz
+    default: () => "CURRENT_TIMESTAMP(6)", // "CURRENT_TIMESTAMP(6)","NOW()"
   })
   createdAt: Date;
 
   @ApiProperty()
   @UpdateDateColumn({
-    type: "timestamp",
-    default: () => "NOW()",
-    onUpdate: "NOW()",
+    type: "timestamptz",
+    default: () => "CURRENT_TIMESTAMP(6)",
+    onUpdate: "CURRENT_TIMESTAMP(6)",
   })
   updatedAt: Date;
 }

@@ -30,6 +30,8 @@ import { AnyFilesInterceptor } from "@nestjs/platform-express";
 import { UploadedFiles } from "@nestjs/common/decorators";
 import { S3Service } from "src/share/s3.service";
 import { Console } from "console";
+import FindRewardpoolParam from "src/utils/findRewardPoolParams";
+import FindSubscribeParam from "src/utils/findSubscribeParams";
 
 @ApiBearerAuth()
 @ApiTags("Events")
@@ -58,7 +60,7 @@ export default class EventsController {
     return this.eventsService.getEventById(Number(id));
   }
 
-  @Post(":gameId/:audienceId")
+  @Post(":gameId/:rewardpool/:audienceId/:subscribeId")
   @UseGuards(JwtAuthGuard)
   @ApiOperation({ summary: "Create event" })
   @ApiResponse({ status: 403, description: "Forbidden." })
@@ -66,14 +68,17 @@ export default class EventsController {
   async createEvent(
     @Param() { gameId }: FindGameParams,
     @Param() { audienceId }: FindAudienceParams,
+    @Param() { rewardpool }: FindRewardpoolParam,
+    @Param() { subscribeId }: FindSubscribeParam,
     @Body() data,
     @UploadedFiles() files: Array<Express.Multer.File>,
     @Req() req: RequestWithUser
   ): Promise<CreateEventDto> {
     const event = JSON.parse(data.data) as CreateEventDto;
     const rewardIds = JSON.parse(data.rewardIds) as number[];
-    const video_url = JSON.parse(data.videourl) as string;
+    const video_url = data.videourl as string;
     const path = "/test";
+    console.log("prize pool id", rewardpool);
     let s3Url;
     console.log("sdfsd", rewardIds, event, video_url);
     for (const file of files) {
@@ -84,6 +89,8 @@ export default class EventsController {
     return this.eventsService.createEvent(
       Number(gameId),
       Number(audienceId),
+      Number(rewardpool),
+      Number(subscribeId),
       event,
       rewardIds,
       video_url,

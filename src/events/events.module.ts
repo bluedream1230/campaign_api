@@ -9,10 +9,19 @@ import Audience from "src/audiences/audiences.entity";
 import { S3Service } from "src/share/s3.service";
 import Reward from "src/rewards/reward.entity";
 import User from "src/users/user.entity";
+import Subscription from "src/subscriptions/subscription.entity";
 
 @Module({
   imports: [
-    TypeOrmModule.forFeature([Event, Attend, Game, Audience, Reward, User]),
+    TypeOrmModule.forFeature([
+      Event,
+      Attend,
+      Game,
+      Audience,
+      Reward,
+      User,
+      Subscription,
+    ]),
   ],
   controllers: [EventsController],
   providers: [EventsService, S3Service],
