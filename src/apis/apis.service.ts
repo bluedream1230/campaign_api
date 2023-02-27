@@ -147,14 +147,14 @@ export default class ApisService {
     //   })
     // );
 
-    const sum = (
-      await Promise.all(
-        events.map(async (item) => {
-          // const reward = await this.rewardsRepository.findOne(item.reward);
-          return Number(item.event_coins);
-        })
-      )
-    ).reduce((total, item) => total + item, 0);
+    // const sum = (
+    //   await Promise.all(
+    //     events.map(async (item) => {
+    //       // const reward = await this.rewardsRepository.findOne(item.reward);
+    //       return Number(item.event_coins);
+    //     })
+    //   )
+    // ).reduce((total, item) => total + item, 0);
 
     const user = await this.usersRepository.findOne(id);
 
@@ -166,11 +166,6 @@ export default class ApisService {
       // SponsorEventCoins: sum,
     };
     // return event;
-  }
-
-  async getAllRewards() {
-    const rewards = await this.rewardsRepository.find();
-    return rewards;
   }
 
   async getRewardsById(id: number) {
