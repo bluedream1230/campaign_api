@@ -32,10 +32,10 @@ import { SubscriptionsModule } from "./subscriptions/subscriptions.module";
   imports: [
     TypeOrmModule.forRoot({
       type: "postgres",
-      host: "192.168.73.128",
+      host: "localhost",
       port: 5432,
-      username: "postgres",
-      password: "postgres",
+      username: "zoomin",
+      password: "zoomin",
       database: "zoomin",
       entities: [
         User,
