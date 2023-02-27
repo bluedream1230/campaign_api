@@ -28,10 +28,10 @@ import { PaymentsModule } from "./payment/payments.module";
   imports: [
     TypeOrmModule.forRoot({
       type: "postgres",
-      host: "localhost",
+      host: "192.168.73.128",
       port: 5432,
-      username: "zoomin",
-      password: "zoomin",
+      username: "postgres",
+      password: "postgres",
       database: "zoomin",
       entities: [User, Address, Event, Game, Reward, Attend, Audience],
       synchronize: true,

@@ -61,9 +61,9 @@ class Event {
   @Column()
   public qr_code: string;
 
-  @ApiProperty({ default: 10 })
-  @Column()
-  public event_coins: number;
+  // @ApiProperty({ default: 10 })
+  // @Column()
+  // public event_coins: number;
 
   @ApiProperty({ default: 5 })
   @Column()
@@ -77,9 +77,9 @@ class Event {
   @Column()
   public trivia_url: string;
 
-  @ApiProperty()
-  @Column()
-  public rewardpool: number;
+  // @ApiProperty()
+  // @Column()
+  // public rewardpool: number;
 
   @ApiProperty()
   @CreateDateColumn({

@@ -36,4 +36,13 @@ export class RewardsController {
   getRewardById(@Param() { id }: FindOneParams, @Req() req: any) {
     return this.apisService.getRewardsById(Number(id));
   }
+
+  @Get()
+  @ApiResponse({
+    status: 200,
+    description: "The found record",
+  })
+  getReward() {
+    return this.apisService.getAllRewards();
+  }
 }

@@ -87,14 +87,14 @@ export default class ApisService {
     //   })
     // );
 
-    const sum = (
-      await Promise.all(
-        events.map(async (item) => {
-          // const reward = await this.rewardsRepository.findOne(item.reward);
-          return Number(item.event_coins);
-        })
-      )
-    ).reduce((total, item) => total + item, 0);
+    // const sum = (
+    //   await Promise.all(
+    //     events.map(async (item) => {
+    //       // const reward = await this.rewardsRepository.findOne(item.reward);
+    //       return Number(item.subscriptioin);
+    //     })
+    //   )
+    // ).reduce((total, item) => total + item, 0);
 
     const user = await this.usersRepository.findOne(id);
 
@@ -103,7 +103,7 @@ export default class ApisService {
       SponsorName: user.name,
       SponsorCoins: user.coins,
       SponsorCoinsUsed: user.coinsused,
-      SponsorEventCoins: sum,
+      // SponsorEventCoins: sum,
     };
     // return event;
   }
@@ -125,6 +125,11 @@ export default class ApisService {
       RewardRateLimit: reward.ratelimit,
       RewardTimeLimit: reward.timelimit,
     };
+  }
+
+  async getAllRewards() {
+    const data = await this.rewardsRepository.find();
+    return data;
   }
 
   async getSponsorsById(id: number) {

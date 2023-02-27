@@ -19,11 +19,11 @@ export default class UpdateEventDto {
   @ApiProperty()
   public qr_code: string;
 
-  @ApiProperty()
-  public event_coins: number;
+  // @ApiProperty()
+  // public event_coins: number;
 
-  @ApiProperty()
-  public rewardpool: number;
+  // @ApiProperty()
+  // public rewardpool: number;
 
   @ApiProperty()
   public duration: number;

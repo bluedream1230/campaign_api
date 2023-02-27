@@ -36,8 +36,11 @@ class Bill {
   @Column()
   public CVV: string;
 
-  @Column()
-  public expirationdate: Date;
+  @Column({ default: "12" })
+  public billexpirationdateM?: string;
+
+  @Column({ default: "34" })
+  public billexpirationdateY?: string;
 
   @ApiProperty()
   @CreateDateColumn({

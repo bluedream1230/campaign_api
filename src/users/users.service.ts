@@ -27,6 +27,7 @@ export class UsersService {
   ) {}
 
   async getByEmail(email: string) {
+    console.log(111, email);
     const user = await this.usersRepository.findOne({ email });
     if (user) {
       return user;
