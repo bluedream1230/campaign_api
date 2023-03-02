@@ -8,6 +8,9 @@ export default class UpdateEventDto {
   public location: string;
 
   @ApiProperty()
+  public type: string;
+
+  @ApiProperty()
   public sponsorname: string;
 
   @ApiProperty()

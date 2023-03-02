@@ -191,6 +191,11 @@ export default class ApisService {
     return data;
   }
 
+  async getOnlyAllEvents() {
+    const data = await this.eventsRepository.find();
+    return data;
+  }
+
   async getSponsorsById(id: number) {
     const user = await this.usersRepository.findOne(id);
     return {
@@ -224,7 +229,13 @@ export default class ApisService {
     await Promise.all(
       attendevent.map(async (item, index) => {
         const fan = await this.usersRepository.findOne(item.user_id);
-        const event = await this.eventsRepository.findOne(item.event_id);
+        const event = await this.eventsRepository
+          .createQueryBuilder("event")
+          .leftJoinAndSelect("event.rewards", "rewards")
+          .where(`event.id = '${item.event_id}'`)
+          .getOne();
+        console.log(event);
+
         totalList.push({ fan, event });
       })
     );

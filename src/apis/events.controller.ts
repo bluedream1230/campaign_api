@@ -41,4 +41,13 @@ export class EventsController {
   getEventById(@Param() { id }: FindOneParams) {
     return this.apisService.getEventById(Number(id));
   }
+
+  @Get()
+  @ApiResponse({
+    status: 200,
+    description: "The found record",
+  })
+  getOnlyAllEvent() {
+    return this.apisService.getOnlyAllEvents();
+  }
 }

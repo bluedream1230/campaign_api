@@ -35,6 +35,10 @@ class Event {
   public location: string;
 
   @ApiProperty()
+  @Column({ default: "Sponsored" })
+  public type: string;
+
+  @ApiProperty()
   @Column()
   public sponsorname: string;
 

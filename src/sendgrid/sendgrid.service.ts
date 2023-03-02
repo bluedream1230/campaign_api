@@ -13,4 +13,10 @@ export class SendgridService {
     // avoid this on production. use log instead :)
     return transport;
   }
+
+  async sendverifynumber(mail: SendGrid.MailDataRequired, verifynumber) {
+    const transport = await SendGrid.send(mail);
+    console.log(verifynumber);
+    return { transport, verifynumber };
+  }
 }
