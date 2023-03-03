@@ -72,8 +72,8 @@ export class PaymentsService {
           },
         ],
         // ?session_id={CHECKOUT_SESSION_ID} means the redirect will have the session ID set as a query param
-        success_url: `http://localhost:3000/campaigns/information/${req.dataId}?session_id={CHECKOUT_SESSION_ID}`,
-        cancel_url: `http://localhost:3000/launch/index`,
+        success_url: `http://play.zoomingaming.com/campaigns/information/${req.dataId}?session_id={CHECKOUT_SESSION_ID}`,
+        cancel_url: `http://play.zoomingaming.com/launch/index`,
       });
       return { url: session.url };
     } catch (e) {
