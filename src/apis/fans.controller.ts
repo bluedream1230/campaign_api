@@ -17,6 +17,7 @@ import {
   ApiResponse,
   ApiTags,
 } from "@nestjs/swagger";
+import CreateAttendDto from "src/attends/dto/attendCreate.dto";
 import { JwtAuthGuard } from "src/auth/guards/jwt-auth.guard";
 import RequestWithUser from "src/auth/interface/requestWithUser";
 import FindOneParams from "src/utils/findOneParams";
@@ -44,5 +45,12 @@ export class FansController {
   })
   getUsersByEventId(@Param() { id }: FindOneParams) {
     return this.apisService.getUsersByEventId(Number(id));
+  }
+
+  @Post()
+  @ApiOperation({ summary: "Create attend" })
+  @ApiResponse({ status: 403, description: "Forbidden." })
+  async createGame(@Body() attend: CreateAttendDto) {
+    return this.apisService.createAttend(attend);
   }
 }

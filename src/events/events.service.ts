@@ -116,7 +116,9 @@ export default class EventsService {
     const result = await this.eventsRepository.save(newEvent);
     // const result1 = await
     const qrcode = require("qrcode-js");
-    const url = "https://saviour.earth/ZoomIn?event_id=" + result.id;
+    // const url = "https://saviour.earth/ZoomIn?event_id=" + result.id;
+    // const url = "https://mobile.zoomingaming.com?event_id=" + result.id;
+    const url = "http://mobile.zoomingaming.com?event_id=" + result.id;
     const base64 = qrcode.toDataURL(url, 4);
     console.log(base64);
     const final = await this.eventsRepository.update(result.id, {
