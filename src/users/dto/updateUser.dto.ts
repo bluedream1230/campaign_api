@@ -75,4 +75,15 @@ export default class UpdateUserDto {
   @IsNotEmpty()
   @IsString()
   public zip: string;
+
+  @ApiProperty()
+  @IsDefined()
+  @IsNotEmpty()
+  @IsString()
+  public shipping: string;
+
+  @ApiProperty()
+  @IsDefined()
+  @IsNotEmpty()
+  public birth: Date;
 }

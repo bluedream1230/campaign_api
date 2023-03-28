@@ -61,6 +61,12 @@ class User {
   @Column({ default: "subscription" })
   public subscription?: string;
 
+  @Column({ nullable: true })
+  public birth?: Date;
+
+  @Column({ default: "" })
+  public shipping?: string;
+
   @Column()
   //@Exclude()
   public password: string;

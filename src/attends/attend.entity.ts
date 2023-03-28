@@ -27,6 +27,10 @@ class Attend {
   public event_id: number;
 
   @ApiProperty()
+  @Column({ default: 0 })
+  public score: number;
+
+  @ApiProperty()
   @CreateDateColumn({
     type: "timestamptz", // timestamp timestamptz
     default: () => "CURRENT_TIMESTAMP(6)", // "CURRENT_TIMESTAMP(6)","NOW()"

@@ -20,6 +20,7 @@ import {
 import CreateAttendDto from "src/attends/dto/attendCreate.dto";
 import { JwtAuthGuard } from "src/auth/guards/jwt-auth.guard";
 import RequestWithUser from "src/auth/interface/requestWithUser";
+import FindEventParams from "src/utils/findEventParams";
 import FindOneParams from "src/utils/findOneParams";
 import ApisService from "./apis.service";
 
@@ -50,7 +51,19 @@ export class FansController {
   @Post()
   @ApiOperation({ summary: "Create attend" })
   @ApiResponse({ status: 403, description: "Forbidden." })
-  async createGame(@Body() attend: CreateAttendDto) {
+  async createAttend(@Body() attend: CreateAttendDto) {
     return this.apisService.createAttend(attend);
+  }
+
+  @Post("update/:eventId/:id")
+  @ApiOperation({ summary: "Update attend" })
+  @ApiResponse({ status: 403, description: "Forbidden." })
+  async updateAttend(
+    @Param() { id }: FindOneParams,
+    @Param() { eventId }: FindEventParams,
+    @Body() attend: CreateAttendDto
+  ) {
+    console.log("id, eventId, attend", id, eventId, attend);
+    return this.apisService.updateAttend(id, eventId, attend);
   }
 }

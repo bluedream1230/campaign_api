@@ -1,4 +1,4 @@
-import { Injectable } from "@nestjs/common";
+import { Injectable, NotFoundException } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { In, Repository } from "typeorm";
 import Event from "src/events/event.entity";
@@ -9,6 +9,7 @@ import Attend from "src/attends/attend.entity";
 import { totalmem } from "os";
 import { response } from "express";
 import Subscription from "src/subscriptions/subscription.entity";
+import EventNotFoundException from "src/events/exceptions/eventNotFound.exception";
 
 const axios = require("axios");
 
@@ -221,6 +222,27 @@ export default class ApisService {
     return newAttend;
   }
 
+  async updateAttend(id, eventId, attend) {
+    const newattend = await this.attendsRepository
+      .createQueryBuilder("attend")
+      .where(`attend.user_id = '${id}'`)
+      .where(`attend.event_id = '${eventId}'`)
+      .getOne();
+    if (!newattend) {
+      throw new NotFoundException(
+        `User with Id ${id} and event Id ${eventId} not found`
+      );
+    }
+    console.log("newattend", newattend);
+    console.log("attend", attend);
+    newattend.event_id = attend.event_id;
+    newattend.user_id = attend.user_id;
+    newattend.score = attend.score;
+
+    return this.attendsRepository.save(newattend);
+    // await this.attendsRepository.update(id, attend);
+  }
+
   async getUsers() {
     const events = await this.eventsRepository.find();
     const eventIds = events.map((e) => e.id);
@@ -248,42 +270,57 @@ export default class ApisService {
     return totalList;
   }
 
+  // Issue
+
+  // async getUsersByEventId(id: number) {
+  //   const fans = await this.attendsRepository.find({
+  //     where: {
+  //       event_id: id,
+  //     },
+  //   });
+  //   const event = await this.eventsRepository.find({
+  //     where: {
+  //       id: id,
+  //     },
+  //     relations: ["game", "audience", "subscription"],
+  //   });
+  //   const user_num = fans.length;
+  //   const totalData = [];
+  //   await Promise.all(
+  //     fans.map(async (item, index) => {
+  //       const fan = await this.usersRepository.findOne(item.user_id);
+  //       totalData.push({ fan });
+  //     })
+  //   );
+  //   let win_num = 0;
+  //   totalData.map((item, index) => {
+  //     if (item.fan.completion == 100) {
+  //       win_num++;
+  //     }
+  //     // console.log(item.fan.completion);
+  //   });
+  //   let total_completion = 0;
+  //   totalData.map((item, index) => {
+  //     if (item.fan.completion >= total_completion) {
+  //       total_completion = item.fan.completion;
+  //     }
+  //     // console.log(item.fan.completion);
+  //   });
+  //   // console.log(win_num);
+  //   return { totalData, event, user_num, win_num, total_completion };
+  // }
+
+  //Updated
+
   async getUsersByEventId(id: number) {
     const fans = await this.attendsRepository.find({
       where: {
         event_id: id,
       },
     });
-    const event = await this.eventsRepository.find({
-      where: {
-        id: id,
-      },
-      relations: ["game", "audience", "subscription"],
-    });
-    const user_num = fans.length;
-    const totalData = [];
-    await Promise.all(
-      fans.map(async (item, index) => {
-        const fan = await this.usersRepository.findOne(item.user_id);
-        totalData.push({ fan });
-      })
-    );
-    let win_num = 0;
-    totalData.map((item, index) => {
-      if (item.fan.completion == 100) {
-        win_num++;
-      }
-      // console.log(item.fan.completion);
-    });
-    let total_completion = 0;
-    totalData.map((item, index) => {
-      if (item.fan.completion >= total_completion) {
-        total_completion = item.fan.completion;
-      }
-      // console.log(item.fan.completion);
-    });
-    // console.log(win_num);
-    return { totalData, event, user_num, win_num, total_completion };
+    fans.sort((a, b) => (a.score < b.score ? 1 : -1));
+    console.log(fans);
+    return fans;
   }
 
   async addTrivia(data: any) {

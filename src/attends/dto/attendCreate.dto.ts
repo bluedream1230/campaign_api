@@ -6,4 +6,7 @@ export default class CreateAttendDto {
 
   @ApiProperty()
   public event_id: number;
+
+  @ApiProperty()
+  public score: number;
 }
