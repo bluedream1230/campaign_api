@@ -64,7 +64,7 @@ class User {
   @Column({ nullable: true })
   public birth?: Date;
 
-  @Column({ default: "" })
+  @Column({ nullable: true })
   public shipping?: string;
 
   @Column()

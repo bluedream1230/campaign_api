@@ -6,10 +6,6 @@ import User from "src/users/user.entity";
 import Game from "src/games/game.entity";
 import Reward from "src/rewards/reward.entity";
 import Attend from "src/attends/attend.entity";
-import { totalmem } from "os";
-import { response } from "express";
-import Subscription from "src/subscriptions/subscription.entity";
-import EventNotFoundException from "src/events/exceptions/eventNotFound.exception";
 
 const axios = require("axios");
 
@@ -25,9 +21,7 @@ export default class ApisService {
     @InjectRepository(Reward)
     private rewardsRepository: Repository<Reward>,
     @InjectRepository(Attend)
-    private attendsRepository: Repository<Attend>,
-    @InjectRepository(Subscription)
-    private subscriptionsRepository: Repository<Subscription>
+    private attendsRepository: Repository<Attend>
   ) {}
 
   async getAllEvents() {

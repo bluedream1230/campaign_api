@@ -26,6 +26,8 @@ import { PrizepoolsModule } from "./prizepools/prizepools.module";
 import Prizepool from "./prizepools/prizepool.entity";
 import Subscription from "./subscriptions/subscription.entity";
 import { SubscriptionsModule } from "./subscriptions/subscriptions.module";
+import Redemption from "./redemptions/redemption.entity";
+import { RedemptionsModule } from "./redemptions/redemptions.module";
 
 // postgres://auggncnrngqcyv:5dfe3011e4a2fbe1e60ee4b323515a8be58f0ac7b6e0ceb561bf2edb44d0b7c6@ec2-3-219-135-162.compute-1.amazonaws.com:5432/dt0hlkmjdtsv6
 @Module({
@@ -44,6 +46,7 @@ import { SubscriptionsModule } from "./subscriptions/subscriptions.module";
         Game,
         Reward,
         Attend,
+        Redemption,
         Audience,
         Prizepool,
         Subscription,
@@ -73,6 +76,7 @@ import { SubscriptionsModule } from "./subscriptions/subscriptions.module";
     GamesModule,
     RewardsModule,
     AttendsModule,
+    RedemptionsModule,
     ApisModule,
     AudiencesModule,
     PaymentsModule,
