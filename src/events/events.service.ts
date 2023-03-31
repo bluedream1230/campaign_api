@@ -64,7 +64,7 @@ export default class EventsService {
   async getEventById(id: number) {
     const event = await this.eventsRepository.findOne(id);
     const qrcode = require("qrcode-js");
-    const url = "https://saviour.earth/ZoomIn?event_id=" + event.id;
+    const url = "https://mobile.zoomingaming.com/?event_id=" + event.id;
     const base64 = qrcode.toDataURL(url, 4);
     console.log(base64);
     if (event) {
